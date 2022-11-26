@@ -2,11 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "resolveJsonModule": true,
     "composite": false,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
     "inlineSources": false,
     "isolatedModules": true,
     "moduleResolution": "node",
@@ -17,7 +20,5 @@
     "strict": true,
     "incremental": true
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
