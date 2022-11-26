@@ -2,7 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 staged_files=$(git diff --cached --name-only)
 echo "running pre-commit script..."
-node_modules/.bin/eslint --no-error-on-unmatched-pattern --ext ts,tsx,js,tsx --fix --cache --ignore-path=.gitignore "$staged_files"
+node_modules/.bin/eslint --no-error-on-unmatched-pattern --ext .ts,.tsx,.js,.tsx --fix --cache --ignore-path=.gitignore "$staged_files"
 git add $staged_files
 
 node_modules/.bin/prettier --ignore-unknown --write --cache --ignore-path .gitignore $staged_files
