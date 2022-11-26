@@ -9,4 +9,11 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [react()],
+  build: {
+    manifest: true,
+    rollupOptions: {
+      // overwrite default .html entry
+      input: "./src/main.tsx",
+    },
+  },
 });

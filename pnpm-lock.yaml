@@ -56,6 +56,7 @@ importers:
 
   services/client:
     specifiers:
+      "@headlessui/react": ^1.7.4
       "@tanstack/react-query": ^4.3.8
       "@trpc/client": ^10.2.0
       "@trpc/react-query": ^10.2.0
@@ -76,6 +77,7 @@ importers:
       zod: ^3.19.1
       zustand: ^4.1.4
     dependencies:
+      "@headlessui/react": 1.7.4_biqbaboplfbrettd7655fr4n2y
       "@tanstack/react-query": 4.17.1_biqbaboplfbrettd7655fr4n2y
       "@trpc/client": 10.2.0_@trpc+server@10.2.0
       "@trpc/react-query": 10.2.0_xdgyyx5u2iaaonjivvzelfawba
@@ -636,6 +638,21 @@ packages:
     dependencies:
       "@hapi/hoek": 9.3.0
     dev: true
+
+  /@headlessui/react/1.7.4_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha512-D8n5yGCF3WIkPsjEYeM8knn9jQ70bigGGb5aUvN6y4BGxcT3OcOQOKcM3zRGllRCZCFxCZyQvYJF6ZE7bQUOyQ==,
+      }
+    engines: { node: ">=10" }
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@humanwhocodes/config-array/0.11.7:
     resolution:
@@ -1705,6 +1722,13 @@ packages:
       slice-ansi: 5.0.0
       string-width: 5.1.2
     dev: true
+
+  /client-only/0.0.1:
+    resolution:
+      {
+        integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==,
+      }
+    dev: false
 
   /color-convert/1.9.3:
     resolution:
