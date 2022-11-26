@@ -3,10 +3,10 @@
   "compilerOptions": {
     "incremental": true,
     "jsx": "react-jsx",
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext"],
     "module": "ESNext",
     "target": "es6"
   },
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["node_modules"]
 }

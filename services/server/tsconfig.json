@@ -1,44 +1,14 @@
 {
+  "extends": "tsconfig/base.json",
+
   "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "incremental": true,
     "module": "commonjs",
     "target": "esnext",
     "outDir": "dist",
 
-    // [ Basics ]
-    "strict": true,
-    "checkJs": true,
-    "sourceMap": true,
-    "importHelpers": true,
-    "removeComments": true,
-    // "rootDir": "./",
-    // "baseUrl": "./",
-    // "declaration": true,
-    // "declarationMap": true,
-    // "declarationDir": "types",
-
-    // [ Additional Checks ]
-    "noUnusedLocals": true,
-    "noImplicitReturns": true,
-    "noUnusedParameters": true,
-    "noImplicitOverride": true,
-    "allowUnreachableCode": false,
-    "noUncheckedIndexedAccess": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-
-    // [ Module Resolution ]
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-
-    // [ Advanced ]
-    // "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
-    // [ Build ]
-    "listFiles": false,
-    "listEmittedFiles": true
+    "baseUrl": "./src"
   }
 }
