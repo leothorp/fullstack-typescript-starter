@@ -5,7 +5,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
+    "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
@@ -21,15 +21,6 @@
   },
   "engines": {
     "node": ">=14.0.0"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint --cache --fix --ignore-path .gitignore",
-      "prettier --write --ignore-path .gitignore"
-    ],
-    "**/*.{css,scss,html,json}": [
-      "prettier --write --ignore-path .gitignore"
-    ]
   },
   "packageManager": "pnpm@7.17.0"
 }

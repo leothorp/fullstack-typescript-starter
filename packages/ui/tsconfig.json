@@ -2,7 +2,7 @@
   "extends": "tsconfig/base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["ES2015"],
+    "lib": ["ESNext", "DOM"],
     "module": "ESNext",
     "target": "es6"
   },

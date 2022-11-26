@@ -1,5 +1,5 @@
-import React from "react";
-const x = 3;
+const x = 4;
+console.log(x);
 export const Button = () => {
   return <button>Button</button>;
 };
