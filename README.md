@@ -1,3 +1,5 @@
+
+
 # fullstack-typescript-starter
 
 Project boilerplate for a full-stack TypeScript web application. Technology choices are aimed at maximizing productivity without compromising flexibility.
@@ -58,3 +60,34 @@ Complete the form here: https://github.com/leothorp/fullstack-ts-app-starter/gen
 *   local dev sync to running dockerfile
 *   scripts for DB access
 *   logging library (Pico from Fastify?)
+*   Demo
+
+
+
+## From Turborepo default README
+### Utilities
+
+This turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+### Build
+
+To build all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm run build
+```
+
+### Develop
+
+To develop all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm run dev
+```
+
