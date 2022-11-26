@@ -1,25 +1,18 @@
-import ws from "@fastify/websocket";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import fastify from "fastify";
 import { appRouter } from "./router";
 import { createContext } from "./context";
-
-export interface ServerOptions {
-  dev?: boolean;
-  port?: number;
-  prefix?: string;
-}
+import { ServerOptions } from "config";
+import cors from "@fastify/cors";
+import { CLIENT_ORIGIN } from "@utilities/constants";
 
 export function createServer(opts: ServerOptions) {
-  const dev = opts.dev ?? true;
-  const port = opts.port ?? 3000;
-  const prefix = opts.prefix ?? "/trpc";
-  const server = fastify({ logger: dev });
+  const { dev, port, prefix } = opts;
 
-  server.register(ws);
+  const server = fastify({ logger: dev });
+  server.register(cors, { origin: CLIENT_ORIGIN });
   server.register(fastifyTRPCPlugin, {
     prefix,
-    useWSS: true,
     trpcOptions: { router: appRouter, createContext },
   });
 

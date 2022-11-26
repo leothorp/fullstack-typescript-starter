@@ -8,6 +8,9 @@
     "module": "commonjs",
     "target": "ESNext",
     "outDir": "dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@utilities/*": ["../../../packages/utilities/src/*"]
+    }
   }
 }

@@ -6,6 +6,7 @@ export interface User {
 }
 
 export function createContext({ req, res }: CreateFastifyContextOptions) {
+  //TODO(lt): grab from DB based on auth header/token
   const user: User = { name: req.headers["username"] ?? "anonymous" };
 
   return { req, res, user };

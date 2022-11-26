@@ -21,10 +21,11 @@
     // "rootDirs": ["../", "../../packages"],
     "paths": {
       "@server/*": ["../../server/src/*"],
-      "@ui/*": ["../../../packages/ui/src/*"]
+      "@ui/*": ["../../../packages/ui/src/*"],
+      "@utilities/*": ["../../../packages/utilities/src/*"]
     }
   },
-  // "include": ["src", "../../server/src", "../../../packages/ui/src"],
-  "include": ["src"],
+  "include": ["./src"],
+  // "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

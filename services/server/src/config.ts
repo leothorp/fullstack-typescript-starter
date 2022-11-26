@@ -1,7 +1,10 @@
-import type { ServerOptions } from "./server/server";
-
+export interface ServerOptions {
+  dev: boolean;
+  port: number;
+  prefix: string;
+}
 export const serverConfig: ServerOptions = {
   dev: false,
-  port: 2022,
-  prefix: "/trpc",
+  port: 5000,
+  prefix: "/api",
 };
