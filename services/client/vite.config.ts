@@ -7,11 +7,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 const getConfig = (env) => {
   // any process.env values desired for use on the frontend must be specified here
-  const envVariablesToForward: string[] = [
-    "NODE_ENV",
-    "API_ORIGIN",
-    "API_PORT",
-  ];
+  const envVariablesToForward: string[] = ["NODE_ENV", "API_ORIGIN"];
   const commonConfig = {
     plugins: [
       EnvironmentPlugin(envVariablesToForward),

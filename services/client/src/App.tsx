@@ -2,12 +2,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import { trpc } from "utils/trpc-client";
-// import { API_ORIGIN } from "@utilities/constants";
-
 import { serverConfig } from "@server/config";
 import { Greeting } from "./Greeting";
-import { API_ORIGIN, NODE_ENV, API_PORT } from "@utilities/constants";
-console.log("in client", API_ORIGIN, NODE_ENV, API_PORT);
+import { API_ORIGIN } from "@utilities/constants";
 
 const queryClient = new QueryClient();
 

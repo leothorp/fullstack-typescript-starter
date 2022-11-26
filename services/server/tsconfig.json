@@ -1,7 +1,6 @@
 {
   "extends": "tsconfig/base.json",
 
-  "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "module": "commonjs",
@@ -13,7 +12,12 @@
       "@utilities/*": ["../../../packages/utilities/src/*"]
     }
   },
-  // enables cross-workspace auto-imports / type references. The value of 'references' cannot be inherited via 'extends'.
-
+  // 'include' and 'references' here enable cross-workspace auto-imports / type references
+  "include": [
+    "./src",
+    "../server/src",
+    "../../packages/utilities/src",
+    "../../packages/ui/src"
+  ],
   "references": [{ "path": "../../packages/utilities" }]
 }

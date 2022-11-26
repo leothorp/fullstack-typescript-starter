@@ -1,5 +1,4 @@
-import { API_PORT } from "@utilities/constants";
-console.log(typeof API_PORT, API_PORT);
+import { API_PORT, isDevelopment } from "@utilities/constants";
 
 export interface ServerOptions {
   dev: boolean;
@@ -7,7 +6,7 @@ export interface ServerOptions {
   prefix: string;
 }
 export const serverConfig: ServerOptions = {
-  dev: false,
+  dev: isDevelopment,
   port: API_PORT,
   prefix: "/api",
 };

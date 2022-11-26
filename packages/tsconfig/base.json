@@ -20,8 +20,8 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "baseUrl": ".",
-    "rootDir": "../../"
+    "baseUrl": "."
+    // "rootDir": "../../"
   },
   "exclude": ["node_modules", "dist"]
 }
