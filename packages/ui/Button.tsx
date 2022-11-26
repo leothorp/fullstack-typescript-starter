@@ -1,5 +1,6 @@
 const x = 4;
-console.log(x);
+  const y = 4;
+console.log(x, y);
 export const Button = () => {
   return <button>Button</button>;
 };
