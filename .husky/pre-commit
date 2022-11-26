@@ -5,14 +5,15 @@ echo "running pre-commit script..."
 
 
 prettier_staged_files=$(git diff --cached --name-only)
+# TODO: interpolate variable specified in package-json
 eslint_staged_files=$(git diff --cached --name-only -- *.{tsx,ts,js,jsx})
-echo $eslint_staged_files
+
 prettier_length=${#prettier_staged_files} 
 eslint_length=${#eslint_staged_files} 
 
 if [ $eslint_length -gt 0 ];
 then
-    $bin_dir/eslint --fix --cache --ignore-path=.gitignore $eslint_staged_files
+    $bin_dir/eslint --fix --cache --ignore-path .gitignore $eslint_staged_files
     git add $eslint_staged_files
 fi
 if [ $prettier_length -gt 0 ];
