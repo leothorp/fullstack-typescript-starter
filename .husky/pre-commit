@@ -4,20 +4,20 @@ bin_dir="node_modules/.bin"
 echo "running pre-commit script..."
 
 
-prettier_diff=$(git diff --cached --name-only)
-eslint_diff=$(git diff --cached --name-only -- *.{tsx,ts,js,jsx})
-echo $staged_files
-prettier_length=${#prettier_diff} 
-eslint_length=${#eslint_diff} 
-if [ $eslint_diff -gt 0 ]
+prettier_staged_files=$(git diff --cached --name-only)
+eslint_staged_files=$(git diff --cached --name-only -- *.{tsx,ts,js,jsx})
+echo $eslint_staged_files
+prettier_length=${#prettier_staged_files} 
+eslint_length=${#eslint_staged_files} 
+if [ $eslint_length -gt 0 ]
 then
-    $bin_dir/eslint --fix --cache --ignore-path=.gitignore $staged_files
-    git add $staged_files
+    $bin_dir/eslint --fix --cache --ignore-path=.gitignore $eslint_staged_files
+    git add $eslint_staged_files
 fi
-if [ $prettier_diff -gt 0 ]
+if [ $prettier_length -gt 0 ]
 then
-    $bin_dir/prettier --ignore-unknown --write --cache --ignore-path .gitignore $staged_files
-    git add $staged_files
+    $bin_dir/prettier --ignore-unknown --write --cache --ignore-path .gitignore $prettier_staged_files
+    git add $prettier_staged_files
 fi
 
 
