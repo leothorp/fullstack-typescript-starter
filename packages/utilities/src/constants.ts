@@ -1,18 +1,17 @@
-//coerce process.env values with '!'
+/* eslint-disable @typescript-eslint/no-namespace */
 
-// export interface IProcessEnv {
-//   NODE_ENV: string;
-//   API_ORIGIN: string;
-//   API_PORT: string;
-//   CLIENT_ORIGIN: string;
-//   CLIENT_PORT?: string;
-// }
-
-// declare global {
-//   namespace NodeJS {
-//     type ProcessEnv = IProcessEnv
-//   }
-// }
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      NODE_ENV: string;
+      API_ORIGIN: string;
+      API_PORT: string;
+      CLIENT_ORIGIN: string;
+      CLIENT_PORT?: string;
+    }
+  }
+}
+// process.env as unknown as IProcessEnv;
 export const NODE_ENV = process.env.NODE_ENV;
 export const isDevelopment = NODE_ENV === "development";
 export const isProduction = NODE_ENV === "production";

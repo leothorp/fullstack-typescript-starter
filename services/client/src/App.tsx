@@ -6,7 +6,8 @@ import { trpc } from "utils/trpc-client";
 
 import { serverConfig } from "@server/config";
 import { Greeting } from "./Greeting";
-import { API_ORIGIN } from "utils/env-variables-client";
+import { API_ORIGIN, NODE_ENV, API_PORT } from "@utilities/constants";
+console.log("in client", API_ORIGIN, NODE_ENV, API_PORT);
 
 const queryClient = new QueryClient();
 
