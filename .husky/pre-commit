@@ -3,7 +3,7 @@
 staged_files=$(git diff --cached --name-only)
 bin_dir="node_modules/.bin"
 echo "running pre-commit script..."
-$bin_dir/eslint --no-error-on-unmatched-pattern --ext .ts,.tsx,.js,.tsx --fix --cache --ignore-path=.gitignore $staged_files
+$bin_dir/eslint --no-error-on-unmatched-pattern --ext .ts,.tsx,.js,.tsx --cache --ignore-path=.gitignore $staged_files
 git add $staged_files
 
 $bin_dir/prettier --ignore-unknown --write --cache --ignore-path .gitignore $staged_files
