@@ -14,6 +14,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "eslint": "^8.28.0",
     "eslint-config-shared": "workspace:*",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
@@ -25,12 +26,11 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --cache",
-      "prettier --write --ignore-path=.gitignore"
+      "eslint --cache --fix --ignore-path .gitignore",
+      "prettier --write --ignore-path .gitignore"
     ],
-    "src/**/*.scss": [
-      "stylelint --syntax scss --fix",
-      "git add"
+    "**/*.{css,scss,html,json}": [
+      "prettier --write --ignore-path .gitignore"
     ]
   },
   "packageManager": "pnpm@7.17.0"
