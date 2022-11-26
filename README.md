@@ -60,7 +60,8 @@ Complete the form here: https://github.com/leothorp/fullstack-ts-app-starter/gen
 *   local dev sync to running dockerfile
 *   scripts for DB access
 *   logging library (Pico from Fastify?)
-*   Demo
+*   hosted demo of baseline features
+*   storybook
 
 
 
