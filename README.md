@@ -25,16 +25,15 @@ Features:
 
 Scripts
 
-*     
-    Automated  
-    post-merge git hook to auto-reinstall npm packages when package-lock.json changes  
-    pre-commit formatting/linting hook
+Automated  
+* post-merge git hook to auto-reinstall npm packages when package-lock.json changes  
+* pre-commit formatting/linting hook
 
 Manual:  
-dev start (both FE and BE)  
-prod build  
-prod start  
-deploy to render
+* dev start (both FE and BE)  
+* prod build  
+* prod start  
+* deploy to render
 
 Prior art/projects to check:
 
