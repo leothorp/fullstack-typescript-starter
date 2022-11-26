@@ -14,11 +14,10 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
-    // "rootDirs": ["../", "../../packages"],
+    "rootDirs": ["../", "../../packages"],
     "paths": {
       "@server/*": ["../../server/src/*"],
       "@ui/*": ["../../../packages/ui/src/*"],
@@ -27,5 +26,10 @@
   },
   "include": ["./src"],
   // "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "../server" },
+    { "path": "../../packages/utilities" },
+    { "path": "../../packages/ui" }
+  ]
 }
