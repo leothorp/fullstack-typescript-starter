@@ -1,6 +1,6 @@
-# fullstack-ts-app-starter
+# fullstack-typescript-starter
 
-Project boilerplate for a full-stack TypeScript web application.
+Project boilerplate for a full-stack TypeScript web application. Technology choices aim to maximize productivity and rapid prototyping without compromising flexibility.
 
 Features:
 
