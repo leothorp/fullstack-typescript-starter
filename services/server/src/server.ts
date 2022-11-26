@@ -1,12 +1,11 @@
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import fastify from "fastify";
-import { appRouter } from "./router";
-import { createContext } from "./context";
+import { appRouter } from "router";
+import { createContext } from "context";
 import { ServerOptions } from "config";
 import cors from "@fastify/cors";
 import { CLIENT_ORIGIN } from "@utilities/constants";
 
-console.log(CLIENT_ORIGIN);
 export function createServer(opts: ServerOptions) {
   const { dev, port, prefix } = opts;
 

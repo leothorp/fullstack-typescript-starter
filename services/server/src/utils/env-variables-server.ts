@@ -1,5 +1,3 @@
-//coerce process.env values with '!'
-
 // export interface IProcessEnv {
 //   NODE_ENV: string;
 //   API_ORIGIN: string;

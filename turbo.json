@@ -10,5 +10,11 @@
       "cache": false
     }
   },
-  "globalEnv": ["NODE_ENV", "API_ORIGIN", "CLIENT_ORIGIN"]
+  "globalEnv": [
+    "NODE_ENV",
+    "API_ORIGIN",
+    "CLIENT_ORIGIN",
+    "CLIENT_PORT",
+    "API_PORT"
+  ]
 }

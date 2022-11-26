@@ -1,3 +1,6 @@
+import { API_PORT } from "@utilities/constants";
+console.log(typeof API_PORT, API_PORT);
+
 export interface ServerOptions {
   dev: boolean;
   port: number;
@@ -5,6 +8,6 @@ export interface ServerOptions {
 }
 export const serverConfig: ServerOptions = {
   dev: false,
-  port: 5000,
+  port: API_PORT,
   prefix: "/api",
 };

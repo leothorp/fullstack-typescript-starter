@@ -1,11 +1,8 @@
 {
   "extends": "tsconfig/base.json",
   "compilerOptions": {
-    "composite": true,
-    "incremental": true,
     "lib": ["ESNext"],
-    "module": "ESNext",
-    "target": "ESNext",
+
     "baseUrl": "./src"
   },
   "include": ["./src"],

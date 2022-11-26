@@ -4,14 +4,16 @@
   "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "composite": true,
-    "incremental": true,
     "module": "commonjs",
-    "target": "ESNext",
+
     "outDir": "dist",
     "baseUrl": "./src",
     "paths": {
+      //paths are relative to baseUrl
       "@utilities/*": ["../../../packages/utilities/src/*"]
     }
-  }
+  },
+  // enables cross-workspace auto-imports / type references. The value of 'references' cannot be inherited via 'extends'.
+
+  "references": [{ "path": "../../packages/utilities" }]
 }

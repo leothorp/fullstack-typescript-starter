@@ -2,40 +2,26 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "composite": true,
     "incremental": true,
     "resolveJsonModule": true,
-    "composite": false,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
+    "target": "ESNext",
     "inlineSources": false,
     "isolatedModules": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "baseUrl": "."
-    // "paths": {
-    //   "@client/*": ["../../services/client/src/*"],
-    //   "@client": [
-    //     "../../services/client/src"
-    //   ],
-    //   "@server/*": ["../../services/server/src/*"],
-    //   "@server": [
-    //     "../../services/server/src"
-    //   ],
-    //   "@ui/*": [
-    //     "../ui/src/*"
-    //   ],
-    //   "@ui": [
-    //     "../ui/src"
-    //   ]
-    // }
+    "baseUrl": ".",
+    "rootDir": "../../"
   },
   "exclude": ["node_modules", "dist"]
 }
