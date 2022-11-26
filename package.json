@@ -2,6 +2,10 @@
   "name": "fullstack-typescript-starter",
   "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",

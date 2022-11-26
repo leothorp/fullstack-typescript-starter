@@ -19,12 +19,23 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@client/*": ["../../services/client/src/*"],
-      "@server/*": ["../../services/server/src/*"],
-      "@ui/*": ["../ui/src/*"]
-    }
+    "baseUrl": "."
+    // "paths": {
+    //   "@client/*": ["../../services/client/src/*"],
+    //   "@client": [
+    //     "../../services/client/src"
+    //   ],
+    //   "@server/*": ["../../services/server/src/*"],
+    //   "@server": [
+    //     "../../services/server/src"
+    //   ],
+    //   "@ui/*": [
+    //     "../ui/src/*"
+    //   ],
+    //   "@ui": [
+    //     "../ui/src"
+    //   ]
+    // }
   },
   "exclude": ["node_modules", "dist"]
 }

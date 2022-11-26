@@ -4,6 +4,7 @@ import { useState } from "react";
 import { trpc } from "utils/trpc";
 
 import { Greeting } from "./Greeting";
+
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
   const [trpcClient] = useState(() =>

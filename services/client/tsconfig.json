@@ -18,17 +18,13 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
+    // "rootDirs": ["../", "../../packages"],
     "paths": {
-      // "@client/*": ["../../services/client/src/*"],
-      "@server/*": ["../server/src/*"],
-      "@ui/*": ["../ui/src/*"]
+      "@server/*": ["../../server/src/*"],
+      "@ui/*": ["../../../packages/ui/src/*"]
     }
-    // "paths": {
-    //   // "@client/*": ["./src/*"]
-    //   // "@server/*": ["../../../services/server/src/*"],
-    //   // "@ui/*": ["../../packages/ui/src/*"]
-    // }
   },
+  // "include": ["src", "../../server/src", "../../../packages/ui/src"],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
