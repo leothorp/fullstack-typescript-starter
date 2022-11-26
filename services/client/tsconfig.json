@@ -19,10 +19,15 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      // "@client/*": ["./src/*"]
-      // "@server/*": ["../../../services/server/src/*"],
-      // "@ui/*": ["../../packages/ui/src/*"]
+      // "@client/*": ["../../services/client/src/*"],
+      "@server/*": ["../server/src/*"],
+      "@ui/*": ["../ui/src/*"]
     }
+    // "paths": {
+    //   // "@client/*": ["./src/*"]
+    //   // "@server/*": ["../../../services/server/src/*"],
+    //   // "@ui/*": ["../../packages/ui/src/*"]
+    // }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

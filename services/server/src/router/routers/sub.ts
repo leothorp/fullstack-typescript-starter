@@ -1,5 +1,5 @@
 import { observable } from "@trpc/server/observable";
-import { publicProcedure, router } from "../trpc";
+import { router, publicProcedure } from "utils/trpc";
 
 export const subRouter = router({
   randomNumber: publicProcedure.subscription(() => {

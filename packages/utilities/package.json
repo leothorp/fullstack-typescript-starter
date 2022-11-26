@@ -1,5 +1,8 @@
 {
   "name": "utilities",
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tsconfig": "workspace:*"
+  }
 }

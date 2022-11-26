@@ -6,9 +6,8 @@
   "compilerOptions": {
     "incremental": true,
     "module": "commonjs",
-    "target": "esnext",
+    "target": "ESNext",
     "outDir": "dist",
-
     "baseUrl": "./src"
   }
 }

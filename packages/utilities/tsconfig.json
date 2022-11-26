@@ -1,12 +1,13 @@
 {
   "extends": "tsconfig/base.json",
   "compilerOptions": {
+    "composite": true,
     "incremental": true,
-    "jsx": "react-jsx",
     "lib": ["ESNext"],
     "module": "ESNext",
-    "target": "es6"
+    "target": "ESNext",
+    "baseUrl": "./src"
   },
-  "include": ["."],
+  "include": ["./src"],
   "exclude": ["node_modules"]
 }
