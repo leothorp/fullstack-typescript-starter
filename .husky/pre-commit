@@ -1,9 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 staged_files=$(git diff --cached --name-only)
+length=${#staged_files} 
+if [ $length -eq 0 ]
+then
+    exit 0
+fi
 bin_dir="node_modules/.bin"
 echo "running pre-commit script..."
-$bin_dir/eslint --no-error-on-unmatched-pattern --ext .ts,.tsx,.js,.tsx --cache --ignore-path=.gitignore $staged_files
+$bin_dir/eslint --fix --cache --ignore-path=.gitignore $staged_files
 git add $staged_files
 
 $bin_dir/prettier --ignore-unknown --write --cache --ignore-path .gitignore $staged_files
