@@ -1,4 +1,4 @@
-// eslint-disable @typescript-eslint/no-explicit-any
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const toObj = <T extends object>(
   arr: T[],
   getKey: (arrEl: T) => string,
