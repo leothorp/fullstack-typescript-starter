@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+
+# navigate to parent of husky dir- we assume pnpm-lock is located there.
+cd "$(dirname $0)/.."
+
+LOCKFILE_CHANGED_LINES=`git diff HEAD@{1} --stat -- pnpm-lock.yaml | wc -l`
+
+
+  if [ -z "${CI}" ] && [ $LOCKFILE_CHANGED_LINES -gt 0 ];
+  then
+      echo "Detected changes to lockfile. Reinstalling packages..."
+      pnpm i
+  fi
+
+cd -
