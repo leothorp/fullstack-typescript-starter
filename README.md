@@ -1,28 +1,34 @@
 # fullstack-typescript-starter
 
-Project boilerplate for a full-stack TypeScript web application. Technology choices aim to maximize productivity and rapid prototyping without compromising flexibility.
+Project boilerplate for a full-stack TypeScript web application. Technology choices are aimed at maximizing productivity without compromising flexibility.
 
 Features:
 
+*   Configuration and scripts for both local dev and production use
+*   Monorepo support
 *   user accounts/authentication via Google Sign In
 *   bare-bones Login and Registration pages
 
-Included Technologies:
+### Technologies
 
-*   trpc
-*   Fastify
-*   MikroORM
 *   Prettier
+*   TypeScript
 *   React
 *   TailwindCSS / headlessui.dev
 *   Zustand
 *   react-query
-*   react-router (suppose we can use 6)
+*   react-router
+*   Fastify
+*   MikroORM
+*   pnpm
+*   Zod
 
-Scripts:  
-Automatic:  
-post-merge git hook to auto-reinstall npm packages when package-lock.json changes  
-pre-commit formatting/linting hook
+Scripts
+
+*     
+    Automated  
+    post-merge git hook to auto-reinstall npm packages when package-lock.json changes  
+    pre-commit formatting/linting hook
 
 Manual:  
 dev start (both FE and BE)  
@@ -52,3 +58,4 @@ Complete the form here: https://github.com/leothorp/fullstack-ts-app-starter/gen
 *   Dockerfile
 *   local dev sync to running dockerfile
 *   scripts for DB access
+*   logging library (Pico from Fastify?)
