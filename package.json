@@ -2,10 +2,6 @@
   "name": "fullstack-typescript-starter",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -14,12 +10,14 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
     "eslint": "^8.28.0",
     "eslint-config-shared": "workspace:*",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
     "prettier": "latest",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^4.9.3"
   },
   "engines": {
     "node": ">=14.0.0"
