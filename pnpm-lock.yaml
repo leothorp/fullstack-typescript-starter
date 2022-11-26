@@ -26,6 +26,8 @@ importers:
       "@types/react": ^18.0.24
       "@types/react-dom": ^18.0.8
       "@vitejs/plugin-react": ^2.2.0
+      autoprefixer: ^10.4.13
+      postcss: ^8.4.19
       react: ^18.2.0
       react-dom: ^18.2.0
       react-router-dom: ^6.4.3
@@ -45,6 +47,8 @@ importers:
       "@types/react": 18.0.25
       "@types/react-dom": 18.0.9
       "@vitejs/plugin-react": 2.2.0_vite@3.2.4
+      autoprefixer: 10.4.13_postcss@8.4.19
+      postcss: 8.4.19
       sass: 1.56.1
       tailwindcss: 3.2.4
       tsconfig: link:../tsconfig
@@ -1195,6 +1199,25 @@ packages:
       }
     engines: { node: ">=8" }
 
+  /autoprefixer/10.4.13_postcss@8.4.19:
+    resolution:
+      {
+        integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==,
+      }
+    engines: { node: ^10 || ^12 || >=14 }
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    dependencies:
+      browserslist: 4.21.4
+      caniuse-lite: 1.0.30001434
+      fraction.js: 4.2.0
+      normalize-range: 0.1.2
+      picocolors: 1.0.0
+      postcss: 8.4.19
+      postcss-value-parser: 4.2.0
+    dev: true
+
   /balanced-match/1.0.2:
     resolution:
       {
@@ -2326,6 +2349,13 @@ packages:
         integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==,
       }
 
+  /fraction.js/4.2.0:
+    resolution:
+      {
+        integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==,
+      }
+    dev: true
+
   /fs.realpath/1.0.0:
     resolution:
       {
@@ -3115,6 +3145,14 @@ packages:
     resolution:
       {
         integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==,
+      }
+    engines: { node: ">=0.10.0" }
+    dev: true
+
+  /normalize-range/0.1.2:
+    resolution:
+      {
+        integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==,
       }
     engines: { node: ">=0.10.0" }
     dev: true
