@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "build": "dotenv -- turbo run build --filter=./services/* --parallel",
+    "//build-client": "pnpm i --frozen-lockfile && dotenv -- turbo run build --filter=./services/client",
+    "//build-server": "pnpm i --frozen-lockfile && dotenv -- turbo run build --filter=./services/server",
     "build-client": "dotenv -- turbo run build --filter=./services/client",
     "build-server": "dotenv -- turbo run build --filter=./services/server",
     "start-server": "dotenv -- turbo run start --filter=./services/server",
