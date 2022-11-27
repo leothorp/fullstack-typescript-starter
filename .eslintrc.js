@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
-  // This tells ESLint to load the config from the package `eslint-config-shared`
+  // Load shared config from ./packages/eslint-config-shared.
+  // individual workspaces can have their own .eslinrc files that also extend this.
   extends: ["shared"],
   rules: {
     "@typescript-eslint/no-unused-vars": "error",
