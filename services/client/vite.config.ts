@@ -18,7 +18,6 @@ const pullValuesFromEnv = (keys, env) => {
 const getConfig = (env) => {
   // any process.env values desired for use on the frontend must be specified here
   const define = pullValuesFromEnv(envVariablesToForward, env);
-  console.log(define, "define");
   const commonConfig: UserConfigExport = {
     define,
     plugins: [tsconfigPaths(), react()],
