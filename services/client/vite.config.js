@@ -14,17 +14,30 @@ var __assign =
     return __assign.apply(this, arguments);
   };
 import { defineConfig } from "vite";
-import EnvironmentPlugin from "vite-plugin-environment";
+// import EnvironmentPlugin from "vite-plugin-environment";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+var envVariablesToForward = ["NODE_ENV", "API_ORIGIN"];
+var pullValuesFromEnv = function (keys, env) {
+  return keys.reduce(
+    function (acc, curr) {
+      acc["process.env.".concat(curr)] = JSON.stringify(env[curr]);
+      return acc;
+    },
+    {
+      process: {},
+    }
+  );
+};
 var getConfig = function (env) {
   // any process.env values desired for use on the frontend must be specified here
-  var envVariablesToForward = ["NODE_ENV", "API_ORIGIN"];
+  var define = pullValuesFromEnv(envVariablesToForward, env);
   var commonConfig = {
+    define: define,
     plugins: [
       //we are already using dotenv cli to load env variables,
       //so { loadEnvFiles: false } is used to disable EnvironmentPlugin's own .env file support
-      EnvironmentPlugin(envVariablesToForward, { loadEnvFiles: false }),
+      // EnvironmentPlugin(envVariablesToForward, { loadEnvFiles: false }),
       tsconfigPaths(),
       react(),
     ],

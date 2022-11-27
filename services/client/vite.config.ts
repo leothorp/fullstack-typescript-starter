@@ -33,8 +33,12 @@ const getConfig = (env) => {
   if (env.nodeEnv === "production") {
     return defineConfig({
       ...commonConfig,
+      optimizeDeps: {
+        force: true,
+      },
       build: {
         manifest: true,
+
         rollupOptions: {
           // overwrite default .html entry
           input: "./src/main.tsx",
