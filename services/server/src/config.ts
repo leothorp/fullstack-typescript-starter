@@ -5,6 +5,8 @@ export interface ServerOptions {
   port: number;
   prefix: string;
 }
+
+console.log(process.env);
 export const serverConfig: ServerOptions = {
   dev: isDevelopment,
   port: Number(process.env.PORT),

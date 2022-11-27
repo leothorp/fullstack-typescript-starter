@@ -1,5 +1,4 @@
 import { defineConfig, UserConfigExport } from "vite";
-// import EnvironmentPlugin from "vite-plugin-environment";
 
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -22,13 +21,7 @@ const getConfig = (env) => {
   console.log(define, "define");
   const commonConfig: UserConfigExport = {
     define,
-    plugins: [
-      //we are already using dotenv cli to load env variables,
-      //so { loadEnvFiles: false } is used to disable EnvironmentPlugin's own .env file support
-      // EnvironmentPlugin(envVariablesToForward, { loadEnvFiles: false }),
-      tsconfigPaths(),
-      react(),
-    ],
+    plugins: [tsconfigPaths(), react()],
   };
 
   if (env.nodeEnv === "production") {
