@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { publicProcedure, router } from "utils/trpc-server";
+import { publicProcedure, router } from "@server/utils/trpc-server";
 
 interface Post {
   id: number;

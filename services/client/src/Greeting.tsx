@@ -1,4 +1,4 @@
-import { trpc } from "utils/trpc-client";
+import { trpc } from "@client/utils/trpc-client";
 export function Greeting() {
   const greeting = trpc.api.hello.useQuery({ username: "Leo" });
 

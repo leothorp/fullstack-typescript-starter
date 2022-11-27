@@ -1,8 +1,8 @@
 // import { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
-import { router } from "utils/trpc-server";
-import { apiRouter } from "routers/api";
-// import { postsRouter } from "routers/posts";
-import { subRouter } from "routers/sub";
+import { router } from "@server/utils/trpc-server";
+
+import { apiRouter } from "@server/routers/api";
+import { subRouter } from "@server/routers/sub";
 
 export const appRouter = router({
   // posts: postsRouter,

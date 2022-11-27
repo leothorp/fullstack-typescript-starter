@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
-import { trpc } from "utils/trpc-client";
+import { trpc } from "@client/utils/trpc-client";
 import { Greeting } from "./Greeting";
 import { API_ORIGIN, API_PREFIX } from "@utilities/shared-constants";
 

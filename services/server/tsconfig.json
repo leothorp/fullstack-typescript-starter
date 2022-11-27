@@ -6,12 +6,15 @@
     "module": "commonjs",
 
     "outDir": "dist",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "rootDir": "../../",
 
     "paths": {
+      "@server/*": ["./src/*"],
       //paths are relative to baseUrl
-      "@utilities/*": ["../../../packages/utilities/src/*"]
+      "@utilities/*": ["../../packages/utilities/src/*"]
+      // "*/": ["./*", "node_modules/*"],
+      // "*": ["./", "node_modules/"]
     }
   },
   // 'include' and 'references' here enable cross-workspace auto-imports / type references

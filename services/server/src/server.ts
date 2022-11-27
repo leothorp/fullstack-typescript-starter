@@ -1,8 +1,8 @@
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import fastify from "fastify";
-import { appRouter } from "router";
-import { createContext } from "context";
-import { ServerOptions } from "config";
+import { appRouter } from "@server/router";
+import { createContext } from "@server/context";
+import { ServerOptions } from "@server/config";
 import cors from "@fastify/cors";
 import { CLIENT_ORIGIN } from "@utilities/shared-constants";
 

@@ -3,8 +3,12 @@
   "display": "Default",
   "compilerOptions": {
     "outDir": "dist",
-    "composite": true,
-    "incremental": true,
+    //TODO(lt): vvv bring back
+    // "composite": true,
+    //TODO(lt): look at bringing back incremental
+    // "incremental": true,
+    "baseUrl": ".",
+    "incremental": false,
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true,

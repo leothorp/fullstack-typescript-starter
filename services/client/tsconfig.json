@@ -6,11 +6,12 @@
     "esModuleInterop": false,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@server/*": ["../../server/src/*"],
-      "@ui/*": ["../../../packages/ui/src/*"],
-      "@utilities/*": ["../../../packages/utilities/src/*"]
+      "@client/*": ["./src/*"],
+      "@server/*": ["../server/src/*"],
+      "@ui/*": ["../../packages/ui/src/*"],
+      "@utilities/*": ["../../packages/utilities/src/*"]
     },
     "rootDir": "../../"
   },
@@ -21,9 +22,9 @@
     "../../packages/ui/src"
   ],
   "references": [
-    { "path": "./tsconfig.node.json" },
-    { "path": "../server" },
-    { "path": "../../packages/utilities" },
-    { "path": "../../packages/ui" }
+    { "path": "./tsconfig.node.json" }
+    //   { "path": "../server" },
+    //   { "path": "../../packages/utilities" },
+    //   { "path": "../../packages/ui" }
   ]
 }

@@ -3,7 +3,8 @@
   "version": "10.2.0",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "//build": "tsc",
+    "build": "tsc --project tsconfig.json && tsc-alias --debug -p tsconfig.json",
     "dev": "tsx watch src",
     "start": "node dist/services/server/src/index.js",
     "//start": "run-p start:* --print-label",
