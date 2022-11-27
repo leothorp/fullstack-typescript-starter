@@ -3,16 +3,19 @@
 version: "3.8"
 services:
   db:
+    container_name: fullstack-ts-db
     image: postgres:14.1-alpine
     restart: always
+    user: postgres
     environment:
-      - POSTGRES_USER=fullstack_ts_db_user
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=fullstack_ts_db
     ports:
       - "5433:5432"
     volumes:
       - db:/var/lib/postgresql/data
+      - ./repo_scripts/init_users_table.sql:/docker-entrypoint-initdb.d/create_tables.sql
 volumes:
   db:
     driver: local
