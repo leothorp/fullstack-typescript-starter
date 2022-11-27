@@ -3,7 +3,6 @@ CREATE TABLE "app_user" (
     "id" SERIAL NOT NULL,
     "email" VARCHAR(255) NOT NULL,
     "created_at" TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "name" VARCHAR(255) NOT NULL,
 
     CONSTRAINT "app_user_pkey" PRIMARY KEY ("id")
 );
@@ -51,4 +50,3 @@ ALTER TABLE "_NoteToTag" ADD CONSTRAINT "_NoteToTag_A_fkey" FOREIGN KEY ("A") RE
 
 -- AddForeignKey
 ALTER TABLE "_NoteToTag" ADD CONSTRAINT "_NoteToTag_B_fkey" FOREIGN KEY ("B") REFERENCES "tag"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
