@@ -22,10 +22,5 @@
     "../../packages/utilities/src",
     "../../packages/ui/src"
   ],
-  "references": [
-    { "path": "./tsconfig.node.json" }
-    //   { "path": "../server" },
-    //   { "path": "../../packages/utilities" },
-    //   { "path": "../../packages/ui" }
-  ]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

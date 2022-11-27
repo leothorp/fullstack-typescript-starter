@@ -12,20 +12,22 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.2.0",
+    "@fastify/middie": "^8.0.0",
     "@mikro-orm/core": "^5.5.3",
     "@mikro-orm/postgresql": "^5.5.3",
+    "@mikro-orm/reflection": "^5.5.3",
     "@trpc/client": "^10.2.0",
     "@trpc/server": "^10.2.0",
+    "@types/node": "^18.7.20",
     "abort-controller": "^3.0.0",
     "fastify": "^4.10.2",
     "node-fetch": "^2.6.1",
+    "tsc-alias": "^1.7.1",
     "tsconfig": "workspace:*",
     "tslib": "^2.1.0",
     "utilities": "workspace:*",
     "ws": "^8.0.0",
-    "zod": "^3.0.0",
-    "@types/node": "^18.7.20",
-    "tsc-alias": "^1.7.1"
+    "zod": "^3.0.0"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.11",
