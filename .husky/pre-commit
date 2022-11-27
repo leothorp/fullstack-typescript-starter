@@ -24,7 +24,6 @@ then
     $bin_dir/eslint --no-error-on-unmatched-pattern --ignore-path .gitignore --fix --ext .jsx,.js,.ts,.tsx --cache  $eslint_staged_files
 fi
 
-
 if [ $prettier_length -gt 0 ]
 then
     $bin_dir/prettier --ignore-unknown --no-error-on-unmatched-pattern --ignore-path .gitignore --cache --write $prettier_staged_files
