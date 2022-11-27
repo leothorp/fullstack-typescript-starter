@@ -136,6 +136,7 @@ importers:
       node-fetch: ^2.6.1
       npm-run-all: ^4.1.5
       start-server-and-test: ^1.12.0
+      tsc-alias: ^1.7.1
       tsconfig: workspace:*
       tslib: ^2.1.0
       tsx: ^3.9.0
@@ -161,6 +162,7 @@ importers:
       "@types/ws": 8.5.3
       npm-run-all: 4.1.5
       start-server-and-test: 1.14.0
+      tsc-alias: 1.7.1
       tsx: 3.12.1
       wait-port: 1.0.4
 
@@ -3977,6 +3979,14 @@ packages:
         integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==,
       }
 
+  /mylas/2.1.13:
+    resolution:
+      {
+        integrity: sha512-+MrqnJRtxdF+xngFfUUkIMQrUUL0KsxbADUkn23Z/4ibGg192Q+z+CQyiYwvWTsYjJygmMR8+w3ZDa98Zh6ESg==,
+      }
+    engines: { node: ">=12.0.0" }
+    dev: true
+
   /mz/2.7.0:
     resolution:
       {
@@ -4426,6 +4436,15 @@ packages:
       }
     engines: { node: ">= 6" }
     dev: false
+
+  /plimit-lit/1.5.0:
+    resolution:
+      {
+        integrity: sha512-Eb/MqCb1Iv/ok4m1FqIXqvUKPISufcjZ605hl3KM/n8GaX8zfhtgdLwZU3vKjuHGh2O9Rjog/bHTq8ofIShdng==,
+      }
+    dependencies:
+      queue-lit: 1.5.0
+    dev: true
 
   /postcss-calc/8.2.4_postcss@8.4.19:
     resolution:
@@ -4955,6 +4974,13 @@ packages:
         integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==,
       }
     engines: { node: ">=6" }
+
+  /queue-lit/1.5.0:
+    resolution:
+      {
+        integrity: sha512-IslToJ4eiCEE9xwMzq3viOO5nH8sUWUCwoElrhNMozzr9IIt2qqvB4I+uHu/zJTQVqc9R5DFwok4ijNK1pU3fA==,
+      }
+    dev: true
 
   /queue-microtask/1.2.3:
     resolution:
@@ -5807,6 +5833,21 @@ packages:
         integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==,
       }
     dev: false
+
+  /tsc-alias/1.7.1:
+    resolution:
+      {
+        integrity: sha512-P4+0i+OB0hX17Ca+U6EJ4WZZ+OSupqW32VJ34N7g7+Ch+bwSx1AqYOvDdIVYEKymBh3dfG0t1qxbxPlBbtB1lQ==,
+      }
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      commander: 9.4.1
+      globby: 11.1.0
+      mylas: 2.1.13
+      normalize-path: 3.0.0
+      plimit-lit: 1.5.0
+    dev: true
 
   /tsconfig-paths/4.1.0:
     resolution:
