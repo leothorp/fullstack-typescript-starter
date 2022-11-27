@@ -5,7 +5,7 @@
   "scripts": {
     "//build": "tsc",
     "build": "tsc --project tsconfig.json && tsc-alias --debug -p tsconfig.json",
-    "dev": "tsx watch src",
+    "dev": "dotenv -e ../../.env.shared.local -e ../../.env.server.server -- tsx watch src",
     "start": "node dist/services/server/src/index.js",
     "//start": "run-p start:* --print-label",
     "//test-dev": "start-server-and-test 'tsx src' http-get://localhost:2022 'tsx src/client'",

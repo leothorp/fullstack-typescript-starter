@@ -12,11 +12,11 @@ importers:
       turbo: latest
       typescript: ^4.9.3
     dependencies:
-      dotenv-cli: 6.0.0
       eslint-config-shared: link:packages/eslint-config-shared
       typescript: 4.9.3
     devDependencies:
       "@typescript-eslint/eslint-plugin": 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
+      dotenv-cli: 6.0.0
       eslint: 8.28.0
       husky: 8.0.2
       prettier: 2.8.0
@@ -2330,7 +2330,7 @@ packages:
       dotenv: 16.0.3
       dotenv-expand: 8.0.3
       minimist: 1.2.7
-    dev: false
+    dev: true
 
   /dotenv-expand/8.0.3:
     resolution:
@@ -2338,7 +2338,7 @@ packages:
         integrity: sha512-SErOMvge0ZUyWd5B0NXMQlDkN+8r+HhVUsxgOO7IoPDOdDRD2JjExpN6y3KnFR66jsJMwSn1pqIivhU5rcJiNg==,
       }
     engines: { node: ">=12" }
-    dev: false
+    dev: true
 
   /dotenv/16.0.3:
     resolution:
@@ -2346,7 +2346,6 @@ packages:
         integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==,
       }
     engines: { node: ">=12" }
-    dev: false
 
   /duplexer/0.1.2:
     resolution:

@@ -10,17 +10,17 @@
     "build-client": "./repo_scripts/build_service.sh client",
     "build-server": "./repo_scripts/build_service.sh server",
     "start-server": "pnpm run --filter server start",
-    "dev": "dotenv -- turbo run dev --parallel",
+    "dev": "turbo run dev --parallel",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
   "dependencies": {
-    "dotenv-cli": "^6.0.0",
     "typescript": "^4.9.3",
     "eslint-config-shared": "workspace:*"
   },
   "devDependencies": {
+    "dotenv-cli": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "eslint": "^8.28.0",
     "husky": "^8.0.2",

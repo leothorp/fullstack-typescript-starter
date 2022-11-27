@@ -30,6 +30,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.shared.local
+.env.server.local
 
 # turbo
 .turbo
