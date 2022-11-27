@@ -33,5 +33,5 @@ yarn-error.log*
 .env.shared.local
 .env.server.local
 
-# turbo
+# turborepo
 .turbo

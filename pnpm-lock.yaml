@@ -9,7 +9,6 @@ importers:
       eslint-config-shared: workspace:*
       husky: ^8.0.2
       prettier: latest
-      turbo: latest
       typescript: ^4.9.3
     dependencies:
       eslint-config-shared: link:packages/eslint-config-shared
@@ -20,20 +19,17 @@ importers:
       eslint: 8.28.0
       husky: 8.0.2
       prettier: 2.8.0
-      turbo: 1.6.3
 
   packages/eslint-config-shared:
     specifiers:
       "@typescript-eslint/eslint-plugin": ^5.44.0
       eslint: ^7.23.0
       eslint-config-prettier: ^8.3.0
-      eslint-config-turbo: latest
       eslint-plugin-react: 7.31.8
     dependencies:
       "@typescript-eslint/eslint-plugin": 5.44.0_e2lvjb2eg2mgv3h5oqf6kw3to4
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
-      eslint-config-turbo: 0.0.4_eslint@7.32.0
       eslint-plugin-react: 7.31.8_eslint@7.32.0
 
   packages/tsconfig:
@@ -2731,18 +2727,6 @@ packages:
       eslint: 7.32.0
     dev: false
 
-  /eslint-config-turbo/0.0.4_eslint@7.32.0:
-    resolution:
-      {
-        integrity: sha512-HErPS/wfWkSdV9Yd2dDkhZt3W2B78Ih/aWPFfaHmCMjzPalh+5KxRRGTf8MOBQLCebcWJX0lP1Zvc1rZIHlXGg==,
-      }
-    peerDependencies:
-      eslint: ^7.23.0 || ^8.0.0
-    dependencies:
-      eslint: 7.32.0
-      eslint-plugin-turbo: 0.0.4_eslint@7.32.0
-    dev: false
-
   /eslint-plugin-react/7.31.8_eslint@7.32.0:
     resolution:
       {
@@ -2767,17 +2751,6 @@ packages:
       resolve: 2.0.0-next.4
       semver: 6.3.0
       string.prototype.matchall: 4.0.8
-    dev: false
-
-  /eslint-plugin-turbo/0.0.4_eslint@7.32.0:
-    resolution:
-      {
-        integrity: sha512-dfmYE/iPvoJInQq+5E/0mj140y/rYwKtzZkn3uVK8+nvwC5zmWKQ6ehMWrL4bYBkGzSgpOndZM+jOXhPQ2m8Cg==,
-      }
-    peerDependencies:
-      eslint: ^7.23.0 || ^8.0.0
-    dependencies:
-      eslint: 7.32.0
     dev: false
 
   /eslint-scope/5.1.1:
@@ -6375,88 +6348,6 @@ packages:
       "@esbuild-kit/esm-loader": 2.5.1
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
-
-  /turbo-darwin-64/1.6.3:
-    resolution:
-      {
-        integrity: sha512-QmDIX0Yh1wYQl0bUS0gGWwNxpJwrzZU2GIAYt3aOKoirWA2ecnyb3R6ludcS1znfNV2MfunP+l8E3ncxUHwtjA==,
-      }
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-darwin-arm64/1.6.3:
-    resolution:
-      {
-        integrity: sha512-75DXhFpwE7CinBbtxTxH08EcWrxYSPFow3NaeFwsG8aymkWXF+U2aukYHJA6I12n9/dGqf7yRXzkF0S/9UtdyQ==,
-      }
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-linux-64/1.6.3:
-    resolution:
-      {
-        integrity: sha512-O9uc6J0yoRPWdPg9THRQi69K6E2iZ98cRHNvus05lZbcPzZTxJYkYGb5iagCmCW/pq6fL4T4oLWAd6evg2LGQA==,
-      }
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-linux-arm64/1.6.3:
-    resolution:
-      {
-        integrity: sha512-dCy667qqEtZIhulsRTe8hhWQNCJO0i20uHXv7KjLHuFZGCeMbWxB8rsneRoY+blf8+QNqGuXQJxak7ayjHLxiA==,
-      }
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-windows-64/1.6.3:
-    resolution:
-      {
-        integrity: sha512-lKRqwL3mrVF09b9KySSaOwetehmGknV9EcQTF7d2dxngGYYX1WXoQLjFP9YYH8ZV07oPm+RUOAKSCQuDuMNhiA==,
-      }
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-windows-arm64/1.6.3:
-    resolution:
-      {
-        integrity: sha512-BXY1sDPEA1DgPwuENvDCD8B7Hb0toscjus941WpL8CVd10hg9pk/MWn9CNgwDO5Q9ks0mw+liDv2EMnleEjeNA==,
-      }
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo/1.6.3:
-    resolution:
-      {
-        integrity: sha512-FtfhJLmEEtHveGxW4Ye/QuY85AnZ2ZNVgkTBswoap7UMHB1+oI4diHPNyqrQLG4K1UFtCkjOlVoLsllUh/9QRw==,
-      }
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      turbo-darwin-64: 1.6.3
-      turbo-darwin-arm64: 1.6.3
-      turbo-linux-64: 1.6.3
-      turbo-linux-arm64: 1.6.3
-      turbo-windows-64: 1.6.3
-      turbo-windows-arm64: 1.6.3
     dev: true
 
   /type-check/0.4.0:
