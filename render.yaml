@@ -32,7 +32,6 @@ services:
 databases:
   - name: fullstack-ts-db
     plan: free
-    databaseName: fullstack-ts-db
     postgresMajorVersion: 14
     ipAllowList: []
 
