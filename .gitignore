@@ -15,6 +15,7 @@ coverage
 .tsbuildinfo
 *.tsbuildinfo
 dist
+config-dist
 build
 .env
 
