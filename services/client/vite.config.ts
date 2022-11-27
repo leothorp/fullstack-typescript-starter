@@ -37,6 +37,7 @@ const getConfig = (env) => {
         force: true,
       },
       build: {
+        sourcemap: true,
         manifest: true,
 
         rollupOptions: {
