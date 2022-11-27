@@ -7,7 +7,7 @@
     "services/*"
   ],
   "scripts": {
-    "build": "dotenv -- turbo run build --filter=./services/* --parallel",
+    "//build": "dotenv -- turbo run build --filter=./services/* --parallel",
     "//build-client": "./repo_scripts/build_service.sh client && dotenv -- turbo run build --filter=./services/client",
     "//build-server": "./repo_scripts/build_service.sh server && dotenv -- turbo run build --filter=./services/server",
     "build-client": "./repo_scripts/build_service.sh client",
