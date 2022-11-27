@@ -7,12 +7,9 @@
     "services/*"
   ],
   "scripts": {
-    "//build": "dotenv -- turbo run build --filter=./services/* --parallel",
-    "//build-client": "./repo_scripts/build_service.sh client && dotenv -- turbo run build --filter=./services/client",
-    "//build-server": "./repo_scripts/build_service.sh server && dotenv -- turbo run build --filter=./services/server",
     "build-client": "./repo_scripts/build_service.sh client",
     "build-server": "./repo_scripts/build_service.sh server",
-    "start-server": "dotenv -- turbo run start --filter=./services/server",
+    "start-server": "dotenv -- pnpm run start --filter server",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
