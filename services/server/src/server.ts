@@ -4,7 +4,7 @@ import { appRouter } from "router";
 import { createContext } from "context";
 import { ServerOptions } from "config";
 import cors from "@fastify/cors";
-import { CLIENT_ORIGIN } from "@utilities/constants";
+import { CLIENT_ORIGIN } from "@utilities/shared-constants";
 
 export function createServer(opts: ServerOptions) {
   const { dev, port, prefix } = opts;

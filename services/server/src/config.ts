@@ -1,4 +1,4 @@
-import { PORT, isDevelopment } from "@utilities/constants";
+import { isDevelopment, API_PREFIX } from "@utilities/shared-constants";
 
 export interface ServerOptions {
   dev: boolean;
@@ -7,6 +7,6 @@ export interface ServerOptions {
 }
 export const serverConfig: ServerOptions = {
   dev: isDevelopment,
-  port: PORT,
-  prefix: "/api",
+  port: Number(process.env.PORT),
+  prefix: API_PREFIX,
 };

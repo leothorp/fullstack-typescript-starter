@@ -11,6 +11,7 @@
     "API_ORIGIN",
     "CLIENT_ORIGIN",
     "CLIENT_PORT",
-    "PORT"
+    "PORT",
+    "API_PREFIX"
   ]
 }

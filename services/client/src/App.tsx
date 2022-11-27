@@ -2,9 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import { trpc } from "utils/trpc-client";
-import { serverConfig } from "@server/config";
 import { Greeting } from "./Greeting";
-import { API_ORIGIN } from "@utilities/constants";
+import { API_ORIGIN, API_PREFIX } from "@utilities/shared-constants";
 
 const queryClient = new QueryClient();
 
@@ -13,7 +12,7 @@ const App = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: API_ORIGIN + serverConfig.prefix,
+          url: API_ORIGIN + API_PREFIX,
           //TODO(lt):
           // headers() {
           //   return {

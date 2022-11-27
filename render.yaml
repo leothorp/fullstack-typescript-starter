@@ -46,6 +46,8 @@ envVarGroups:
         value: 5000
       - key: CLIENT_ORIGIN
         value: https://fullstack-ts-client.onrender.com
+      - key: API_PREFIX
+        value: /api
         # TODO(lt): add GOOGLE_CLIENT_ID in render dashboard
       - key: GOOGLE_CLIENT_ID
         sync: false

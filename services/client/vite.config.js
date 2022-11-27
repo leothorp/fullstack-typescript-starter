@@ -19,19 +19,15 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 var envVariablesToForward = ["NODE_ENV", "API_ORIGIN"];
 var pullValuesFromEnv = function (keys, env) {
-  return keys.reduce(
-    function (acc, curr) {
-      acc["process.env.".concat(curr)] = JSON.stringify(env[curr]);
-      return acc;
-    },
-    {
-      process: {},
-    }
-  );
+  return keys.reduce(function (acc, curr) {
+    acc["process.env.".concat(curr)] = JSON.stringify(env[curr]);
+    return acc;
+  }, {});
 };
 var getConfig = function (env) {
   // any process.env values desired for use on the frontend must be specified here
   var define = pullValuesFromEnv(envVariablesToForward, env);
+  console.log(define, "define");
   var commonConfig = {
     define: define,
     plugins: [
@@ -45,7 +41,11 @@ var getConfig = function (env) {
   if (env.nodeEnv === "production") {
     return defineConfig(
       __assign(__assign({}, commonConfig), {
+        optimizeDeps: {
+          force: true,
+        },
         build: {
+          sourcemap: true,
           manifest: true,
           rollupOptions: {
             // overwrite default .html entry
