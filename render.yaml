@@ -10,6 +10,15 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+    buildFilter:
+      paths:
+        - services/client/**
+        - services/server/src/router.ts
+        - packages/**
+        - pnpm-workspace.yaml
+        - pnpm-lock.yaml
+        - .npmrc
+        - render.yaml
 
   - type: web
     name: fullstack-ts-server
@@ -26,6 +35,15 @@ services:
           property: connectionString
       - key: PORT
         value: 5000
+
+    buildFilter:
+      paths:
+        - services/server/**
+        - packages/**
+        - pnpm-workspace.yaml
+        - pnpm-lock.yaml
+        - .npmrc
+        - render.yaml
 
 databases:
   - name: fullstack-ts-db
