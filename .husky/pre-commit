@@ -5,8 +5,9 @@ set -e
 bin_dir="node_modules/.bin"
 echo "running pre-commit script..."
 
+# --diff-filter used to exclude deleted files
 prettier_staged_files=$(git diff --cached --name-only --diff-filter="ACMRTUXB")
-# TODO: interpolate variable specified in package-json
+# TODO: interpolate variable specified in package-json for file extensions
 eslint_staged_files=$(git diff --cached --name-only --diff-filter="ACMRTUXB" -- *.{tsx,ts,js,jsx})
 
 
@@ -17,7 +18,6 @@ if [ $eslint_length -gt 0 ]
 then
     $bin_dir/eslint --no-error-on-unmatched-pattern --ignore-path .gitignore --fix --ext .jsx,.js,.ts,.tsx --cache  $eslint_staged_files
     git add $eslint_staged_files
-
 fi
 
 if [ $prettier_length -gt 0 ]

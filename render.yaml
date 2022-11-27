@@ -26,10 +26,6 @@ services:
           property: connectionString
       - key: PORT
         value: 5000
-    # buildFilter:
-    #   paths:
-    #     - services/server/**
-    #     - packages/utilities/**
 
 databases:
   - name: fullstack-ts-db
