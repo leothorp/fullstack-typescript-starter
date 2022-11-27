@@ -10,14 +10,12 @@
     "rootDir": "../../",
 
     "paths": {
+      //workaround for baseUrl resolution issue when tsc builds
       "@server/*": ["./src/*"],
       //paths are relative to baseUrl
       "@utilities/*": ["../../packages/utilities/src/*"]
-      // "*/": ["./*", "node_modules/*"],
-      // "*": ["./", "node_modules/"]
     }
   },
   // 'include' and 'references' here enable cross-workspace auto-imports / type references
   "include": ["./src", "../../packages/utilities/src"]
-  // "references": [{ "path": "../../packages/utilities" }]
 }
