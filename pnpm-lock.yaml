@@ -95,6 +95,8 @@ importers:
       "@trpc/client": 10.2.0_@trpc+server@10.2.0
       "@trpc/react-query": 10.2.0_r4yn24hul7opxxiv2jafuypeby
       "@trpc/server": 10.2.0
+      "@types/react": 18.0.25
+      "@types/react-dom": 18.0.9
       "@vitejs/plugin-react": 2.2.0_vite@3.2.4
       autoprefixer: 10.4.13_postcss@8.4.19
       clsx: 1.2.1
@@ -115,9 +117,6 @@ importers:
       vite-tsconfig-paths: 3.6.0_vite@3.2.4
       zod: 3.19.1
       zustand: 4.1.4_react@18.2.0
-    devDependencies:
-      "@types/react": 18.0.25
-      "@types/react-dom": 18.0.9
 
   services/server:
     specifiers:
@@ -152,6 +151,7 @@ importers:
       abort-controller: 3.0.0
       fastify: 4.10.2
       node-fetch: 2.6.7
+      tsc-alias: 1.7.1
       tsconfig: link:../../packages/tsconfig
       tslib: 2.4.1
       utilities: link:../../packages/utilities
@@ -162,7 +162,6 @@ importers:
       "@types/ws": 8.5.3
       npm-run-all: 4.1.5
       start-server-and-test: 1.14.0
-      tsc-alias: 1.7.1
       tsx: 3.12.1
       wait-port: 1.0.4
 
@@ -1082,7 +1081,6 @@ packages:
       {
         integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==,
       }
-    dev: true
 
   /@types/react-dom/18.0.9:
     resolution:
@@ -1091,7 +1089,6 @@ packages:
       }
     dependencies:
       "@types/react": 18.0.25
-    dev: true
 
   /@types/react/18.0.25:
     resolution:
@@ -1102,14 +1099,12 @@ packages:
       "@types/prop-types": 15.7.5
       "@types/scheduler": 0.16.2
       csstype: 3.1.1
-    dev: true
 
   /@types/scheduler/0.16.2:
     resolution:
       {
         integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==,
       }
-    dev: true
 
   /@types/semver/7.3.13:
     resolution:
@@ -1570,6 +1565,7 @@ packages:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
+    dev: false
 
   /archy/1.0.0:
     resolution:
@@ -1718,6 +1714,7 @@ packages:
         integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==,
       }
     engines: { node: ">=8" }
+    dev: false
 
   /bluebird/3.7.2:
     resolution:
@@ -1878,6 +1875,7 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
 
   /client-only/0.0.1:
     resolution:
@@ -2160,7 +2158,6 @@ packages:
       {
         integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==,
       }
-    dev: true
 
   /debug/4.3.2:
     resolution:
@@ -3702,6 +3699,7 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       binary-extensions: 2.2.0
+    dev: false
 
   /is-boolean-object/1.1.2:
     resolution:
@@ -4259,7 +4257,6 @@ packages:
         integrity: sha512-+MrqnJRtxdF+xngFfUUkIMQrUUL0KsxbADUkn23Z/4ibGg192Q+z+CQyiYwvWTsYjJygmMR8+w3ZDa98Zh6ESg==,
       }
     engines: { node: ">=12.0.0" }
-    dev: true
 
   /mz/2.7.0:
     resolution:
@@ -4340,6 +4337,7 @@ packages:
         integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==,
       }
     engines: { node: ">=0.10.0" }
+    dev: false
 
   /normalize-range/0.1.2:
     resolution:
@@ -4805,7 +4803,6 @@ packages:
       }
     dependencies:
       queue-lit: 1.5.0
-    dev: true
 
   /postcss-calc/8.2.4_postcss@8.4.19:
     resolution:
@@ -5378,7 +5375,6 @@ packages:
       {
         integrity: sha512-IslToJ4eiCEE9xwMzq3viOO5nH8sUWUCwoElrhNMozzr9IIt2qqvB4I+uHu/zJTQVqc9R5DFwok4ijNK1pU3fA==,
       }
-    dev: true
 
   /queue-microtask/1.2.3:
     resolution:
@@ -5509,6 +5505,7 @@ packages:
     engines: { node: ">=8.10.0" }
     dependencies:
       picomatch: 2.3.1
+    dev: false
 
   /real-require/0.2.0:
     resolution:
@@ -6298,7 +6295,7 @@ packages:
       mylas: 2.1.13
       normalize-path: 3.0.0
       plimit-lit: 1.5.0
-    dev: true
+    dev: false
 
   /tsconfig-paths/4.1.0:
     resolution:
