@@ -20,6 +20,8 @@ fi
 if [ $prettier_length -gt 0 ]
 then
     $bin_dir/prettier --ignore-unknown --no-error-on-unmatched-pattern --ignore-path .gitignore --cache --write $prettier_staged_files
+else
+    exit 0
 fi
 
 git add $eslint_staged_files
