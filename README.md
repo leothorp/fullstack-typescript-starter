@@ -19,7 +19,7 @@ Features:
 - react-query
 - react-router
 - Fastify
-- MikroORM
+- Prisma
 - pnpm
 - Zod
 

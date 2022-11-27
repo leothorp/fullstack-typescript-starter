@@ -4,9 +4,6 @@
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "module": "commonjs",
-    //decorators used by mikro-orm
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
 
     "outDir": "dist",
     "baseUrl": ".",
