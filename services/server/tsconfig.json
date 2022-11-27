@@ -1,13 +1,14 @@
 {
   "extends": "tsconfig/base.json",
 
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "module": "commonjs",
 
     "outDir": "dist",
     "baseUrl": "./src",
     "rootDir": "../../",
+
     "paths": {
       //paths are relative to baseUrl
       "@utilities/*": ["../../../packages/utilities/src/*"]

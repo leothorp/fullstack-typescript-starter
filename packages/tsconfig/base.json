@@ -13,6 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
     "target": "ESNext",
+    "sourceMap": true,
     "inlineSources": false,
     "isolatedModules": true,
     "moduleResolution": "Node",
@@ -22,9 +23,5 @@
     "skipLibCheck": true,
     "strict": true
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build"
-  ]
+  "exclude": ["node_modules", "dist", "build"]
 }
