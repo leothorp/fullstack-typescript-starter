@@ -8,6 +8,9 @@
   ],
   "scripts": {
     "build": "dotenv -- turbo run build --filter=./services/* --parallel",
+    "build-client": "dotenv -- turbo run build --filter=./services/client",
+    "build-server": "dotenv -- turbo run build --filter=./services/server",
+    "start-server": "dotenv -- turbo run start --filter=./services/server",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

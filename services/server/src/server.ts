@@ -16,8 +16,10 @@ export function createServer(opts: ServerOptions) {
     trpcOptions: { router: appRouter, createContext },
   });
 
-  server.get("/", async () => {
-    return { hello: "wait-on 💨" };
+  server.get("/healthz", {
+    handler: (req, resp) => {
+      resp.send({});
+    },
   });
 
   const stop = () => server.close();
