@@ -6,29 +6,22 @@ import { ServerOptions } from "@server/config";
 import cors from "@fastify/cors";
 import middie from "@fastify/middie";
 import { CLIENT_ORIGIN } from "@utilities/shared-constants";
-import { RequestContext } from "@mikro-orm/core";
-import { MikroORM } from "@mikro-orm/postgresql";
 
 // const requestDbContextMiddleware = (req, res, next) => {
 //   RequestContext.create(orm.em, next);
 // }
 
-export const createServer = async (opts: ServerOptions, orm: MikroORM) => {
+export const createServer = async (opts: ServerOptions) => {
   const { dev, port, prefix } = opts;
 
   const server = fastify({ logger: dev });
   server.register(cors, { origin: CLIENT_ORIGIN });
   server.register(middie);
 
-  server
-    .register(fastifyTRPCPlugin, {
-      prefix,
-      trpcOptions: { router: appRouter, createContext },
-    })
-    .use((req, res, next) => {
-      console.log("dbconn");
-      RequestContext.create(orm.em, next);
-    });
+  server.register(fastifyTRPCPlugin, {
+    prefix,
+    trpcOptions: { router: appRouter, createContext },
+  });
 
   //TODO(lt): check if db connection is happening for this too
   server.get("/healthz", {
