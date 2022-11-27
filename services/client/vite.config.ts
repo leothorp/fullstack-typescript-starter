@@ -6,7 +6,6 @@ const envVariablesToForward: string[] = [
   "NODE_ENV",
   "API_ORIGIN",
   "CLIENT_ORIGIN",
-  "API_PREFIX",
 ];
 const pullValuesFromEnv = (keys, env) => {
   return keys.reduce((acc, curr) => {

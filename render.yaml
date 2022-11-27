@@ -42,8 +42,6 @@ envVarGroups:
         value: https://fullstack-ts-server.onrender.com
       - key: CLIENT_ORIGIN
         value: https://fullstack-ts-client.onrender.com
-      - key: API_PREFIX
-        value: /api
       - key: GOOGLE_CLIENT_ID
         sync: false
       - key: HUSKY

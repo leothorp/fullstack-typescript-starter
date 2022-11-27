@@ -10,7 +10,7 @@
     "build-client": "./repo_scripts/build_service.sh client",
     "build-server": "./repo_scripts/build_service.sh server",
     "start-server": "pnpm run --filter server start",
-    "dev": "pnpm run --if-present --parallel dev",
+    "dev": "./repo_scripts/start_local_db.sh && pnpm run --if-present --parallel dev",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"

@@ -1,0 +1,42 @@
+// useful to get the Prisma VSCode extension
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AppUser {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique @db.VarChar(255)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  notes      Note[]
+
+  // translate from pg to prisma naming conventions.
+  // 'user' is a reserved keyword in postgres.
+  @@map("app_user")
+}
+
+model Note {
+  id         Int      @id @default(autoincrement())
+  title      String   @db.VarChar(255)
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  content    String   @default("")
+  published  Boolean  @default(false)
+  user_id    Int
+  user       AppUser  @relation(fields: [user_id], references: [id])
+  tags       Tag[]
+
+  @@map("note")
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String
+  notes Note[]
+
+  @@map("tag")
+}
