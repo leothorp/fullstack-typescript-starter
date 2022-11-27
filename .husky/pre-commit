@@ -9,7 +9,12 @@ eslint_staged_files=$(git diff --cached --name-only --diff-filter="ACMRTUXB" -- 
 
 
 prettier_length=${#prettier_staged_files} 
-eslint_length=${#eslint_staged_files} 
+eslint_length=${#eslint_staged_files}
+
+if [ $eslint_length -eq 0 ] && [ $prettier_staged_files -eq 0 ]
+then
+    exit 0
+fi
 
 if [ $eslint_length -gt 0 ]
 then
@@ -20,10 +25,9 @@ fi
 if [ $prettier_length -gt 0 ]
 then
     $bin_dir/prettier --ignore-unknown --no-error-on-unmatched-pattern --ignore-path .gitignore --cache --write $prettier_staged_files
-else
-    exit 0
 fi
 
+# re-add with changes from this
 git add $eslint_staged_files
 git add $prettier_staged_files
 
