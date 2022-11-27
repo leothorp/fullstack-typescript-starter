@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -uex
+set -e
 echo "pnpm version: $(pnpm -v)"
 pwd
 cd "$(dirname $0)/.."
