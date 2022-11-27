@@ -27,5 +27,9 @@ then
 fi
 
 
+# validate lockfile is up to date
+pnpm i --frozen-lockfile
+
+
 
 
