@@ -6,7 +6,6 @@
     "esModuleInterop": false,
     "noEmit": true,
     "jsx": "react-jsx",
-
     "baseUrl": "./src",
     "paths": {
       "@server/*": ["../../server/src/*"],
