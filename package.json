@@ -9,7 +9,7 @@
   "scripts": {
     "build-client": "./repo_scripts/build_service.sh client",
     "build-server": "./repo_scripts/build_service.sh server",
-    "start-server": "dotenv -- pnpm run --filter server start",
+    "start-server": "pnpm run --filter server start",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.2.0",
+    "@mikro-orm/core": "^5.5.3",
+    "@mikro-orm/postgresql": "^5.5.3",
     "@trpc/client": "^10.2.0",
     "@trpc/server": "^10.2.0",
     "abort-controller": "^3.0.0",
