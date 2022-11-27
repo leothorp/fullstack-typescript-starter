@@ -15,6 +15,6 @@
     }
   },
   // 'include' and 'references' here enable cross-workspace auto-imports / type references
-  "include": ["./src", "../../packages/utilities/src"],
-  "references": [{ "path": "../../packages/utilities" }]
+  "include": ["./src", "../../packages/utilities/src"]
+  // "references": [{ "path": "../../packages/utilities" }]
 }

@@ -3,7 +3,7 @@
   "version": "10.2.0",
   "private": true,
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc",
     "dev": "tsx watch src",
     "start": "node dist/services/server/src/index.js",
     "//start": "run-p start:* --print-label",
