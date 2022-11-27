@@ -53,5 +53,5 @@ envVarGroups:
         value: 0
       - key: NODE_VERSION
         value: 18.12.1
-      # - key: SKIP_INSTALL_DEPS
-      #   value: true
+      - key: SKIP_INSTALL_DEPS
+        value: true
