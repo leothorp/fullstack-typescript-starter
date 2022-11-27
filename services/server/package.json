@@ -3,7 +3,7 @@
   "version": "10.2.0",
   "private": true,
   "scripts": {
-    "build": "tsc --project tsconfig.json && tsc-alias --debug -p tsconfig.json",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "dev": "dotenv -e ../../.env.shared.local -e ../../.env.server.local -- tsx watch src",
     "start": "node dist/services/server/src/index.js",
     "//start": "run-p start:* --print-label",
