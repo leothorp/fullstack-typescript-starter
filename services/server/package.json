@@ -3,7 +3,7 @@
   "version": "10.2.0",
   "private": true,
   "scripts": {
-    "build": "pnpx tsc --build",
+    "build": "tsc --build",
     "dev": "tsx watch src",
     "start": "node dist/server/index.js",
     "//start": "run-p start:* --print-label",
@@ -20,7 +20,8 @@
     "tslib": "^2.1.0",
     "utilities": "workspace:*",
     "ws": "^8.0.0",
-    "zod": "^3.0.0"
+    "zod": "^3.0.0",
+    "tsconfig": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^18.7.20",
@@ -28,9 +29,7 @@
     "@types/ws": "^8.2.0",
     "npm-run-all": "^4.1.5",
     "start-server-and-test": "^1.12.0",
-    "tsconfig": "workspace:*",
     "tsx": "^3.9.0",
-    "typescript": "^4.8.3",
     "wait-port": "^1.0.1"
   },
   "publishConfig": {

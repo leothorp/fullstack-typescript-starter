@@ -18,20 +18,20 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "dotenv-cli": "^6.0.0",
+    "typescript": "^4.9.3",
+    "eslint-config-shared": "workspace:*"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "eslint": "^8.28.0",
-    "eslint-config-shared": "workspace:*",
     "husky": "^8.0.2",
     "prettier": "latest",
-    "turbo": "latest",
-    "typescript": "^4.9.3"
+    "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@7.17.0",
-  "dependencies": {
-    "dotenv-cli": "^6.0.0"
-  }
+  "packageManager": "pnpm@7.17.0"
 }

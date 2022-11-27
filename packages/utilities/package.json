@@ -2,8 +2,10 @@
   "name": "utilities",
   "version": "0.0.0",
   "private": true,
-  "devDependencies": {
-    "@types/node": "^18.7.20",
+  "dependencies": {
     "tsconfig": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.20"
   }
 }
