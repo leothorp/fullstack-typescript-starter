@@ -8,7 +8,7 @@ echo "pnpm version: $(pnpm -v)"
 # cd services/$1 && tsc --noEmit
 
 # certain scripts in devDependencies needed for the build process
-time NODE_ENV=development pnpm i --frozen-lockfile --ignore-scripts
+NODE_ENV=development pnpm i --frozen-lockfile --ignore-scripts
 
 
-time node_modules/.bin/dotenv -- pnpm run --filter $1 build 
+node_modules/.bin/dotenv -- pnpm run --filter $1 build 
