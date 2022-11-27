@@ -61,9 +61,8 @@ importers:
       "@types/node": ^18.7.20
       tsconfig: workspace:*
     dependencies:
-      tsconfig: link:../tsconfig
-    devDependencies:
       "@types/node": 18.11.9
+      tsconfig: link:../tsconfig
 
   services/client:
     specifiers:
@@ -946,7 +945,6 @@ packages:
       {
         integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==,
       }
-    dev: true
 
   /@types/prop-types/15.7.5:
     resolution:
