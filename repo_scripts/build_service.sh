@@ -2,7 +2,7 @@
 set -e
 echo "pnpm version: $(pnpm -v)"
 
-ls -a
-pnpm i --frozen-lockfile -P -D --ignore-scripts
-ls -a
+
+pnpm i --frozen-lockfile --ignore-scripts
+
 node_modules/.bin/dotenv -- pnpm run --filter $1 build 
