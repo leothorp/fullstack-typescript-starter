@@ -12,7 +12,8 @@ eslint_staged_files=$(git diff --cached --name-only --diff-filter="ACMRTUXB" -- 
 
 prettier_length=${#prettier_staged_files} 
 eslint_length=${#eslint_staged_files}
-
+echo $prettier_length
+echo $eslint_length
 if [ $eslint_length -eq 0 ] && [ $prettier_length -eq 0 ]
 then
     exit 0
