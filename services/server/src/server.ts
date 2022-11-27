@@ -7,10 +7,6 @@ import cors from "@fastify/cors";
 import middie from "@fastify/middie";
 import { CLIENT_ORIGIN } from "@utilities/shared-constants";
 
-// const requestDbContextMiddleware = (req, res, next) => {
-//   RequestContext.create(orm.em, next);
-// }
-
 export const createServer = async (opts: ServerOptions) => {
   const { dev, port, prefix } = opts;
 

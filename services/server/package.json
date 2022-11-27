@@ -6,11 +6,11 @@
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "dev": "dotenv -e ../../.env.shared.local -e ../../.env.server.local -- tsx watch src",
     "start": "pnpm run prisma-migrate-prod && node dist/services/server/src/index.js",
-    "prisma": "../../node_modules/.bin/dotenv -e ../../.env.server.local -- prisma",
-    "prisma-gen": "pnpm run prisma -- generate",
-    "prisma-reset-db": "pnpm run prisma -- migrate reset",
-    "prisma-migrate-dev": "pnpm run prisma -- migrate dev",
-    "prisma-migrate-prod": "pnpm run prisma -- migrate deploy",
+    "prisma-cli": "../../node_modules/.bin/dotenv -e ../../.env.server.local -- prisma",
+    "prisma-gen": "pnpm run prisma-cli -- generate",
+    "prisma-reset-db": "pnpm run prisma-cli -- migrate reset",
+    "prisma-migrate-dev": "pnpm run prisma-cli -- migrate dev",
+    "prisma-migrate-prod": "pnpm run prisma-cli -- migrate deploy",
     "//start": "run-p start:* --print-label",
     "//test-dev": "start-server-and-test 'tsx src' http-get://localhost:2022 'tsx src/client'",
     "//test-start": "start-server-and-test 'node dist/server' http-get://localhost:2022 'node dist/client'"
@@ -36,13 +36,13 @@
     "typeorm": "^0.3.10",
     "utilities": "workspace:*",
     "ws": "^8.0.0",
-    "zod": "^3.0.0"
+    "zod": "^3.0.0",
+    "prisma": "^4.6.1"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.11",
     "@types/ws": "^8.2.0",
     "npm-run-all": "^4.1.5",
-    "prisma": "^4.6.1",
     "start-server-and-test": "^1.12.0",
     "tsx": "^3.9.0",
     "wait-port": "^1.0.1"
