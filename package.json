@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "build": "dotenv -- turbo run build --filter=./services/* --parallel",
-    "build-client": "./repo_scripts/pnpm_install.sh client && dotenv -- turbo run build --filter=./services/client",
-    "build-server": "./repo_scripts/pnpm_install.sh server && dotenv -- turbo run build --filter=./services/server",
+    "//build-client": "./repo_scripts/build_service.sh client && dotenv -- turbo run build --filter=./services/client",
+    "//build-server": "./repo_scripts/build_service.sh server && dotenv -- turbo run build --filter=./services/server",
+    "build-client": "./repo_scripts/build_service.sh client",
+    "build-server": "./repo_scripts/build_service.sh server",
     "start-server": "dotenv -- turbo run start --filter=./services/server",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
