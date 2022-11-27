@@ -40,7 +40,7 @@ const getConfig = (env) => {
       build: {
         sourcemap: true,
         manifest: true,
-
+        outDir: "/dist",
         rollupOptions: {
           // overwrite default .html entry
           input: "./src/main.tsx",
@@ -52,10 +52,10 @@ const getConfig = (env) => {
   return defineConfig({
     ...commonConfig,
     server: {
-      port: env.CLIENT_PORT,
+      port: 3000,
     },
     preview: {
-      port: env.CLIENT_PORT,
+      port: 3000,
     },
   });
 };

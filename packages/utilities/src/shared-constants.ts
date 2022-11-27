@@ -7,7 +7,7 @@ declare global {
       API_ORIGIN: string;
       PORT: string;
       CLIENT_ORIGIN: string;
-      CLIENT_PORT?: string;
+      API_PREFIX: string;
     }
   }
 }

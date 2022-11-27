@@ -17,7 +17,12 @@ import { defineConfig } from "vite";
 // import EnvironmentPlugin from "vite-plugin-environment";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
-var envVariablesToForward = ["NODE_ENV", "API_ORIGIN"];
+var envVariablesToForward = [
+  "NODE_ENV",
+  "API_ORIGIN",
+  "CLIENT_ORIGIN",
+  "API_PREFIX",
+];
 var pullValuesFromEnv = function (keys, env) {
   return keys.reduce(function (acc, curr) {
     acc["process.env.".concat(curr)] = JSON.stringify(env[curr]);
@@ -47,6 +52,7 @@ var getConfig = function (env) {
         build: {
           sourcemap: true,
           manifest: true,
+          outDir: "/dist",
           rollupOptions: {
             // overwrite default .html entry
             input: "./src/main.tsx",
@@ -58,10 +64,10 @@ var getConfig = function (env) {
   return defineConfig(
     __assign(__assign({}, commonConfig), {
       server: {
-        port: env.CLIENT_PORT,
+        port: 3000,
       },
       preview: {
-        port: env.CLIENT_PORT,
+        port: 3000,
       },
     })
   );
