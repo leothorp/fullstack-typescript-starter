@@ -9,8 +9,7 @@ cd "$(dirname $0)/.."
 # pnpx eslint@latest --no-error-on-unmatched-pattern --ignore-path .gitignore --ext .jsx,.js,.ts,.tsx services/$1
 # cd services/$1 && tsc --noEmit
 
-# --ignore-scripts to skip any npm hooks (e.g., 'prepare')
-pnpm i --frozen-lockfile --ignore-scripts
+pnpm i --frozen-lockfile
 
 
 pnpm run --filter $1 build 

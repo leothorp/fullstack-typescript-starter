@@ -50,3 +50,6 @@ envVarGroups:
         value: 18.12.1
       - key: SKIP_INSTALL_DEPS
         value: true
+        # disable husky install
+      - key: CI
+        value: true

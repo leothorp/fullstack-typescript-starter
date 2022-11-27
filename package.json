@@ -13,7 +13,7 @@
     "dev": "./repo_scripts/start_local_db.sh && pnpm run --if-present --parallel dev",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install"
+    "prepare": "[ -n \"$CI\" ] || husky install"
   },
   "dependencies": {
     "typescript": "^4.9.3",
