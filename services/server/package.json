@@ -35,5 +35,8 @@
   },
   "publishConfig": {
     "access": "restricted"
+  },
+  "_moduleAliases": {
+    "@utilities": "./dist/packages/utilities/src"
   }
 }
