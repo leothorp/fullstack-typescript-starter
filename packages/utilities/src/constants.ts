@@ -5,7 +5,7 @@ declare global {
     interface ProcessEnv {
       NODE_ENV: string;
       API_ORIGIN: string;
-      API_PORT: string;
+      PORT: string;
       CLIENT_ORIGIN: string;
       CLIENT_PORT?: string;
     }
@@ -17,7 +17,7 @@ export const isDevelopment = NODE_ENV === "development";
 export const isProduction = NODE_ENV === "production";
 
 export const API_ORIGIN = process.env.API_ORIGIN;
-export const API_PORT = Number(process.env.API_PORT);
+export const PORT = Number(process.env.PORT);
 export const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN;
 export const CLIENT_PORT =
   process.env.CLIENT_PORT && Number(process.env.CLIENT_PORT);
