@@ -5,15 +5,10 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 const envVariablesToForward: string[] = ["NODE_ENV", "API_ORIGIN"];
 const pullValuesFromEnv = (keys, env) => {
-  return keys.reduce(
-    (acc, curr) => {
-      acc[`process.env.${curr}`] = JSON.stringify(env[curr]);
-      return acc;
-    },
-    {
-      process: {},
-    }
-  );
+  return keys.reduce((acc, curr) => {
+    acc[`process.env.${curr}`] = JSON.stringify(env[curr]);
+    return acc;
+  }, {});
 };
 
 const getConfig = (env) => {
