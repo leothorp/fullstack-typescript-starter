@@ -7,12 +7,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
-    "rootDirs": ["../", "../../packages"],
     "paths": {
       "@server/*": ["../../server/src/*"],
       "@ui/*": ["../../../packages/ui/src/*"],
       "@utilities/*": ["../../../packages/utilities/src/*"]
-    }
+    },
+    "rootDir": "../../"
   },
   "include": [
     "./src",

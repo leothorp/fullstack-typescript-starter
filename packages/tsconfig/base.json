@@ -2,6 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "outDir": "dist",
     "composite": true,
     "incremental": true,
     "resolveJsonModule": true,
@@ -19,9 +20,11 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,
-    "baseUrl": "."
-    // "rootDir": "../../"
+    "strict": true
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build"
+  ]
 }

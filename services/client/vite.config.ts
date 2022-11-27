@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import EnvironmentPlugin from "vite-plugin-environment";
 
 import react from "@vitejs/plugin-react";
-//TODO(lt): vvv check if still necessary
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const getConfig = (env) => {
