@@ -9,7 +9,9 @@ const getConfig = (env) => {
   const envVariablesToForward: string[] = ["NODE_ENV", "API_ORIGIN"];
   const commonConfig = {
     plugins: [
-      EnvironmentPlugin(envVariablesToForward),
+      //we are already using dotenv cli to load env variables,
+      //so { loadEnvFiles: false } is used to disable EnvironmentPlugin's own .env file support
+      EnvironmentPlugin(envVariablesToForward, { loadEnvFiles: false }),
       tsconfigPaths(),
       react(),
     ],
