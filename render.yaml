@@ -24,10 +24,10 @@ services:
         fromDatabase:
           name: fullstack-ts-db
           property: connectionString
-    buildFilter:
-      paths:
-        - services/server/**
-        - packages/utilities/**
+    # buildFilter:
+    #   paths:
+    #     - services/server/**
+    #     - packages/utilities/**
 
 databases:
   - name: fullstack-ts-db
