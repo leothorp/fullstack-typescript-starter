@@ -8,7 +8,7 @@ import {
 import { z } from "zod";
 import { createUser, getUserByEmail } from "@server/database/queries";
 
-interface LoginResponse {
+export interface LoginResponse {
   id: number;
   email: string;
   accessToken: string;
