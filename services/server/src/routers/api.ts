@@ -8,10 +8,11 @@ import {
 import { z } from "zod";
 import { createUser, getUserByEmail } from "@server/database/queries";
 
-// type User = {
-//   id: string;
-//   email: string;
-// };
+interface LoginResponse {
+  id: number;
+  email: string;
+  accessToken: string;
+}
 
 export const apiRouter = router({
   hello: publicProcedure
@@ -53,7 +54,7 @@ export const apiRouter = router({
         }
 
         const accessToken = await generateAccessToken(user.id, user.email);
-        const result = {
+        const result: LoginResponse = {
           accessToken,
           id: user.id,
           email: user.email,

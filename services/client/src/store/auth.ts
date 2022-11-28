@@ -3,7 +3,6 @@ import { trpcVanillaClient } from "@client/utils/trpc-client";
 import { loadGoogleSignInScript } from "@client/utils/utils";
 import { GOOGLE_CLIENT_ID } from "@utilities/shared-constants";
 // import jwt_decode from "jwt-decode";
-
 interface User {
   email: string;
   id: number;
