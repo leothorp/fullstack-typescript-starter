@@ -33,8 +33,9 @@ export const useAuthStore = createImmerStore<AuthStore>((set, get) => ({
       auto_select: false,
       callback: async ({ credential: idToken }) => {
         //now that they have authenticated with google, log into our own backend
-        const resp: { accessToken: string; id: number; email: string } =
-          await trpcVanillaClient.api.googleLogin.mutate({ idToken });
+        const resp = await trpcVanillaClient.api.googleLogin.mutate({
+          idToken,
+        });
         get().loginComplete(resp.accessToken, {
           email: resp.email,
           id: resp.id,
