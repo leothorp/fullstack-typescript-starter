@@ -1,25 +1,16 @@
 import { ServerOptions } from "@server/config";
 import cors from "cors";
 import { CLIENT_ORIGIN } from "@utilities/shared-constants";
-import { router } from "@server/utils/trpc-server";
+import { createContext, router } from "@server/utils/trpc-server";
 import express from "express";
 import { apiRouter } from "@server/routers/api";
 import { subRouter } from "@server/routers/sub";
 import { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 
-import { inferAsyncReturnType } from "@trpc/server";
-import {
-  CreateExpressContextOptions,
-  createExpressMiddleware,
-} from "@trpc/server/adapters/express";
+import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { IncomingMessage, Server, ServerResponse } from "http";
 
-const createContext = ({}: CreateExpressContextOptions) => ({}); // no context
-export type Context = inferAsyncReturnType<typeof createContext>;
-
-//any type to silence "has or is using" TS error
 const appRouter = router({
-  // posts: postsRouter,
   api: apiRouter,
   sub: subRouter,
 });
@@ -43,7 +34,7 @@ export const createServer: (opts: ServerOptions) => {
     prefix,
     createExpressMiddleware({
       router: appRouter,
-      createContext,
+      createContext: createContext,
     })
   );
 

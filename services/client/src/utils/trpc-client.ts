@@ -2,7 +2,7 @@ import { createTRPCReact } from "@trpc/react-query";
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
 import { API_ORIGIN, API_PREFIX } from "@utilities/shared-constants";
 import { QueryClient } from "@tanstack/react-query";
-
+//TODO(lt):auto-imports not working again
 //TODO(lt): vvv fix these aliases for auto-import
 import type { AppRouter } from "@server/server";
 
