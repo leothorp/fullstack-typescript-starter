@@ -39,13 +39,7 @@ const AuthenticatedPage = () => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface AppProps {
-  location;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const App = (props: AppProps) => {
+const App = () => {
   useEffect(() => {
     initGoogleSignIn();
   }, []);
@@ -57,16 +51,6 @@ const App = (props: AppProps) => {
   }
   return (
     <Switch>
-      {/* <Route
-        path={"/notes"}
-        render={(locProps) => {
-          return (
-            <AuthenticatedContainer {...locProps}>
-              <AuthenticatedPage {...locProps} />
-            </AuthenticatedContainer>
-          );
-        }}
-      /> */}
       <AuthenticatedRoute path={"/notes"} component={AuthenticatedPage} />
       <Route path={"/login"} component={LoginPage} />
     </Switch>
