@@ -45,7 +45,7 @@ import { useEffect } from "react";
 export const LoginPage = (props) => {
   console.log("login page", props.location);
   return (
-    <div>
+    <div className="text-center w-[100vw] flex-col justify-center h-[100vh] flex">
       <h2>Login / Register with Google</h2>
       <GoogleSignInButton location={location} />
     </div>
@@ -83,5 +83,7 @@ const GoogleSignInButton = (props) => {
   });
 
   /* //partially generated via https://developers.google.com/identity/gsi/web/tools/configurator */
-  return <div id="google-login-btn-container" />;
+  return (
+    <div className="flex justify-center mt-4" id="google-login-btn-container" />
+  );
 };

@@ -8,7 +8,7 @@ export const NotesPage = () => {
   }
   return (
     <div>
-      <h2>Notes</h2>
+      <h2 className="text-center">Notes</h2>
       {data &&
         data.map((n) => {
           return (

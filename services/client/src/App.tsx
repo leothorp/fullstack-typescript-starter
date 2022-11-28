@@ -11,19 +11,14 @@ import {
 import { Link, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { useEffect } from "react";
 
-const AuthenticatedContainer = (props) => {
+const AuthenticatedRoute = (props) => {
   const { accessToken } = useAuthStore();
-  // useEffect(() => {
-  //   if (!isAuthenticated) {
-  //     history.push("/login");
-  //   }
-  // }, [isAuthenticated, history]);
 
   if (!accessToken) {
     return <Redirect to="/login" />;
   }
 
-  return props.children;
+  return <Route {...props} />;
 };
 
 const AuthenticatedPage = () => {
@@ -54,18 +49,15 @@ const App = (props: AppProps) => {
   useEffect(() => {
     initGoogleSignIn();
   }, []);
-  // const authLoading = useAuthStore((state) => state.authLoading);
   useResumeSessionOnMount();
-  const { isAuthenticated, authLoading } = useAuthStatus();
-  console.log("isAuthenticated:", isAuthenticated);
-  console.log("authLoading:", authLoading);
+  const { authLoading } = useAuthStatus();
 
   if (authLoading) {
     return <>Loading...</>;
   }
   return (
     <Switch>
-      <Route
+      {/* <Route
         path={"/notes"}
         render={(locProps) => {
           return (
@@ -74,25 +66,10 @@ const App = (props: AppProps) => {
             </AuthenticatedContainer>
           );
         }}
-      />
-      <Route path={"/login"} render={LoginPage} />
-      {/* <Redirect from="*" to="/notes" /> */}
+      /> */}
+      <AuthenticatedRoute path={"/notes"} component={AuthenticatedPage} />
+      <Route path={"/login"} component={LoginPage} />
     </Switch>
   );
 };
 export default withRouter(App);
-
-// class App extends React.Component {
-//   componentDidMount() {
-//     this.props.attemptSessionResumption();
-//   }
-//   render() {
-//     const { isAuthenticated, authLoading } = this.props;
-//     console.log("isAuth: ", isAuthenticated);
-//     if (authLoading) {
-//       return <CircularProgress />;
-//     }
-
-//     return isAuthenticated ? <AuthenticatedRoutes /> : <OpenRoutes />;
-//   }
-// }
