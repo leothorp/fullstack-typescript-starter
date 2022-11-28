@@ -30,7 +30,7 @@ const AuthenticatedPage = () => {
         <Link to="/">Home</Link>
         <div>
           <span className="mr-4">{currentUser.email}</span>
-          {/* @ts-ignore */}
+
           <button onClick={logout}>Log Out</button>
         </div>
       </div>

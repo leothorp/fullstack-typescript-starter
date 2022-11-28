@@ -79,6 +79,7 @@ const trpcVanillaClient = createTRPCProxyClient<AppRouter>({
   ],
 });
 
+//TODO(lt): check status codes, only do this on 401/403
 const queryCache = new QueryCache({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onError: (error) => {

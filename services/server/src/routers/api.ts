@@ -11,24 +11,18 @@ import {
 } from "@server/utils/server-utils";
 import { z } from "zod";
 import {
+  createNote,
   createUser,
   getNotesForUser,
   getUserByEmail,
 } from "@server/database/queries";
+import {
+  LoginOutputSchema,
+  NewNoteInputSchema,
+  NoteSchema,
+  NotesOutputSchema,
+} from "@server/schemas";
 
-const LoginOutputSchema = z.object({
-  accessToken: z.string(),
-  email: z.string().email(),
-  id: z.number(),
-});
-
-const NotesOutputSchema = z.array(
-  z.object({
-    title: z.string(),
-    content: z.string(),
-    id: z.number(),
-  })
-);
 
 export const apiRouter = router({
   //TODO(lt): error handling
@@ -90,5 +84,12 @@ export const apiRouter = router({
     .query(async ({ ctx }) => {
       const notes = await getNotesForUser(ctx.user.id);
       return notes;
+    }),
+  createNote: protectedProcedure
+    .input(NewNoteInputSchema)
+    .output(NoteSchema)
+    .mutation(async ({ ctx, input }) => {
+      const note = await createNote(input, ctx.user);
+      return note;
     }),
 });

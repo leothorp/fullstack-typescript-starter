@@ -1,3 +1,4 @@
+import { NewNoteForm } from "@client/ NoteForm";
 import { trpc } from "@client/store/auth";
 
 export const NotesPage = () => {
@@ -18,6 +19,8 @@ export const NotesPage = () => {
             </div>
           );
         })}
+      <h2 className="text-center">Add a Note</h2>
+      <NewNoteForm />
     </div>
   );
 };

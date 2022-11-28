@@ -9,6 +9,17 @@ export const createUser = async ({ email, googleUserId }) => {
     },
   });
 };
+export const createNote = async ({ title, content }, user) => {
+  return await prisma.note.create({
+    data: {
+      title,
+      content,
+      user: {
+        connect: { id: user.id },
+      },
+    },
+  });
+};
 
 // export const fetchAllUsers = async () => {
 //   const allUsers = await prisma.app_user.findMany();

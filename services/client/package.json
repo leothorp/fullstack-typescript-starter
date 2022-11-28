@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
+    "@hookform/resolvers": "^2.9.10",
     "@tanstack/react-query": "^4.3.8",
     "@tanstack/react-router": "0.0.1-beta.28",
     "@trpc/client": "^10.2.0",
@@ -30,6 +31,7 @@
     "postcss": "^8.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.7",
     "react-router": "^5",
     "react-router-dom": "^5",
     "sass": "^1.56.1",
@@ -40,7 +42,11 @@
     "utilities": "workspace:*",
     "vite": "^3",
     "vite-tsconfig-paths": "^3.6.0",
-    "zod": "^3.19.1",
+    "zod": "link:@hookform/resolvers/zod",
     "zustand": "^4.1.4"
+  },
+  "//comment": "//left off here: https://playwright.dev/docs/intro#installing-playwright",
+  "devDependencies": {
+    "@playwright/test": "^1.28.1"
   }
 }
