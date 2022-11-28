@@ -11,3 +11,4 @@ const init = async () => {
 };
 
 init();
+
