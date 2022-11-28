@@ -30,7 +30,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
     "sass": "^1.56.1",
-    "server": "workspace:10.2.0",
+    "server": "workspace:*",
     "tailwindcss": "^3.2.4",
     "tsconfig": "workspace:*",
     "ui": "workspace:*",
