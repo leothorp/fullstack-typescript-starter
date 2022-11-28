@@ -28,7 +28,7 @@ export const createServer: (opts: ServerOptions) => {
   const { port, prefix } = opts;
 
   const app = express();
-  app.use(cors({ origin: CLIENT_ORIGIN }));
+  app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }));
 
   app.use(
     prefix,

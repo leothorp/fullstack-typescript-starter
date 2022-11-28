@@ -73,6 +73,8 @@ export const useAuthStatus = () => {
     shallow
   );
 
+  //TODO(lt): test intuition with hooks here- if it doesn't return any of the changing stuff,
+  //does the inner hook still cause rerender?
   return {
     isAuthenticated: !authLoading && !!currentUser && !!accessToken,
     authLoading,
