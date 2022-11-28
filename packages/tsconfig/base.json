@@ -15,7 +15,7 @@
     "target": "ESNext",
     "sourceMap": true,
     "inlineSources": false,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "moduleResolution": "Node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,

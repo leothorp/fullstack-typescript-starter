@@ -13,8 +13,7 @@ export const appRouter = router({
   sub: subRouter,
 });
 
-type AppRouter = typeof appRouter;
-export { AppRouter };
+export type AppRouter = typeof appRouter;
 
 //TODO(lt): how are these meant to be used?
 export type RouterInput = inferRouterInputs<AppRouter>;
