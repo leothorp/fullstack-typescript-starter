@@ -6,6 +6,7 @@ const envVariablesToForward: string[] = [
   "NODE_ENV",
   "API_ORIGIN",
   "CLIENT_ORIGIN",
+  "GOOGLE_CLIENT_ID",
 ];
 const pullValuesFromEnv = (keys, env) => {
   return keys.reduce((acc, curr) => {

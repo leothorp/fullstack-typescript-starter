@@ -1,7 +1,10 @@
 // import { publicProcedure, router } from "@server/utils/trpc-server";
 import { publicProcedure, router } from "@server/utils/trpc-server";
 import { TRPCError } from "@trpc/server";
-import { verifyGoogleIdToken } from "@server/utils/server-utils";
+import {
+  verifyGoogleIdToken,
+  generateAccessToken,
+} from "@server/utils/server-utils";
 import { z } from "zod";
 import { createUser, getUserByEmail } from "@server/database/queries";
 
@@ -23,7 +26,6 @@ export const apiRouter = router({
     .input(z.object({ idToken: z.string() }))
     .mutation(async ({ input: { idToken } }) => {
       //TODO(lt): WIP, pulled from microtask
-
       if (!idToken) {
         throw new TRPCError({
           code: "UNAUTHORIZED",
@@ -32,7 +34,6 @@ export const apiRouter = router({
       }
       try {
         const { googleUserId, email } = await verifyGoogleIdToken(idToken);
-
         const existingUser = await getUserByEmail(email);
 
         let user;
@@ -42,7 +43,7 @@ export const apiRouter = router({
           user = newUser;
         } else {
           console.log("existing user found: ");
-          if (existingUser.googleUserId !== googleUserId) {
+          if (existingUser.google_user_id !== googleUserId) {
             throw new TRPCError({
               code: "UNAUTHORIZED",
               message: "Google user id does not match.",
@@ -51,18 +52,13 @@ export const apiRouter = router({
           user = existingUser;
         }
 
-        const accessToken = await generateAccessToken(
-          existingUser.id,
-          existingUser.email
-        );
+        const accessToken = await generateAccessToken(user.id, user.email);
         const result = {
           accessToken,
-          id: existingUser.id,
-          email: existingUser.email,
+          id: user.id,
+          email: user.email,
         };
-        console.log("final result: ", result);
-        res.json(result);
-
+        return result;
         //1. lookup user by email
         //2. if not exists:
         //    - create user
@@ -78,21 +74,4 @@ export const apiRouter = router({
         });
       }
     }),
-  //TODO(lt): vvv add
-  // getUserById: t.procedure.input(z.string()).query(({ input }) => {
-  //   return users[input]; // input type is string
-  // }),
-  // createUser: t.procedure
-  //   .input(
-  //     z.object({
-  //       name: z.string().min(3),
-  //       bio: z.string().max(142).optional(),
-  //     }),
-  //   )
-  //   .mutation(({ input }) => {
-  //     const id = Date.now().toString();
-  //     const user: User = { id, ...input };
-  //     users[user.id] = user;
-  //     return user;
-  //   }),
 });

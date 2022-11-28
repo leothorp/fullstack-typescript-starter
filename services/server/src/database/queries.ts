@@ -2,10 +2,10 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const createUser = async ({ email, googleUserId }) => {
-  return await prisma.app_user.create({
+  return await prisma.appUser.create({
     data: {
       email,
-      googleUserId,
+      google_user_id: googleUserId,
     },
   });
 };
@@ -15,8 +15,10 @@ export const createUser = async ({ email, googleUserId }) => {
 //   return allUsers;
 // };
 
-export const getUserByEmail = async ({ email }) => {
-  return await prisma.app_user.findUnique({
-    email,
+export const getUserByEmail = async (email) => {
+  return await prisma.appUser.findUnique({
+    where: {
+      email,
+    },
   });
 };

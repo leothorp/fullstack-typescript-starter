@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.13",
     "clsx": "^1.2.1",
     "cssnano": "^5.1.14",
+    "immer": "^9.0.16",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
     "module-alias": "^2.2.2",

@@ -25,8 +25,6 @@ export const trpcReactClient = trpc.createClient({
     }),
   ],
 });
-trpc.useContext().client.mutation()
-trpcReactClient.useContext().
 
 //used for requests outside of a React component context (just login currently)
 export const trpcVanillaClient = createTRPCProxyClient<AppRouter>({
