@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
-echo "pnpm version: $(pnpm -v)"
 
 cd "$(dirname $0)/.."
 
-
+npm i -g pnpm@latest
+echo "pnpm version: $(pnpm -v)"
 pnpm i --force
 
 
