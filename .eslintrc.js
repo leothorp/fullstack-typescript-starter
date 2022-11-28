@@ -5,5 +5,6 @@ module.exports = {
   extends: ["shared"],
   rules: {
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
 };

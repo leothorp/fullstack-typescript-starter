@@ -1,4 +1,5 @@
 import { createImmerStore } from "@client/store/storeUtils";
+import { trpcReactClient, trpcVanillaClient } from "@client/utils/trpc-client";
 import { GOOGLE_CLIENT_ID } from "@utilities/shared-constants";
 import jwt_decode from "jwt-decode";
 
@@ -27,7 +28,8 @@ export const useAuthStore = createImmerStore<AuthStore>((set) => ({
         window.google.accounts.id.initialize({
           client_id: GOOGLE_CLIENT_ID,
           auto_select: false,
-            callback: ({ credential }) => {
+            callback: ({ credential: idToken }) => {
+                trpcVanillaClient.api.googleLogin.mutate({idToken})
               //TODO(lt): vvv now that they have authenticated with google, log into our own backend
             // dispatch(authActions.googleLogin(credential));
           },
