@@ -1,18 +1,23 @@
-import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
-import fastify from "fastify";
-import { createContext } from "@server/context";
 import { ServerOptions } from "@server/config";
-import cors from "@fastify/cors";
-import middie from "@fastify/middie";
+import cors from "cors";
 import { CLIENT_ORIGIN } from "@utilities/shared-constants";
 import { router } from "@server/utils/trpc-server";
-
+import express from "express";
 import { apiRouter } from "@server/routers/api";
 import { subRouter } from "@server/routers/sub";
 import { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 
+import { inferAsyncReturnType } from "@trpc/server";
+import {
+  CreateExpressContextOptions,
+  createExpressMiddleware,
+} from "@trpc/server/adapters/express";
+import { IncomingMessage, Server, ServerResponse } from "http";
+
+const createContext = ({}: CreateExpressContextOptions) => ({}); // no context
+export type Context = inferAsyncReturnType<typeof createContext>;
+
 //any type to silence "has or is using" TS error
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const appRouter = router({
   // posts: postsRouter,
   api: apiRouter,
@@ -25,36 +30,34 @@ export type AppRouter = typeof appRouter;
 export type RouterInput = inferRouterInputs<AppRouter>;
 export type RouterOutput = inferRouterOutputs<AppRouter>;
 
-export const createServer = async (opts: ServerOptions) => {
-  const { dev, port, prefix } = opts;
+export const createServer: (opts: ServerOptions) => {
+  server: Express.Application;
+  start: () => Promise<Server<typeof IncomingMessage, typeof ServerResponse>>;
+} = (opts: ServerOptions) => {
+  const { port, prefix } = opts;
 
-  const server = fastify({ logger: dev });
-  server.register(cors, { origin: CLIENT_ORIGIN });
-  server.register(middie);
+  const app = express();
+  app.use(cors({ origin: CLIENT_ORIGIN }));
 
-  server.register(fastifyTRPCPlugin, {
+  app.use(
     prefix,
-    trpcOptions: { router: appRouter, createContext },
-  });
+    createExpressMiddleware({
+      router: appRouter,
+      createContext,
+    })
+  );
 
   //TODO(lt): check if db connection is happening for this too
-  server.get("/healthz", {
-    handler: (req, resp) => {
-      resp.send({});
-    },
+  app.get("/healthz", (req, res) => {
+    res.sendStatus(200);
   });
 
   //TODO(lt): graceful handle sigterm with this + close DB connection
-  const stop = () => server.close();
   const start = async () => {
-    try {
-      await server.listen({ port });
-      console.log("Server ready. listening on port:", port);
-    } catch (err) {
-      server.log.error(err);
-      process.exit(1);
-    }
+    const server = app.listen({ port });
+    console.log("Server ready. listening on port:", port);
+    return server;
   };
 
-  return { server, start, stop };
+  return { server: app, start };
 };

@@ -5,10 +5,9 @@ import { serverConfig } from "@server/config";
 import { createServer } from "@server/server";
 
 const init = async () => {
-  const server = await createServer(serverConfig);
+  const server = createServer(serverConfig);
 
   server.start();
 };
 
 init();
-
