@@ -15,15 +15,14 @@
     "target": "ESNext",
     "sourceMap": true,
     "inlineSources": false,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "moduleResolution": "Node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
-    "strict": true,
-    "typeRoots": ["./node_modules/@types"]
+    "strict": true
   },
   "exclude": ["node_modules", "dist", "build"]
 }

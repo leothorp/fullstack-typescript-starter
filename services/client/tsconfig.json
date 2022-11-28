@@ -7,7 +7,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "types": ["vite/client"],
     "paths": {
       "@client/*": ["./src/*"],
       "@server/*": ["../server/src/*"],
