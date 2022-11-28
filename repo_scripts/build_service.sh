@@ -5,7 +5,7 @@ cd "$(dirname $0)/.."
 
 npm i -g pnpm@latest
 echo "pnpm version: $(pnpm -v)"
-pnpm i --force
+pnpm i
 
 
 # basic CI checks
