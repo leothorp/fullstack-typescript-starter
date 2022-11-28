@@ -13,7 +13,7 @@ services:
     buildFilter:
       paths:
         - services/client/**
-        - services/server/src/router.ts
+        - services/server/src/server.ts
         - packages/**
         - pnpm-workspace.yaml
         - pnpm-lock.yaml
