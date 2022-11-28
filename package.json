@@ -17,10 +17,11 @@
     "rm_node_modules": "rm -rf node_modules */**/node_modules"
   },
   "dependencies": {
-    "typescript": "^4.9.3",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.28.0",
     "eslint-config-shared": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.44.0"
+    "typescript": "^4.9.3"
   },
   "devDependencies": {
     "dotenv-cli": "^6.0.0",
