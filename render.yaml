@@ -34,6 +34,8 @@ services:
           property: connectionString
       - key: PORT
         value: 5000
+      - key: JWT_SECRET
+        sync: false
       - fromGroup: fullstack-ts-env-shared
 
     buildFilter:
@@ -61,8 +63,6 @@ envVarGroups:
       - key: CLIENT_ORIGIN
         value: https://fullstack-ts-client.onrender.com
       - key: GOOGLE_CLIENT_ID
-        sync: false
-      - key: JWT_SECRET
         sync: false
       - key: HUSKY
         value: 0
