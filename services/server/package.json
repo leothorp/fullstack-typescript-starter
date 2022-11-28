@@ -52,5 +52,8 @@
   },
   "_moduleAliases": {
     "@utilities": "./dist/packages/utilities/src"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   }
 }
