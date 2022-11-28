@@ -1,18 +1,35 @@
 // import { publicProcedure, router } from "@server/utils/trpc-server";
-import { publicProcedure, router } from "@server/utils/trpc-server";
+import {
+  protectedProcedure,
+  publicProcedure,
+  router,
+} from "@server/utils/trpc-server";
 import { TRPCError } from "@trpc/server";
 import {
   verifyGoogleIdToken,
   generateAccessToken,
 } from "@server/utils/server-utils";
 import { z } from "zod";
-import { createUser, getUserByEmail } from "@server/database/queries";
+import {
+  createUser,
+  getNotesForUser,
+  getUserByEmail,
+} from "@server/database/queries";
 
 const LoginOutputSchema = z.object({
   accessToken: z.string(),
   email: z.string().email(),
   id: z.number(),
 });
+
+const NotesOutputSchema = z.array(
+  z.object({
+    title: z.string(),
+    content: z.string(),
+    id: z.number(),
+  })
+);
+
 export const apiRouter = router({
   //TODO(lt): error handling
   googleLogin: publicProcedure
@@ -32,11 +49,11 @@ export const apiRouter = router({
 
         let user;
         if (!existingUser) {
-          console.log("creating new user: ");
+          console.log("creating new user.");
           const newUser = await createUser({ email, googleUserId });
           user = newUser;
         } else {
-          console.log("existing user found: ");
+          console.log("existing user found.");
           if (existingUser.google_user_id !== googleUserId) {
             throw new TRPCError({
               code: "UNAUTHORIZED",
@@ -67,5 +84,11 @@ export const apiRouter = router({
           message: "Invalid Google id token.",
         });
       }
+    }),
+  getNotes: protectedProcedure
+    .output(NotesOutputSchema)
+    .query(async ({ ctx }) => {
+      const notes = await getNotesForUser(ctx.user.id);
+      return notes;
     }),
 });

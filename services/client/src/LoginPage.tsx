@@ -1,6 +1,5 @@
 import { useAuthStore } from "@client/store/auth";
-import React, { useEffect } from "react";
-
+import { useEffect } from "react";
 // type Props = {
 //   googleSignInInitialized: boolean;
 // };
@@ -43,17 +42,36 @@ import React, { useEffect } from "react";
 //   }
 // );
 
-export const GoogleSignInButton = () => {
+export const LoginPage = (props) => {
+  console.log("login page", props.location);
+  return (
+    <div>
+      <h2>Login / Register with Google</h2>
+      <GoogleSignInButton location={location} />
+    </div>
+  );
+};
+
+const GoogleSignInButton = (props) => {
+  console.log("sign in button", props.location);
+
+  useEffect(() => {
+    console.log("mount");
+
+    return () => {
+      console.log("unmount");
+    };
+  }, []);
   const googleSignInInitialized = useAuthStore(
     (state) => state.googleSignInInitialized
   );
-  const initGoogleSignIn = useAuthStore((state) => state.initGoogleSignIn);
-  useEffect(() => {
-    initGoogleSignIn();
-  }, [initGoogleSignIn]);
+
+  console.log(googleSignInInitialized);
 
   useEffect(() => {
     if (googleSignInInitialized) {
+      console.log(googleSignInInitialized, "inner");
+
       window.google.accounts.id.renderButton(
         document.querySelector("#google-login-btn-container"),
         {
@@ -62,7 +80,7 @@ export const GoogleSignInButton = () => {
         }
       );
     }
-  }, [googleSignInInitialized]);
+  });
 
   /* //partially generated via https://developers.google.com/identity/gsi/web/tools/configurator */
   return <div id="google-login-btn-container" />;

@@ -22,3 +22,18 @@ export const getUserByEmail = async (email) => {
     },
   });
 };
+export const getUserById = async (id) => {
+  return await prisma.appUser.findUnique({
+    where: {
+      id,
+    },
+  });
+};
+
+export const getNotesForUser = async (userId) => {
+  return await prisma.note.findMany({
+    where: {
+      user_id: userId,
+    },
+  });
+};

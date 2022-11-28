@@ -2,9 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/main.scss";
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+import { trpcReactClient, trpc, queryClient } from "@client/utils/trpc-client";
+import { Router } from "react-router";
+import browserHistory from "@client/utils/browserHistory";
+import { QueryClientProvider } from "@tanstack/react-query";
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
   <React.StrictMode>
-    <App />
+    <trpc.Provider client={trpcReactClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <Router history={browserHistory}>
+          <App />
+        </Router>
+      </QueryClientProvider>
+    </trpc.Provider>
   </React.StrictMode>
 );
 

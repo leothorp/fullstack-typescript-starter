@@ -5,6 +5,7 @@ import { QueryClient } from "@tanstack/react-query";
 //TODO(lt):auto-imports not working again
 //TODO(lt): vvv fix these aliases for auto-import
 import type { AppRouter } from "@server/server";
+import { getCurrentAuthHeader } from "@client/store/auth";
 
 //https://blog.logrocket.com/build-full-stack-typescript-app-trpc-react/
 
@@ -17,11 +18,11 @@ export const trpcReactClient = trpc.createClient({
     httpBatchLink({
       url: API_ORIGIN + API_PREFIX,
       //TODO(lt):
-      // headers() {
-      //   return {
-      //     authorization: getAuthCookie(),
-      //   };
-      // },
+      headers() {
+        return {
+          Authorization: getCurrentAuthHeader(),
+        };
+      },
     }),
   ],
 });

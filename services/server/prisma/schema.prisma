@@ -26,7 +26,6 @@ model AppUser {
 model Note {
   title     String  @db.VarChar(255)
   content   String  @default("")
-  published Boolean @default(false)
   user_id   Int
   user      AppUser @relation(fields: [user_id], references: [id])
   tags      Tag[]

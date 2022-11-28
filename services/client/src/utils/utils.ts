@@ -19,3 +19,9 @@ export const loadGoogleSignInScript = () => {
     js.onload = resolve;
   });
 };
+
+export const invariant = (cond, errMsg) => {
+  if (!cond) {
+    throw new Error(errMsg);
+  }
+};

@@ -70,6 +70,10 @@ export const validateAccessToken = async (token) => {
     issuer: API_ORIGIN,
     audience: CLIENT_ORIGIN,
   });
+  //@ts-ignore
+  const { "x-user-id": userId, "x-user-email": email } = payload.claims;
 
-  return payload;
+  const result = { userId: Number(userId), email };
+  console.log("result", result);
+  return result;
 };
