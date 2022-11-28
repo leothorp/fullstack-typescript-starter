@@ -18,8 +18,6 @@
   "dependencies": {
     "typescript": "^4.9.3",
     "eslint-config-shared": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "eslint-config-prettier": "^8.3.0",
     "eslint": "^8.28.0"
   },
   "devDependencies": {
