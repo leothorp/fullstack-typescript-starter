@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 importers:
   .:
     specifiers:
+      "@typescript-eslint/eslint-plugin": ^5.44.0
       dotenv-cli: ^6.0.0
       eslint: ^8.28.0
       eslint-config-shared: workspace:*
@@ -10,6 +11,7 @@ importers:
       prettier: latest
       typescript: ^4.9.3
     dependencies:
+      "@typescript-eslint/eslint-plugin": 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
       eslint: 8.28.0
       eslint-config-shared: link:packages/eslint-config-shared
       typescript: 4.9.3

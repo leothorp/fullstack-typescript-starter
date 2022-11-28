@@ -18,7 +18,8 @@
   "dependencies": {
     "typescript": "^4.9.3",
     "eslint": "^8.28.0",
-    "eslint-config-shared": "workspace:*"
+    "eslint-config-shared": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.44.0"
   },
   "devDependencies": {
     "dotenv-cli": "^6.0.0",
