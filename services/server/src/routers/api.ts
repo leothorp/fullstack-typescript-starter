@@ -8,23 +8,16 @@ import {
 import { z } from "zod";
 import { createUser, getUserByEmail } from "@server/database/queries";
 
-export interface LoginResponse {
-  id: number;
-  email: string;
-  accessToken: string;
-}
-
+const LoginOutputSchema = z.object({
+  accessToken: z.string(),
+  email: z.string().email(),
+  id: z.number(),
+});
 export const apiRouter = router({
-  hello: publicProcedure
-    .input(z.object({ username: z.string().nullish() }).nullish())
-    .query(({ input }) => {
-      return {
-        text: `hello ${input?.username}`,
-      };
-    }),
   //TODO(lt): error handling
   googleLogin: publicProcedure
     .input(z.object({ idToken: z.string() }))
+    .output(LoginOutputSchema)
     .mutation(async ({ input: { idToken } }) => {
       //TODO(lt): WIP, pulled from microtask
       if (!idToken) {
@@ -54,7 +47,7 @@ export const apiRouter = router({
         }
 
         const accessToken = await generateAccessToken(user.id, user.email);
-        const result: LoginResponse = {
+        const result = {
           accessToken,
           id: user.id,
           email: user.email,
