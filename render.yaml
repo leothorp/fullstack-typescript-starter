@@ -29,15 +29,6 @@ services:
         sync: false
       - fromGroup: fullstack-ts-env-shared
 
-    buildFilter:
-      paths:
-        - services/server/**
-        - packages/**
-        - pnpm-workspace.yaml
-        - pnpm-lock.yaml
-        - .npmrc
-        - render.yaml
-
 databases:
   - name: fullstack-ts-db
     plan: free
