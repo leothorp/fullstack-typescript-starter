@@ -1,4 +1,4 @@
-import { NewNoteForm } from "@client/ NoteForm";
+import { NewNoteForm } from "@client/NoteForm";
 import { trpc } from "@client/store/auth";
 
 export const NotesPage = () => {
