@@ -28,7 +28,6 @@ services:
       - key: JWT_SECRET
         sync: false
       - fromGroup: fullstack-ts-env-shared
-
     buildFilter:
       paths:
         - services/server/**
