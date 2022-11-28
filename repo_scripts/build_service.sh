@@ -5,7 +5,7 @@ echo "pnpm version: $(pnpm -v)"
 cd "$(dirname $0)/.."
 
 
-pnpm i --frozen-lockfile
+pnpm i --frozen-lockfile --filter $1
 
 
 # basic CI checks
