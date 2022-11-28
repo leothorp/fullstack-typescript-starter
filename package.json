@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "typescript": "^4.9.3",
-    "eslint-config-shared": "workspace:*",
     "eslint": "^8.28.0"
   },
   "devDependencies": {
