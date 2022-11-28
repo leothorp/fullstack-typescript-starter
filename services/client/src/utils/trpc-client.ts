@@ -4,7 +4,7 @@ import { API_ORIGIN, API_PREFIX } from "@utilities/shared-constants";
 import { QueryClient } from "@tanstack/react-query";
 
 //TODO(lt): vvv fix these aliases for auto-import
-import { AppRouter } from "@server/router";
+import type { AppRouter } from "@server/server";
 
 //https://blog.logrocket.com/build-full-stack-typescript-app-trpc-react/
 

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "composite": true,
     "incremental": true,
-    "module": "ESNext",
+    "module": "ES2015",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "outDir": "./config-dist"
