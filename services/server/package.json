@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.2.0",
-    "@fastify/jwt": "^6.4.0",
     "@fastify/middie": "^8.0.0",
     "@prisma/client": "^4.6.1",
     "@trpc/client": "^10.2.0",

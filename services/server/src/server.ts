@@ -6,7 +6,6 @@ import { ServerOptions } from "@server/config";
 import cors from "@fastify/cors";
 import middie from "@fastify/middie";
 import { CLIENT_ORIGIN } from "@utilities/shared-constants";
-import fastifyJWT from "@fastify/jwt";
 export const createServer = async (opts: ServerOptions) => {
   const { dev, port, prefix } = opts;
 

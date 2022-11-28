@@ -116,7 +116,6 @@ importers:
   services/server:
     specifiers:
       "@fastify/cors": ^8.2.0
-      "@fastify/jwt": ^6.4.0
       "@fastify/middie": ^8.0.0
       "@prisma/client": ^4.6.1
       "@trpc/client": ^10.2.0
@@ -146,7 +145,6 @@ importers:
       zod: ^3.0.0
     dependencies:
       "@fastify/cors": 8.2.0
-      "@fastify/jwt": 6.4.0
       "@fastify/middie": 8.0.0
       "@prisma/client": 4.6.1_prisma@4.6.1
       "@trpc/client": 10.2.0_@trpc+server@10.2.0
@@ -654,19 +652,6 @@ packages:
       fast-json-stringify: 5.4.1
     dev: false
 
-  /@fastify/jwt/6.4.0:
-    resolution:
-      {
-        integrity: sha512-1wwrOfIUKxfbm72Tvxrz7+H1XwX9aa1W8CGmHVxkYEdN7KA29+hO77FPF/c7zOaEkqMyZr6XfRaoYZMWz02J4A==,
-      }
-    dependencies:
-      "@fastify/error": 3.0.0
-      "@lukeed/ms": 2.0.1
-      fast-jwt: 2.0.2
-      fastify-plugin: 4.3.0
-      steed: 1.1.3
-    dev: false
-
   /@fastify/middie/8.0.0:
     resolution:
       {
@@ -792,14 +777,6 @@ packages:
     dependencies:
       "@jridgewell/resolve-uri": 3.1.0
       "@jridgewell/sourcemap-codec": 1.4.14
-    dev: false
-
-  /@lukeed/ms/2.0.1:
-    resolution:
-      {
-        integrity: sha512-Xs/4RZltsAL7pkvaNStUQt7netTkyxrS0K+RILcVr3TRMS/ToOg4I6uNfhB9SlGsnWBym4U+EaXq0f0cEMNkHA==,
-      }
-    engines: { node: ">=8" }
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -2899,16 +2876,6 @@ packages:
       }
     dev: false
 
-  /fastfall/1.5.1:
-    resolution:
-      {
-        integrity: sha512-KH6p+Z8AKPXnmA7+Iz2Lh8ARCMr+8WNPVludm1LGkZoD2MjY6LVnRMtTKhkdzI+jr0RzQWXKzKyBJm1zoHEL4Q==,
-      }
-    engines: { node: ">=0.10.0" }
-    dependencies:
-      reusify: 1.0.4
-    dev: false
-
   /fastify-plugin/3.0.1:
     resolution:
       {
@@ -2948,16 +2915,6 @@ packages:
       - supports-color
     dev: false
 
-  /fastparallel/2.4.1:
-    resolution:
-      {
-        integrity: sha512-qUmhxPgNHmvRjZKBFUNI0oZuuH9OlSIOXmJ98lhKPxMZZ7zS/Fi0wRHOihDSz0R1YiIOjxzOY4bq65YTcdBi2Q==,
-      }
-    dependencies:
-      reusify: 1.0.4
-      xtend: 4.0.2
-    dev: false
-
   /fastq/1.13.0:
     resolution:
       {
@@ -2965,16 +2922,6 @@ packages:
       }
     dependencies:
       reusify: 1.0.4
-    dev: false
-
-  /fastseries/1.7.2:
-    resolution:
-      {
-        integrity: sha512-dTPFrPGS8SNSzAt7u/CbMKCJ3s01N04s4JFbORHcmyvVfVKmbhMD1VtRbh5enGHxkaQDqWyLefiKOGGmohGDDQ==,
-      }
-    dependencies:
-      reusify: 1.0.4
-      xtend: 4.0.2
     dev: false
 
   /file-entry-cache/6.0.1:
@@ -5824,19 +5771,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /steed/1.1.3:
-    resolution:
-      {
-        integrity: sha512-EUkci0FAUiE4IvGTSKcDJIQ/eRUP2JJb56+fvZ4sdnguLTqIdKjSxUe138poW8mkvKWXW2sFPrgTsxqoISnmoA==,
-      }
-    dependencies:
-      fastfall: 1.5.1
-      fastparallel: 2.4.1
-      fastq: 1.13.0
-      fastseries: 1.7.2
-      reusify: 1.0.4
-    dev: false
 
   /stream-combiner/0.0.4:
     resolution:
