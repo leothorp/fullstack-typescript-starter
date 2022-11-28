@@ -1,9 +1,16 @@
 import { createImmerStore } from "@client/store/storeUtils";
 import browserHistory from "@client/utils/browserHistory";
 import { LS_KEY_TOKEN } from "@client/utils/constants";
-import { queryClient, trpcVanillaClient } from "@client/utils/trpc-client";
 import { loadGoogleSignInScript } from "@client/utils/utils";
-import { GOOGLE_CLIENT_ID } from "@utilities/shared-constants";
+import { AppRouter } from "@server/server";
+import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { createTRPCReact } from "@trpc/react-query";
+import {
+  API_ORIGIN,
+  API_PREFIX,
+  GOOGLE_CLIENT_ID,
+} from "@utilities/shared-constants";
 import jwt_decode, { JwtPayload } from "jwt-decode";
 import { useEffect } from "react";
 import shallow from "zustand/shallow";
@@ -63,6 +70,46 @@ export const logout = () => {
   }
 };
 
+//used for requests outside of a React component context (just login currently)
+const trpcVanillaClient = createTRPCProxyClient<AppRouter>({
+  links: [
+    httpBatchLink({
+      url: API_ORIGIN + API_PREFIX,
+    }),
+  ],
+});
+
+const queryCache = new QueryCache({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onError: (error) => {
+    console.log(error);
+    logout();
+  },
+});
+
+const mutationCache = new MutationCache({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onError: (error) => {
+    logout();
+  },
+});
+export const queryClient = new QueryClient({ queryCache, mutationCache });
+export const trpc = createTRPCReact<AppRouter>();
+
+//https://blog.logrocket.com/build-full-stack-typescript-app-trpc-react/
+export const trpcReactClient = trpc.createClient({
+  links: [
+    httpBatchLink({
+      url: API_ORIGIN + API_PREFIX,
+      //TODO(lt):
+      headers() {
+        return {
+          Authorization: getCurrentAuthHeader(),
+        };
+      },
+    }),
+  ],
+});
 export const useAuthStatus = () => {
   const { authLoading, currentUser, accessToken } = useAuthStore(
     ({ authLoading, currentUser, accessToken }) => ({

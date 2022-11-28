@@ -1,4 +1,4 @@
-import { trpc } from "@client/utils/trpc-client";
+import { trpc } from "@client/store/auth";
 
 export const NotesPage = () => {
   const { data, isLoading, isFetching } = trpc.api.getNotes.useQuery();

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/main.scss";
-import { trpcReactClient, trpc, queryClient } from "@client/utils/trpc-client";
+import { trpcReactClient, trpc, queryClient } from "@client/store/auth";
 import { Router } from "react-router";
 import browserHistory from "@client/utils/browserHistory";
 import { QueryClientProvider } from "@tanstack/react-query";
