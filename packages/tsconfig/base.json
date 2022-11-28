@@ -26,7 +26,10 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
-    "strict": true
+    "strict": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "exclude": ["node_modules", "dist", "build"]
 }

@@ -1,22 +1,22 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export const createUser = async () => {
-  await prisma.app_user.create({
+export const createUser = async ({ email, googleUserId }) => {
+  return await prisma.app_user.create({
     data: {
-      name: "Alice",
-      email: "alice@prisma.io",
-      posts: {
-        create: { title: "Hello World" },
-      },
-      profile: {
-        create: { bio: "I like turtles" },
-      },
+      email,
+      googleUserId,
     },
   });
 };
 
-export const fetchAllUsers = async () => {
-  const allUsers = await prisma.app_user.findMany();
-  return allUsers;
+// export const fetchAllUsers = async () => {
+//   const allUsers = await prisma.app_user.findMany();
+//   return allUsers;
+// };
+
+export const getUserByEmail = async ({ email }) => {
+  return await prisma.app_user.findUnique({
+    email,
+  });
 };

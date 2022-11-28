@@ -62,6 +62,8 @@ envVarGroups:
         value: https://fullstack-ts-client.onrender.com
       - key: GOOGLE_CLIENT_ID
         sync: false
+      - key: JWT_SECRET
+        sync: false
       - key: HUSKY
         value: 0
       - key: NODE_VERSION

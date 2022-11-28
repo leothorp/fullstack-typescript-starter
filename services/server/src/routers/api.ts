@@ -3,6 +3,7 @@ import { publicProcedure, router } from "@server/utils/trpc-server";
 import { TRPCError } from "@trpc/server";
 import { verifyGoogleIdToken } from "@server/utils/server-utils";
 import { z } from "zod";
+import { createUser, getUserByEmail } from "@server/database/queries";
 
 // type User = {
 //   id: string;
@@ -31,32 +32,25 @@ export const apiRouter = router({
       }
       try {
         const { googleUserId, email } = await verifyGoogleIdToken(idToken);
-        //TODO(lt): vvv what happens for not found?
-        let existingUser;
-        const getUserResponse = await queries.getUserByEmail(email);
-        console.log(getUserResponse.users);
-        if (getUserResponse.errors) {
-          throw getUserResponse.errors[0].message;
-        }
-        existingUser = getUserResponse.data.users[0];
-        console.log("existence check: ", existingUser);
+
+        const existingUser = await getUserByEmail(email);
+
+        let user;
         if (!existingUser) {
-          console.log("creating: ");
-
-          const createUserResponse = await queries.createUser(
-            email,
-            googleUserId
-          );
-          if (createUserResponse.errors) {
-            throw createUserResponse.errors[0].message;
+          console.log("creating new user: ");
+          const newUser = await createUser({ email, googleUserId });
+          user = newUser;
+        } else {
+          console.log("existing user found: ");
+          if (existingUser.googleUserId !== googleUserId) {
+            throw new TRPCError({
+              code: "UNAUTHORIZED",
+              message: "Google user id does not match.",
+            });
           }
-          existingUser = createUserResponse.data.insert_users_one;
+          user = existingUser;
         }
 
-        if (existingUser.googleUserId !== googleUserId) {
-          throw new Error("Google user id does not match.");
-        }
-        console.log(existingUser);
         const accessToken = await generateAccessToken(
           existingUser.id,
           existingUser.email
