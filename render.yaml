@@ -10,15 +10,6 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
-    buildFilter:
-      paths:
-        - services/client/**
-        - services/server/src/server.ts
-        - packages/**
-        - pnpm-workspace.yaml
-        - pnpm-lock.yaml
-        - .npmrc
-        - render.yaml
 
   - type: web
     name: fullstack-ts-server
