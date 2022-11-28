@@ -4,21 +4,22 @@ import { inferAsyncReturnType, initTRPC, TRPCError } from "@trpc/server";
 import { CreateExpressContextOptions } from "@trpc/server/adapters/express";
 
 export const createContext = async ({ req }: CreateExpressContextOptions) => {
-  async function getUserFromHeader() {
-    if (req.headers.authorization) {
-      const userInfo = await validateAccessToken(
-        req.headers.authorization.split(" ")[1]
-      );
-      return userInfo;
-    }
-    return null;
+  if (!req.headers.authorization) {
+    return { user: null };
   }
-  const result = await getUserFromHeader();
+  try {
+    const userInfo = await validateAccessToken(
+      req.headers.authorization.split(" ")[1]
+    );
 
-  const user = result ? await getUserById(result.userId) : null;
-  return {
-    user,
-  };
+    const user = userInfo ? await getUserById(userInfo.userId) : null;
+    return {
+      user,
+    };
+  } catch (e) {
+    console.error("error during authorization header validation:", e);
+    return { user: null };
+  }
 }; // no context
 export type Context = inferAsyncReturnType<typeof createContext>;
 
