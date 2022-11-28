@@ -5,11 +5,13 @@ importers:
     specifiers:
       dotenv-cli: ^6.0.0
       eslint: ^8.28.0
+      eslint-config-shared: workspace:*
       husky: ^8.0.2
       prettier: latest
       typescript: ^4.9.3
     dependencies:
       eslint: 8.28.0
+      eslint-config-shared: link:packages/eslint-config-shared
       typescript: 4.9.3
     devDependencies:
       dotenv-cli: 6.0.0
