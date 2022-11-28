@@ -9,6 +9,7 @@ import {
 import { createSecretKey } from "crypto";
 import * as jose from "jose";
 
+const JWT_SECRET = process.env.JWT_SECRET!;
 //from https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
 const googleOAuthClient = new OAuth2Client(GOOGLE_CLIENT_ID);
 //TODO(lt): check if req has csrf token/ cookie described here: https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
@@ -18,6 +19,9 @@ export const verifyGoogleIdToken = async (idToken) => {
     audience: GOOGLE_CLIENT_ID,
   });
   const decodedToken = loginTicket.getPayload();
+  if (!decodedToken) {
+    throw new Error("Token not found.");
+  }
   //verify 'aud' as described in https://developers.google.com/identity/sign-in/web/backend-auth
   if (decodedToken["aud"] !== GOOGLE_CLIENT_ID) {
     throw new Error(
@@ -35,7 +39,7 @@ export const verifyGoogleIdToken = async (idToken) => {
 //e.g., openssl rand -hex 64 (64 bytes for HS512)
 
 //TODO(lt): vvv determine if JWT with this method still the better approach here
-const jwtSecretKey = createSecretKey(process.env.JWT_SECRET, "utf-8");
+const jwtSecretKey = createSecretKey(JWT_SECRET, "utf-8");
 //auth tutorial https://codevoweb.com/trpc-api-with-postgres-prisma-nodejs-jwt-authentication/
 export const generateAccessToken = async (userId, email) => {
   const role = "user";
