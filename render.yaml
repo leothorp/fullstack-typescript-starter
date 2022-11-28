@@ -28,13 +28,13 @@ services:
     startCommand: pnpm run start-server
     healthCheckPath: /healthz
     envVars:
-      - fromGroup: fullstack-ts-env-shared
       - key: DATABASE_URL
         fromDatabase:
           name: fullstack-ts-db
           property: connectionString
       - key: PORT
         value: 5000
+      - fromGroup: fullstack-ts-env-shared
 
     buildFilter:
       paths:

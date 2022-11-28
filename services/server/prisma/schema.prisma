@@ -1,4 +1,4 @@
-// useful to get the Prisma VSCode extension
+// syntax highlighting and formatting available via the Prisma VSCode extension
 
 generator client {
   provider = "prisma-client-js"
@@ -10,10 +10,13 @@ datasource db {
 }
 
 model AppUser {
+  email          String @unique @db.VarChar(255)
+  notes          Note[]
+  google_user_id String @unique @db.VarChar(255)
+
   id         Int      @id @default(autoincrement())
-  email      String   @unique @db.VarChar(255)
   created_at DateTime @default(now()) @db.Timestamptz(6)
-  notes      Note[]
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
 
   // translate from pg to prisma naming conventions.
   // 'user' is a reserved keyword in postgres.
@@ -21,22 +24,27 @@ model AppUser {
 }
 
 model Note {
+  title     String  @db.VarChar(255)
+  content   String  @default("")
+  published Boolean @default(false)
+  user_id   Int
+  user      AppUser @relation(fields: [user_id], references: [id])
+  tags      Tag[]
+
   id         Int      @id @default(autoincrement())
-  title      String   @db.VarChar(255)
-  created_at DateTime @default(now()) @db.Timestamp(6)
-  content    String   @default("")
-  published  Boolean  @default(false)
-  user_id    Int
-  user       AppUser  @relation(fields: [user_id], references: [id])
-  tags       Tag[]
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
 
   @@map("note")
 }
 
 model Tag {
-  id    Int    @id @default(autoincrement())
-  name  String
+  name  String @db.VarChar(255)
   notes Note[]
+
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
 
   @@map("tag")
 }
