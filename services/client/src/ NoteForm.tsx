@@ -34,7 +34,14 @@ const NoteForm = ({ onSubmit }) => {
 };
 
 export const NewNoteForm = () => {
-  const createNoteMutation = trpc.api.createNote.useMutation();
+    const utils = trpc.useContext();
+
+    const createNoteMutation = trpc.api.createNote.useMutation({
+      onSuccess() {
+        utils.api.getNotes.invalidate();
+        // utils.notes.byId.invalidate({ id: input.id }); // Will not invalidate queries for other id's 👍
+      },
+    });
   return <NoteForm onSubmit={createNoteMutation.mutate} />;
 };
 //   const {
