@@ -14,7 +14,7 @@
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "[ -n \"$CI\" ] || husky install",
-    "rm_node_modules": "rm -rf node_modules */**/node_modules"
+    "reset-node-modules": "rm -rf node_modules */**/node_modules && rm pnpm-lock.yaml && pnpm i"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
