@@ -14,7 +14,7 @@ export const BaseInput = React.forwardRef(
       <input
         {...props}
         ref={ref}
-        className="min-w-[200px] border-2 border-solid border-lightgray mt-2"
+        className="min-w-[200px] border-2 border-solid border-lightgray mt-2 text-black"
       />
     );
   }
@@ -25,7 +25,7 @@ export const BaseTextarea = React.forwardRef(
       <textarea
         {...props}
         ref={ref}
-        className="min-w-[200px] border-2 border-solid border-lightgray mt-2"
+        className="min-w-[200px] border-2 border-solid border-lightgray mt-2 text-black"
       />
     );
   }
