@@ -5,8 +5,8 @@
     "jsx": "react-jsx",
     "lib": ["ESNext", "DOM"],
 
-    "baseUrl": "./src"
+    "baseUrl": "ui-utils"
   },
-  "include": ["./src"],
+  "include": ["ui-utils", "Button.tsx"],
   "exclude": ["dist", "build", "node_modules"]
 }

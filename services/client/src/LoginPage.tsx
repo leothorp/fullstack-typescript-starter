@@ -42,26 +42,16 @@ import { useEffect } from "react";
 //   }
 // );
 
-export const LoginPage = (props) => {
-  console.log("login page", props.location);
+export const LoginPage = () => {
   return (
     <div className="text-center w-[100vw] flex-col justify-center h-[100vh] flex">
       <h2>Login / Register with Google</h2>
-      <GoogleSignInButton location={location} />
+      <GoogleSignInButton />
     </div>
   );
 };
 
-const GoogleSignInButton = (props) => {
-  console.log("sign in button", props.location);
-
-  useEffect(() => {
-    console.log("mount");
-
-    return () => {
-      console.log("unmount");
-    };
-  }, []);
+const GoogleSignInButton = () => {
   const googleSignInInitialized = useAuthStore(
     (state) => state.googleSignInInitialized
   );

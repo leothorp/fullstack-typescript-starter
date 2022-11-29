@@ -130,7 +130,6 @@ export const useAuthStatus = () => {
 };
 export const useCurrentUser = () => {
   const user = useAuthStore((state) => state.currentUser);
-  // invariant(!!user, "hook should not be used in unauthenticated components.");
 
   return user!;
 };
@@ -155,10 +154,6 @@ const handleAuthResult = ({ email, userId, accessToken }) => {
   if (window.location.pathname !== "/notes") {
     browserHistory.push("/notes");
   }
-  // setAuthInfo({ email, userId, accessToken });
-  // return dispatch(fetchCurrentUser()).then(() => {
-  //   dispatch(authComplete({ token }));
-  // });
 };
 
 const tryDecodeToken = (token) => {

@@ -5,9 +5,10 @@
   "main": "./index.tsx",
   "license": "MIT",
   "dependencies": {
-    "tsconfig": "workspace:*",
-    "utilities": "workspace:*",
     "@types/react": "^18.0.17",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsconfig": "workspace:*",
+    "utilities": "workspace:*"
   }
 }

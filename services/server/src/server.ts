@@ -4,7 +4,6 @@ import { CLIENT_ORIGIN } from "@utilities/shared-constants";
 import { createContext, router } from "@server/utils/trpc-server";
 import express from "express";
 import { apiRouter } from "@server/routers/api";
-import { subRouter } from "@server/routers/sub";
 import { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
@@ -12,7 +11,6 @@ import { IncomingMessage, Server, ServerResponse } from "http";
 
 const appRouter = router({
   api: apiRouter,
-  sub: subRouter,
 });
 
 export type AppRouter = typeof appRouter;

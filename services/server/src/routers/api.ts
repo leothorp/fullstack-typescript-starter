@@ -17,12 +17,12 @@ import {
   getUserByEmail,
 } from "@server/database/queries";
 import {
+  CurrentUserSchema,
   LoginOutputSchema,
   NewNoteInputSchema,
   NoteSchema,
   NotesOutputSchema,
 } from "@server/schemas";
-
 
 export const apiRouter = router({
   //TODO(lt): error handling
@@ -91,5 +91,12 @@ export const apiRouter = router({
     .mutation(async ({ ctx, input }) => {
       const note = await createNote(input, ctx.user);
       return note;
+    }),
+
+  // users/me equivalent
+  getCurrentUser: protectedProcedure
+    .output(CurrentUserSchema)
+    .query(async ({ ctx }) => {
+      return ctx.user;
     }),
 });

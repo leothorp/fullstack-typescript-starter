@@ -5,6 +5,12 @@ export const LoginOutputSchema = z.object({
   id: z.number(),
 });
 
+//currently redundant
+export const CurrentUserSchema = z.object({
+  email: z.string().email(),
+  id: z.number(),
+});
+
 export const NoteSchema = z.object({
   title: z.string(),
   content: z.string(),

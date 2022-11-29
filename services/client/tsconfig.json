@@ -10,7 +10,7 @@
     "paths": {
       "@client/*": ["./src/*"],
       "@server/*": ["../server/src/*"],
-      "@ui/*": ["../../packages/ui/src/*"],
+      "@ui/*": ["../../packages/ui/ui-utils/*"],
       "@utilities/*": ["../../packages/utilities/src/*"]
     },
     "rootDir": "../../"
@@ -19,7 +19,8 @@
     "./src",
     "../server/src",
     "../../packages/utilities/src",
-    "../../packages/ui/src"
+    "../../packages/ui/ui-utils",
+    "../../packages/ui/Button.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
