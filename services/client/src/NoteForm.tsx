@@ -20,19 +20,11 @@ const NoteForm = ({ onSubmit }) => {
 
   return (
     <BaseForm onSubmit={handleSubmit(onSubmit)}>
-      {/* <BaseInput autoFocus={true} {...register("title", { requlred: true })} /> */}
       <BaseInput {...register("title")} />
-      {/* <BaseTextarea
-        multiline="true"
-        {...register("content", { requlred: true })}
-      /> */}
+
       <BaseTextarea {...register("content")} />
 
-      <button
-        className="bg-color-[#1a1a1a] transition-colors border-r-transparent hover:border-r-sky-700"
-        type="submit"
-        disabled={!isValid}
-      >
+      <button type="submit" disabled={!isValid}>
         Save
       </button>
     </BaseForm>
