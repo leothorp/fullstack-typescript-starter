@@ -36,12 +36,11 @@ export const createServer: (opts: ServerOptions) => {
     })
   );
 
-  //TODO(lt): check if db connection is happening for this too
   app.get("/healthz", (req, res) => {
     res.sendStatus(200);
   });
 
-  //TODO(lt): graceful handle sigterm with this + close DB connection
+  //TODO(lt): gracefully handle SIGTERM, stop server and close DB connection
   const start = async () => {
     const server = app.listen({ port });
     console.log("Server ready. listening on port:", port);

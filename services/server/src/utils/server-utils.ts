@@ -64,7 +64,7 @@ export const generateAccessToken = async (userId, email) => {
   return jwt;
 };
 
-//TODO(lt): test these works, see what happens when token modified ors signed w wrong secret
+//TODO(lt): test more that this works, see what happens when token modified ors signed w wrong secret
 export const validateAccessToken = async (token) => {
   const { payload } = await jose.jwtVerify(token, jwtSecretKey, {
     issuer: API_ORIGIN,

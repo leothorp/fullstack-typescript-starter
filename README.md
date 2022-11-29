@@ -1,13 +1,13 @@
 # fullstack-typescript-starter
 
-Project boilerplate for a full-stack TypeScript web application. Technology choices are aimed at maximizing productivity without compromising flexibility.
+Project boilerplate for a full-stack TypeScript monorepo.
 
 Features:
 
-- Configuration and scripts for both local dev and production use
-- Monorepo support
-- user accounts/authentication via Google Sign In
-- bare-bones Login and Registration pages
+- configured for production deployment of frontend, backend, and Postgres DB on Render (see `render.yaml`)
+- cross-package import path aliases, with VSCode auto-import
+  - example: from a file the `client` package, `import {Button} from "@ui/Button"` is equivalent to `import {Button} from "../../../packages/ui/src/Button"`.
+- user accounts/authentication via Google Sign In, with bare-bones login/registration UI
 
 ### Technologies
 
