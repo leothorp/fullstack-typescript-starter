@@ -2,14 +2,16 @@ import { useForm } from "react-hook-form";
 import BaseForm, { BaseInput, BaseTextarea } from "@client/forms/BaseForm";
 import { trpc } from "@client/store/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { NewNoteInputSchema } from "@server/schemas";
+import { NewNote, NewNoteInputSchema } from "@server/schemas";
+
+type FormValues = NewNote;
 
 const NoteForm = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
     formState: { isValid },
-  } = useForm({
+  } = useForm<FormValues>({
     mode: "onChange",
     resolver: zodResolver(NewNoteInputSchema),
 
@@ -19,14 +21,18 @@ const NoteForm = ({ onSubmit }) => {
   return (
     <BaseForm onSubmit={handleSubmit(onSubmit)}>
       {/* <BaseInput autoFocus={true} {...register("title", { requlred: true })} /> */}
-      <BaseInput autoFocus={true} {...register("title")} />
+      <BaseInput {...register("title")} />
       {/* <BaseTextarea
         multiline="true"
         {...register("content", { requlred: true })}
       /> */}
-      <BaseTextarea multiline="true" {...register("content")} />
+      <BaseTextarea {...register("content")} />
 
-      <button type="submit" disabled={!isValid}>
+      <button
+        className="bg-color-[#1a1a1a] transition-colors border-r-transparent hover:border-r-sky-700"
+        type="submit"
+        disabled={!isValid}
+      >
         Save
       </button>
     </BaseForm>
@@ -34,14 +40,14 @@ const NoteForm = ({ onSubmit }) => {
 };
 
 export const NewNoteForm = () => {
-    const utils = trpc.useContext();
+  const utils = trpc.useContext();
 
-    const createNoteMutation = trpc.api.createNote.useMutation({
-      onSuccess() {
-        utils.api.getNotes.invalidate();
-        // utils.notes.byId.invalidate({ id: input.id }); // Will not invalidate queries for other id's 👍
-      },
-    });
+  const createNoteMutation = trpc.api.createNote.useMutation({
+    onSuccess() {
+      utils.api.getNotes.invalidate();
+      // utils.notes.byId.invalidate({ id: input.id }); // Will not invalidate queries for other id's 👍
+    },
+  });
   return <NoteForm onSubmit={createNoteMutation.mutate} />;
 };
 //   const {

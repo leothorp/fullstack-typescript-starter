@@ -9,7 +9,7 @@ export const NotesPage = () => {
   }
   return (
     <div className="flex items-center flex-col">
-      <h2 className="text-center tex">Notes</h2>
+      <h2 className="text-center mb-4">Notes</h2>
       {data &&
         data.map((n) => {
           return (
@@ -19,7 +19,7 @@ export const NotesPage = () => {
             </div>
           );
         })}
-      <h2 className="text-center">Add a Note</h2>
+      <h2 className="text-center mt-4">Add a Note</h2>
       <NewNoteForm />
     </div>
   );

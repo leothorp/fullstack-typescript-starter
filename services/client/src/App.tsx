@@ -50,10 +50,12 @@ const App = () => {
     return <>Loading...</>;
   }
   return (
-    <Switch>
-      <AuthenticatedRoute path={"/notes"} component={AuthenticatedPage} />
-      <Route path={"/login"} component={LoginPage} />
-    </Switch>
+    <div className="bg-current dark">
+      <Switch>
+        <AuthenticatedRoute path={"/notes"} component={AuthenticatedPage} />
+        <Route path={"/login"} component={LoginPage} />
+      </Switch>
+    </div>
   );
 };
 export default withRouter(App);

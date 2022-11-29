@@ -14,3 +14,4 @@ export const NoteSchema = z.object({
 export const NotesOutputSchema = z.array(NoteSchema);
 
 export const NewNoteInputSchema = NoteSchema.omit({ id: true });
+export type NewNote = z.infer<typeof NewNoteInputSchema>;
