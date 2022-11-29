@@ -8,8 +8,8 @@ export const NotesPage = () => {
     return <>Loading...</>;
   }
   return (
-    <div>
-      <h2 className="text-center">Notes</h2>
+    <div className="flex items-center flex-col">
+      <h2 className="text-center tex">Notes</h2>
       {data &&
         data.map((n) => {
           return (
