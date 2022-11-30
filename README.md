@@ -1,183 +1,200 @@
 # fullstack-typescript-starter
-Project boilerplate for a full-stack TypeScript monorepo. 
+
+Project boilerplate for a full-stack TypeScript monorepo.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 ### Features
 
-* End-to-end technology choices and configuration for a typical CRUD app, aimed at maximizing iteration speed and developer experience. The repo implements a bare-bones note-taking app to give some examples for common patterns (UI state, DB interactions, API calls, etc).
+- End-to-end technology choices and configuration for a typical CRUD app, aimed at maximizing iteration speed and developer experience. The repo implements a bare-bones note-taking app to give some examples for common patterns (UI state, DB interactions, API calls, etc).
 
-* Fully configured for production deployment of frontend, backend, and Postgres DB on [Render](https://render.com) (see `render.yaml`). Demo deployment with this configuration here: https://fullstack-ts-client.onrender.com (Free-tier server will be slow to respond on the initial request.)
+- Fully configured for production deployment of frontend, backend, and Postgres DB on [Render](https://render.com) (see `render.yaml`). Demo deployment with this configuration here: https://fullstack-ts-client.onrender.com (Free-tier server will be slow to respond on the initial request.)
 
-* Basic user account functionality. Authentication via Google Sign In, authorization against the API via JSON web tokens. Note that while the implementation of JWT authorization here may be a technically functional starting point, it is not production-grade as-is. Use at your own risk.
+- Basic user account functionality. Authentication via Google Sign In, authorization against the API via JSON web tokens. Note that while the implementation of JWT authorization here may be a technically functional starting point, it is not production-grade as-is. Use at your own risk.
 
-* Scripts to automate common development workflows. (See the "Dev Scripts" section below.)
-
+- Scripts to automate common development workflows. (See the "Dev Scripts" section below.)
 
 ### Technologies
+
 Selection rationale and documentation links are included below. In general, the goal here is to optimize for development speed- with rock-solid stability or scalabilty being secondary (though not completely abandoned) as priorities.
 
-* [TypeScript](https://www.typescriptlang.org/docs/)
-At this point, TypeScript is viewed as a moral imperative in the JS community (mission accomplished Microsoft). The configuration included here is more permissive than the typical orthodoxy (noImplicitAny: false)- with the hypothesis being that for a small team or solo project, trusting a developer's judgement more on when explicit types are necessary offers beneficial (or at least, more enjoyable) tradeoffs.
+- [TypeScript](https://www.typescriptlang.org/docs/)
+  At this point, TypeScript is viewed as a moral imperative in the JS community (mission accomplished Microsoft). The configuration included here is more permissive than the typical orthodoxy (noImplicitAny: false)- with the hypothesis being that for a small team or solo project, trusting a developer's judgement more on when explicit types are necessary offers beneficial (or at least, more enjoyable) tradeoffs.
 
-* [React](https://reactjs.org/)
-At the moment, still the clear leader in ecosystem maturity and popularity.
+- [React](https://reactjs.org/)
+  At the moment, still the clear leader in ecosystem maturity and popularity.
 
-* [React Router](https://v5.reactrouter.com/)
-Client-side routing. Note that this is the only library in the project that intentionally uses an older version (v5, rather than the current v6). V6 brings many radical API changes, while ditching a number of useful features present in earlier versions- straightforward manipulation of browser history from outside of the React component tree being one example. The implementation of Sign In With Google here currently relies on that feature. [Tanstack Router](https://tanstack.com/router/v1) is a promising alternative for the future- at present, it's still in a beta version and documentation is very sparse.
+- [React Router](https://v5.reactrouter.com/)
+  Client-side routing. Note that this is the only library in the project that intentionally uses an older version (v5, rather than the current v6). V6 brings many radical API changes, while ditching a number of useful features present in earlier versions- straightforward manipulation of browser history from outside of the React component tree being one example. The implementation of Sign In With Google here currently relies on that feature. [Tanstack Router](https://tanstack.com/router/v1) is a promising alternative for the future- at present, it's still in a beta version and documentation is very sparse.
 
-* [pnpm](https://github.com/pnpm/pnpm)
-Package management. Significantly faster drop-in replacement for npm, with better monorepo support. Recommend `alias pn="pnpm"` to avoid the typing speed tax.
+- [pnpm](https://github.com/pnpm/pnpm)
+  Package management. Significantly faster drop-in replacement for npm, with better monorepo support. Recommend `alias pn="pnpm"` to avoid the typing speed tax.
 
-* [TailwindCSS](https://tailwindcss.com/)
-Styling. Significantly improved dev. speed (in my opinion) and moderately improved performance over many other solutions, and has seen a lot of consolidation of usage in the React community.
+- [TailwindCSS](https://tailwindcss.com/)
+  Styling. Significantly improved dev. speed (in my opinion) and moderately improved performance over many other solutions, and has seen a lot of consolidation of usage in the React community.
 
-* [headlessui.dev](https://headlessui.com/)
-Headless/accessible React component library integrated with Tailwind.
+- [headlessui.dev](https://headlessui.com/)
+  Headless/accessible React component library integrated with Tailwind.
 
-* [Zustand](https://github.com/pmndrs/zustand)
-Frontend state management. Much more lightweight and quick to develop with than Redux/Redux Toolkit, and has gained a lot of tractio recently. Looks possible that it may become the new standard choice for global state management in a year or two (though [Recoil](https://recoiljs.org) is also getting up there.)
+- [Zustand](https://github.com/pmndrs/zustand)
+  Frontend state management. Much more lightweight and quick to develop with than Redux/Redux Toolkit, and has gained a lot of tractio recently. Looks possible that it may become the new standard choice for global state management in a year or two (though [Recoil](https://recoiljs.org) is also getting up there.)
 
-* [tRPC](https://trpc.io/)
-API layer functionality, shared request/response typing across client and server. Theoretically tRPC can enable faster development speed by streamlining a lot of the typical API boilerplate. In my experience so far, this is partially offset by a lack of clear documentation or examples for some use cases. Still, past the initial learning curve it's been a promising choice for rapid iteration/prototyping.
+- [tRPC](https://trpc.io/)
+  API layer functionality, shared request/response typing across client and server. Theoretically tRPC can enable faster development speed by streamlining a lot of the typical API boilerplate. In my experience so far, this is partially offset by a lack of clear documentation or examples for some use cases. Still, past the initial learning curve it's been a promising choice for rapid iteration/prototyping.
 
-* [react-query](https://tanstack.com/query/v4)
-Client-side API calls. Easy response caching and coordination of refetches, integration with loading/error UI states. Included as part of tRPC.
+- [react-query](https://tanstack.com/query/v4)
+  Client-side API calls. Easy response caching and coordination of refetches, integration with loading/error UI states. Included as part of tRPC.
 
-* [Express](https://github.com/expressjs/express)
-API server. Fastify would be the trendier (and more performant) modern choice, but maturity/documentation still felt lacking in some areas compared with Express.
+- [Express](https://github.com/expressjs/express)
+  API server. Fastify would be the trendier (and more performant) modern choice, but maturity/documentation still felt lacking in some areas compared with Express.
 
-* [Prisma](https://www.prisma.io)
-DB schema definition, queries, migrations. Good DX (particularly around schema updates/auto-generation of migrations); likely the best JS option I've seen for quick prototyping / getting to an MVP. The performance at higher scale is an open question.
+- [Prisma](https://www.prisma.io)
+  DB schema definition, queries, migrations. Good DX (particularly around schema updates/auto-generation of migrations); likely the best JS option I've seen for quick prototyping / getting to an MVP. The performance at higher scale is an open question.
 
-* [PostgreSQL](https://www.postgresql.org)
-Database. A classic.
+- [PostgreSQL](https://www.postgresql.org)
+  Database. A classic.
 
-* [react-hook-form](https://react-hook-form.com)
-Forms. Better performance, DX, and support than Formik. react-hook-form seems to be becoming the new standard React form lib. Still some gaps/wonky behavior around complex validation scenarios (but that seems to be the case with every form library.)
+- [react-hook-form](https://react-hook-form.com)
+  Forms. Better performance, DX, and support than Formik. react-hook-form seems to be becoming the new standard React form lib. Still some gaps/wonky behavior around complex validation scenarios (but that seems to be the case with every form library.)
 
-* [Zod](https://github.com/colinhacks/zod)
-API request/response validation, form validation. Good Typescript integration, integrates with tRPC, and has gained a lot of traction recently- appears to be becoming the new Yup/Joi.
+- [Zod](https://github.com/colinhacks/zod)
+  API request/response validation, form validation. Good Typescript integration, integrates with tRPC, and has gained a lot of traction recently- appears to be becoming the new Yup/Joi.
 
-* [Render](https://render.com)
-Low-config, PAAS cloud hosting platform. Very straightforward / quick to get a multi-service deployment up and running, with zero infra or devops knowledge required. The included `render.yaml` is in their Infrastructure-As-Code format, and has most of the config you'd need to deploy these services. Docs/specification for `render.yaml`: https://render.com/docs/blueprint-spec
+- [Render](https://render.com)
+  Low-config, PAAS cloud hosting platform. Very straightforward / quick to get a multi-service deployment up and running, with zero infra or devops knowledge required. The included `render.yaml` is in their Infrastructure-As-Code format, and has most of the config you'd need to deploy these services. Docs/specification for `render.yaml`: https://render.com/docs/blueprint-spec
 
 ### Project Structure
 
 This template uses a monorepo structure intended to support sharing code and configuration across multiple apps/services.
 
 The `services` directory contains independently deployable units. Currently:
-* a frontend client (`services/client`)
-* a backend API service (`services/server`) 
 
-The `packages` directory is meant for shared internal libraries/configuration. Currently: 
-* baseline for per-package eslint config (`packages/eslint-config-shared`) 
-* baseline for per-package TypeScript config (`packages/tsconfig`)
-* UI component library (`packages/ui`) 
-* shared utility functions and constants (`packages/utilities`)
+- a frontend client (`services/client`)
+- a backend API service (`services/server`)
+
+The `packages` directory is meant for shared internal libraries/configuration. Currently:
+
+- baseline for per-package eslint config (`packages/eslint-config-shared`)
+- baseline for per-package TypeScript config (`packages/tsconfig`)
+- UI component library (`packages/ui`)
+- shared utility functions and constants (`packages/utilities`)
 
 Note that the tsconfig files include cross-package import path aliases, which are configured to work with VSCode auto-import.
 
-Example import from within a file in `services/client`: 
-```import {Button} from "@ui/Button"``` would be functionally equivalent to 
-```import {Button} from "../../../packages/ui/src/Button"```.
+Example import from within a file in `services/client`:
+`import {Button} from "@ui/Button"` would be functionally equivalent to
+`import {Button} from "../../../packages/ui/src/Button"`.
 
 ### Dev Scripts
 
 #### pnpm scripts
+
 These would be run from the project root (specified in root `package.json`.) Some of these call out to scripts defined in package-level `package.json` files.
 
 To run, all of these need to be prefixed by `pnpm run` (e.g., you'd run `start:dev` below as `pnpm run start:dev`).
 
 ##### `start:dev`
+
 Spins up the development Postgres database via docker-compose and starts both the client (at http://localhost:3000) and server (at http://localhost:5000). If you get an error message about the Docker daemon not running, open Docker for Desktop and try again.
 
 #### `reset-node-modules`
+
 Delete and reinstall all node_modules. Useful if debugging dependency issues.
 
 #### `build-client:prod`, `build-server:prod`, and `start-server:prod`
-Prod build / startup scripts, referenced in `render.yaml`. You'd only ever run these manually if testing the prod build locally. 
 
-* Note that start-server:prod also applies any pending migrations (by calling `prisma-migrate:prod`, see below).
+Prod build / startup scripts, referenced in `render.yaml`. You'd only ever run these manually if testing the prod build locally.
+
+- Note that start-server:prod also applies any pending migrations (by calling `prisma-migrate:prod`, see below).
 
 #### `prisma-migrate:dev`
+
 During local dev, use this to generate a new migration script in `packages/server/migrations` for any changes to prisma.schema that aren't currently reflected in the database. This will also immediately apply those changes to the db.
 
 #### `prisma-reset:dev`
+
 During local dev, use this to delete all data from the database and re-apply all migrations from scratch.
 
+#### `prisma-init:dev`
+
+If you have an existing local dev DB for an application that wasn't previously using Prisma,
+this script will do the following:
+
+1. introspect your existing DB schema and update prisma.schema accordingly
+2. generate an 'init' migration file to represent the current state of the database, and mark it as already "applied"
+
 #### `prisma-migrate:prod`
+
 Used to apply pending migrations to a production (or otherwise non-local development) database. This is run automatically as part of `start-server:prod`.
 
-
-
 #### `db-shell:dev`
+
 Open a `psql` shell into the locally running dev database.
 
 #### `drop-db:dev`
+
 Delete the local dev database Docker container and its associated volume / all data within it.
 The next time `pnpm run start:dev` (or just `docker-compose up`) is run, it will be created as an empty db. `pnpm run migrate:dev` could then be used to reapply all migrations.
 
-
 #### Git hooks via [Husky](https://typicode.github.io/husky)
 
-##### post-merge (runs after `git pull` or `git merge`): 
+##### post-merge (runs after `git pull` or `git merge`):
+
 Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detected in the latest merge.
 
-##### pre-commit (blocks completion of `git commit` on failure): 
-Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
+##### pre-commit (blocks completion of `git commit` on failure):
 
+Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
 
 #### Starting a project with this template
 
 Click "Use This Template" near the top of this repo's Github page to create your own copy of the repo.
 
-
 #### Local Development Setup
 
 ##### Prerequisites
+
 1. install Nodejs / npm.
 
 2. Install pnpm globally:
-`npm i -g pnpm@latest`
+   `npm i -g pnpm@latest`
 
 3. Install Docker/docker-compose (used for the dev database). Mac installation: https://docs.docker.com/desktop/install/mac-install/
 
 ##### Project setup
+
 1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo.
 
 2. At project root:
-`touch .env.server.local .env.shared.local`
+   `touch .env.server.local .env.shared.local`
 
 3. Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files (the comments include instructions for generating those values).
 
 4. As desired for your project, find and replace all strings/names in code that have the prefix `fullstack-ts` or `fullstack_ts` (many of these are in `render.yaml`).
 
 5. at project root:
-`pnpm i`
+   `pnpm i`
 
-6. ***(Optional):*** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
+6. **_(Optional):_** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
 
-6. At project root:
-`pnpm run start:dev`
+7. At project root:
+   `pnpm run start:dev`
 
-This should start the dev database, client, and server. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set!
-
-
+This will start the dev database and apply and pending migrations, followed starting the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set!
 
 ##### Deployment
-The included `render.yaml` file contains much of the configuration needed to deploy a project from this template on [Render](https://render.com). These are the remaining steps. 
 
-1. If not completed already, do Step #4 (renaming values for your project) from the Local Development Setup section above. 
+The included `render.yaml` file contains much of the configuration needed to deploy a project from this template on [Render](https://render.com). These are the remaining steps.
 
-    Note that the `name` field for services with `type: web` will determine the generated `render.com` domain for the service (example: `name: fullstack-ts-client` results in `fullstack-ts-client.onrender.com`).
+1. If not completed already, do Step #4 (renaming values for your project) from the Local Development Setup section above.
 
-    By default, this file will create services on the Free plan (suitable only for basic testing- the server sleeps when inactive, and the DB is wiped after 90 days). Modify the `plan: free` fields on services here as desired if you want to start with a different plan (this can also be upgraded later).
+   Note that the `name` field for services with `type: web` will determine the generated `render.com` domain for the service (example: `name: fullstack-ts-client` results in `fullstack-ts-client.onrender.com`).
+
+   By default, this file will create services on the Free plan (suitable only for basic testing- the server sleeps when inactive, and the DB is wiped after 90 days). Modify the `plan: free` fields on services here as desired if you want to start with a different plan (this can also be upgraded later).
 
 2. Make any necessary environment variable changes in the envVarGroups section of `render.yaml`. Only non-sensitive environment variables should ever have values directly added to `render.yaml` (among other reasons, because you'd check this into git.) For any environment variables marked with `sync: false` here, you'll add the values later via the Render dashboard (Step 6). Note that the default env var group in this template will be accessible by both the `client` and `server` services, so you should only include values you want shared with both here.
 
 This is also a good time to modify any other desired IAC config for your services. Documentation for all other fields available in `render.yaml` is here: https://render.com/docs/blueprint-spec.
-
 
 3. Push your project to Github or Gitlab.
 
@@ -193,16 +210,14 @@ This is also a good time to modify any other desired IAC config for your service
 
 Assuming the initial deploys for all services were successful, your deployment is complete! Visit the `*.onrender.com` url for your client service to check it out. Future modifications to `render.yaml` will be applied to services automatically on push (this can be configured).
 
-
-
-
 # Future template additions / TODOs
 
-* Hygen template for bulk customizing/renaming after clone (may need a new hygen.js function, like these examples: https://github.com/jondot/hygen/issues/106)
-* Hygen generators for routes, entities, etc. (possibly look to RedwoodJS generators as prior art)
-* finish configuring/documenting Playwright e2e tests
-- admin interface/react-admin integration
-- consider running `server` via Dockerfile (potentially in local dev as well)
-- script for DB shell access
-- server/client logging library (Pico?)
-- Storybook?
+- Hygen template for bulk customizing/renaming after clone (may need a new hygen.js function, like these examples: https://github.com/jondot/hygen/issues/106)
+- Hygen generators for routes, entities, etc. (possibly look to RedwoodJS generators as prior art)
+- finish configuring/documenting Playwright e2e tests
+
+* admin interface/react-admin integration
+* consider running `server` via Dockerfile (potentially in local dev as well)
+* script for DB shell access
+* server/client logging library (Pico?)
+* Storybook?

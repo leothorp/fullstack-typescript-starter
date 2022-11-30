@@ -12,7 +12,7 @@
     "prisma-migrate:dev": "pnpm run prisma-cli migrate dev",
     "prisma-migrate:prod": "prisma migrate deploy",
     "db-shell:dev": "../../repo_scripts/local_db_shell.sh",
-    "prisma-init:dev": "../../repo_scripts/init_prisma.sh",
+    "prisma-init:dev": "../../repo_scripts/prisma_init.sh",
     "//test-dev": "start-server-and-test 'tsx src' http-get://localhost:2022 'tsx src/client'",
     "//test-start": "start-server-and-test 'node dist/server' http-get://localhost:2022 'node dist/client'"
   },
