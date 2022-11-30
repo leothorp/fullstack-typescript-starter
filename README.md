@@ -206,11 +206,6 @@ Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detecte
 
 Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
 
-## Deploy to Render
-
-This button will create everything described in the render.yaml file in your Render account, and can also be used to manually redeploy a project copied from this template:
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 ## Future template additions / TODOs
 
