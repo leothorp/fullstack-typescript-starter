@@ -42,7 +42,7 @@
     "utilities": "workspace:*",
     "vite": "^3",
     "vite-tsconfig-paths": "^3.6.0",
-    "zod": "link:@hookform/resolvers/zod",
+    "zod": "^3.0.0",
     "zustand": "^4.1.4"
   },
   "//comment": "//left off here: https://playwright.dev/docs/intro#installing-playwright",

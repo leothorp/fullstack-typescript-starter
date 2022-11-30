@@ -99,7 +99,7 @@ importers:
       utilities: workspace:*
       vite: ^3
       vite-tsconfig-paths: ^3.6.0
-      zod: link:@hookform/resolvers/zod
+      zod: ^3.0.0
       zustand: ^4.1.4
     dependencies:
       "@headlessui/react": 1.7.4_biqbaboplfbrettd7655fr4n2y
@@ -135,7 +135,7 @@ importers:
       utilities: link:../../packages/utilities
       vite: 3.2.4_sass@1.56.1
       vite-tsconfig-paths: 3.6.0_vite@3.2.4
-      zod: link:@hookform/resolvers/zod
+      zod: 3.19.1
       zustand: 4.1.4_immer@9.0.16+react@18.2.0
     devDependencies:
       "@playwright/test": 1.28.1
