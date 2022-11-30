@@ -19,10 +19,8 @@ Project boilerplate for a full-stack TypeScript monorepo.
 Selection rationale and documentation links are included below. In general, the goal here is to optimize for development speed- with rock-solid stability or scalabilty being secondary (though not completely abandoned) as priorities.
 
 - [TypeScript](https://www.typescriptlang.org/docs/)
-  At this point, TypeScript is viewed as a moral imperative in the JS community (mission accomplished Microsoft). The configuration included here is more permissive than the typical orthodoxy (noImplicitAny: false)- with the hypothesis being that for a small team or solo project, trusting a developer's judgement more on when explicit types are necessary offers beneficial (or at least, more enjoyable) tradeoffs.
 
 - [React](https://reactjs.org/)
-  At the moment, still the clear leader in ecosystem maturity and popularity.
 
 - [React Router](https://v5.reactrouter.com/)
   Client-side routing. Note that this is the only library in the project that intentionally uses an older version (v5, rather than the current v6). V6 brings many radical API changes, while ditching a number of useful features present in earlier versions- straightforward manipulation of browser history from outside of the React component tree being one example. The implementation of Sign In With Google here currently relies on that feature. [Tanstack Router](https://tanstack.com/router/v1) is a promising alternative for the future- at present, it's still in a beta version and documentation is very sparse.
@@ -72,7 +70,7 @@ The `services` directory contains independently deployable units. Currently:
 - a frontend client (`services/client`)
 - a backend API service (`services/server`)
 
-The `packages` directory is meant for shared internal libraries/configuration. Currently:
+The `packages` directory is used for shared internal libraries/configuration. Currently:
 
 - baseline for per-package eslint config (`packages/eslint-config-shared`)
 - baseline for per-package TypeScript config (`packages/tsconfig`)
@@ -87,9 +85,9 @@ Example import from within a file in `services/client`:
 
 ### Dev Scripts
 
-#### pnpm scripts
+#### PNPM scripts
 
-These would be run from the project root (specified in root `package.json`.) Some of these call out to scripts defined in package-level `package.json` files.
+These would be run from the project root (specified in the root `package.json`.)
 
 To run, all of these need to be prefixed by `pnpm run` (e.g., you'd run `start:dev` below as `pnpm run start:dev`).
 
@@ -97,25 +95,25 @@ To run, all of these need to be prefixed by `pnpm run` (e.g., you'd run `start:d
 
 Spins up the development Postgres database via docker-compose and starts both the client (at http://localhost:3000) and server (at http://localhost:5000). If you get an error message about the Docker daemon not running, open Docker for Desktop and try again.
 
-#### `reset-node-modules`
-
-Delete and reinstall all node_modules. Useful if debugging dependency issues.
-
-#### `build-client:prod`, `build-server:prod`, and `start-server:prod`
+##### `build-client:prod`, `build-server:prod`, and `start-server:prod`
 
 Prod build / startup scripts, referenced in `render.yaml`. You'd only ever run these manually if testing the prod build locally.
 
 - Note that start-server:prod also applies any pending migrations (by calling `prisma-migrate:prod`, see below).
 
-#### `prisma-migrate:dev`
+##### `prisma-migrate:dev`
 
-During local dev, use this to generate a new migration script in `packages/server/migrations` for any changes to prisma.schema that aren't currently reflected in the database. This will also immediately apply those changes to the db.
+During local dev, use this to generate a new migration in `services/server/prisma/migrations` for any changes to prisma.schema that aren't currently reflected in the database. This will also immediately apply those changes to the db.
 
-#### `prisma-reset:dev`
+##### `db-shell:dev`
+
+Open a `psql` shell into the locally running dev database.
+
+##### `prisma-reset:dev`
 
 During local dev, use this to delete all data from the database and re-apply all migrations from scratch.
 
-#### `prisma-init:dev`
+##### `prisma-init:dev`
 
 If you have an existing local dev DB for an application that wasn't previously using Prisma,
 this script will do the following:
@@ -123,20 +121,20 @@ this script will do the following:
 1. introspect your existing DB schema and update prisma.schema accordingly
 2. generate an 'init' migration file to represent the current state of the database, and mark it as already "applied"
 
-#### `prisma-migrate:prod`
+##### `prisma-migrate:prod`
 
 Used to apply pending migrations to a production (or otherwise non-local development) database. This is run automatically as part of `start-server:prod`.
 
-#### `db-shell:dev`
-
-Open a `psql` shell into the locally running dev database.
-
-#### `drop-db:dev`
+##### `drop-db:dev`
 
 Delete the local dev database Docker container and its associated volume / all data within it.
 The next time `pnpm run start:dev` (or just `docker-compose up`) is run, it will be created as an empty db. `pnpm run migrate:dev` could then be used to reapply all migrations.
 
-#### Git hooks via [Husky](https://typicode.github.io/husky)
+##### `reset-node-modules`
+
+Delete and reinstall all node_modules. Useful if debugging dependency issues.
+
+#### Git hooks
 
 ##### post-merge (runs after `git pull` or `git merge`):
 
