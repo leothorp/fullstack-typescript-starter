@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && pnpm run prisma-gen",
     "dev": "dotenv -e ../../.env.shared.local -e ../../.env.server.local -- tsx watch src",
-    "start": "pnpm run prisma-cli migrate reset --force && node dist/services/server/src/index.js",
+    "start": "prisma migrate reset --force && node dist/services/server/src/index.js",
     "prisma-cli": "../../node_modules/.bin/dotenv -e ../../.env.server.local -- prisma",
     "prisma-gen": "prisma generate --schema ./prisma/schema.prisma",
     "prisma-reset:dev": "pnpm run prisma-cli migrate reset",
