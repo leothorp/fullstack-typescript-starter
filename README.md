@@ -2,8 +2,6 @@
 
 Project boilerplate for a full-stack TypeScript monorepo.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
 ### Features
 
 - End-to-end technology choices and configuration for a typical CRUD app, aimed at maximizing iteration speed and developer experience. The repo implements a bare-bones note-taking app to give some examples for common patterns (UI state, DB interactions, API calls, etc).
@@ -83,6 +81,70 @@ Example import from within a file in `services/client`:
 `import {Button} from "@ui/Button"` would be functionally equivalent to
 `import {Button} from "../../../packages/ui/src/Button"`.
 
+#### Starting a project with this template
+
+Click "Use This Template" near the top of this repo's Github page to create your own copy of the repo.
+
+#### Local Development Setup
+
+##### Prerequisites
+
+1. install Nodejs / npm.
+
+2. Install pnpm globally:
+   `npm i -g pnpm@latest`
+
+3. Install Docker/docker-compose (used for the dev database). Mac installation: https://docs.docker.com/desktop/install/mac-install/
+
+##### Initial project setup
+
+1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo.
+
+2. At project root:
+   `touch .env.server.local .env.shared.local`
+
+3. Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files (the comments include instructions for generating those values).
+
+4. As desired for your project, find and replace all strings/names in code that have the prefix `fullstack-ts` or `fullstack_ts` (many of these are in `render.yaml`).
+
+5. at project root:
+   `pnpm i`
+
+6. **_(Optional):_** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
+
+7. At project root:
+   `pnpm run start:dev`
+
+This will start the dev database and apply and pending migrations, followed starting the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set!
+
+##### Deployment
+
+The included `render.yaml` file contains much of the configuration needed to deploy a project from this template on [Render](https://render.com). These are the remaining steps.
+
+1. If not completed already, do Step #4 (renaming values for your project) from the Local Development Setup section above.
+
+   Note that the `name` field for services with `type: web` will determine the generated `render.com` domain for the service (example: `name: fullstack-ts-client` results in `fullstack-ts-client.onrender.com`).
+
+   By default, this file will create services on the Free plan (suitable only for basic testing- the server sleeps when inactive, and the DB is wiped after 90 days). Modify the `plan: free` fields on services here as desired if you want to start with a different plan (this can also be upgraded later).
+
+2. Make any necessary environment variable changes in the envVarGroups section of `render.yaml`. Only non-sensitive environment variables should ever have values directly added to `render.yaml` (among other reasons, because you'd check this into git.) For any environment variables marked with `sync: false` here, you'll add the values later via the Render dashboard (Step 6). Note that the default env var group in this template will be accessible by both the `client` and `server` services, so you should only include values you want shared with both here.
+
+This is also a good time to modify any other desired IAC config for your services. Documentation for all other fields available in `render.yaml` is here: https://render.com/docs/blueprint-spec.
+
+3. Push your project to Github or Gitlab.
+
+4. Log into (or create) an account on Render at https://dashboard.render.com, and connect it in the account settings to the relevant Github/Gitlab account (if you didn't use that to create your Render account initially).
+
+5. Go to the [Blueprints section](https://dashboard.render.com/blueprints). Click "New Blueprint Instance". Select the Github/Gitlab repo for your project from the list.
+
+6. Modify "Service Group Name" and "Branch" as desired, and click "Apply" to create all services and `envVarGroups` specified in your `render.yaml`.
+
+7. Go to the [Env Groups](https://dashboard.render.com/env-groups) section on Render. Select the one you just created. Add your production value for `GOOGLE_CLIENT_ID` here.
+
+8. Navigate to your `server` (or equivalent) service in the Render dashboard, and go to the Environment settings. Add your production value for `JWT_SECRET` here.
+
+Assuming the initial deploys for all services were successful, your deployment is complete! Visit the `*.onrender.com` url for your client service to check it out. Future modifications to `render.yaml` will be applied to services automatically on push (this can be configured).
+
 ### Dev Scripts
 
 #### PNPM scripts
@@ -144,70 +206,6 @@ Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detecte
 
 Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
 
-#### Starting a project with this template
-
-Click "Use This Template" near the top of this repo's Github page to create your own copy of the repo.
-
-#### Local Development Setup
-
-##### Prerequisites
-
-1. install Nodejs / npm.
-
-2. Install pnpm globally:
-   `npm i -g pnpm@latest`
-
-3. Install Docker/docker-compose (used for the dev database). Mac installation: https://docs.docker.com/desktop/install/mac-install/
-
-##### Project setup
-
-1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo.
-
-2. At project root:
-   `touch .env.server.local .env.shared.local`
-
-3. Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files (the comments include instructions for generating those values).
-
-4. As desired for your project, find and replace all strings/names in code that have the prefix `fullstack-ts` or `fullstack_ts` (many of these are in `render.yaml`).
-
-5. at project root:
-   `pnpm i`
-
-6. **_(Optional):_** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
-
-7. At project root:
-   `pnpm run start:dev`
-
-This will start the dev database and apply and pending migrations, followed starting the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set!
-
-##### Deployment
-
-The included `render.yaml` file contains much of the configuration needed to deploy a project from this template on [Render](https://render.com). These are the remaining steps.
-
-1. If not completed already, do Step #4 (renaming values for your project) from the Local Development Setup section above.
-
-   Note that the `name` field for services with `type: web` will determine the generated `render.com` domain for the service (example: `name: fullstack-ts-client` results in `fullstack-ts-client.onrender.com`).
-
-   By default, this file will create services on the Free plan (suitable only for basic testing- the server sleeps when inactive, and the DB is wiped after 90 days). Modify the `plan: free` fields on services here as desired if you want to start with a different plan (this can also be upgraded later).
-
-2. Make any necessary environment variable changes in the envVarGroups section of `render.yaml`. Only non-sensitive environment variables should ever have values directly added to `render.yaml` (among other reasons, because you'd check this into git.) For any environment variables marked with `sync: false` here, you'll add the values later via the Render dashboard (Step 6). Note that the default env var group in this template will be accessible by both the `client` and `server` services, so you should only include values you want shared with both here.
-
-This is also a good time to modify any other desired IAC config for your services. Documentation for all other fields available in `render.yaml` is here: https://render.com/docs/blueprint-spec.
-
-3. Push your project to Github or Gitlab.
-
-4. Log into (or create) an account on Render at https://dashboard.render.com, and connect it in the account settings to the relevant Github/Gitlab account (if you didn't use that to create your Render account initially).
-
-5. Go to the [Blueprints section](https://dashboard.render.com/blueprints). Click "New Blueprint Instance". Select the Github/Gitlab repo for your project from the list.
-
-6. Modify "Service Group Name" and "Branch" as desired, and click "Apply" to create all services and `envVarGroups` specified in your `render.yaml`.
-
-7. Go to the [Env Groups](https://dashboard.render.com/env-groups) section on Render. Select the one you just created. Add your production value for `GOOGLE_CLIENT_ID` here.
-
-8. Navigate to your `server` (or equivalent) service in the Render dashboard, and go to the Environment settings. Add your production value for `JWT_SECRET` here.
-
-Assuming the initial deploys for all services were successful, your deployment is complete! Visit the `*.onrender.com` url for your client service to check it out. Future modifications to `render.yaml` will be applied to services automatically on push (this can be configured).
-
 # Future template additions / TODOs
 
 - Hygen template for bulk customizing/renaming after clone (may need a new hygen.js function, like these examples: https://github.com/jondot/hygen/issues/106)
@@ -219,3 +217,9 @@ Assuming the initial deploys for all services were successful, your deployment i
 * script for DB shell access
 * server/client logging library (Pico?)
 * Storybook?
+
+# Deploy to Render
+
+This button will create everything described in the render.yaml file in your Render account, and can also be used to manually redeploy a project copied from this template:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
