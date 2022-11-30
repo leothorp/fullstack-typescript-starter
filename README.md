@@ -2,19 +2,23 @@
 
 Project boilerplate for a full-stack TypeScript monorepo.
 
-### Features
+## Features
 
 - End-to-end technology choices and configuration for a typical CRUD app, aimed at maximizing iteration speed and developer experience. The repo implements a bare-bones note-taking app to give some examples for common patterns (UI state, DB interactions, API calls, etc).
 
-- Fully configured for production deployment of frontend, backend, and Postgres DB on [Render](https://render.com) (see `render.yaml`). Demo deployment with this configuration here: https://fullstack-ts-client.onrender.com (Free-tier server will be slow to respond on the initial request.)
+- Infrastructure-as-Code config for deployment of frontend, backend, and Postgres DB on [Render](https://render.com) (see `render.yaml`). Demo deployment with this configuration here: https://fullstack-ts-client.onrender.com (the free-tier server will be slow to respond on the initial request.)
 
 - Basic user account functionality. Authentication via Google Sign In, authorization against the API via JSON web tokens. Note that while the implementation of JWT authorization here may be a technically functional starting point, it is not production-grade as-is. Use at your own risk.
 
-- Scripts to automate common development workflows. (See the "Dev Scripts" section below.)
+- Scripts for common dev workflows. (See the "Dev Scripts" section below.)
 
-### Technologies
+## Starting a project with this template
 
-Selection rationale and documentation links are included below. In general, the goal here is to optimize for development speed- with rock-solid stability or scalabilty being secondary (though not completely abandoned) as priorities.
+Click "Use This Template" near the top of this repo's Github page to create your own copy. Continue from there with the "Local Development Setup" section below.
+
+## Technologies Used
+
+Selection rationale and documentation links for the key technologies are below. In general, the goal here is to optimize for development speed- with rock-solid stability or scalabilty being secondary (though not completely abandoned) as priorities.
 
 - [TypeScript](https://www.typescriptlang.org/docs/)
 
@@ -59,7 +63,7 @@ Selection rationale and documentation links are included below. In general, the 
 - [Render](https://render.com)
   Low-config, PAAS cloud hosting platform. Very straightforward / quick to get a multi-service deployment up and running, with zero infra or devops knowledge required. The included `render.yaml` is in their Infrastructure-As-Code format, and has most of the config you'd need to deploy these services. Docs/specification for `render.yaml`: https://render.com/docs/blueprint-spec
 
-### Project Structure
+## Project Structure
 
 This template uses a monorepo structure intended to support sharing code and configuration across multiple apps/services.
 
@@ -81,13 +85,9 @@ Example import from within a file in `services/client`:
 `import {Button} from "@ui/Button"` would be functionally equivalent to
 `import {Button} from "../../../packages/ui/src/Button"`.
 
-#### Starting a project with this template
+## Local Development Setup
 
-Click "Use This Template" near the top of this repo's Github page to create your own copy of the repo.
-
-#### Local Development Setup
-
-##### Prerequisites
+### Prerequisites
 
 1. install Nodejs / npm.
 
@@ -96,7 +96,7 @@ Click "Use This Template" near the top of this repo's Github page to create your
 
 3. Install Docker/docker-compose (used for the dev database). Mac installation: https://docs.docker.com/desktop/install/mac-install/
 
-##### Initial project setup
+### Initial Project Configuration
 
 1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo.
 
@@ -115,9 +115,9 @@ Click "Use This Template" near the top of this repo's Github page to create your
 7. At project root:
    `pnpm run start:dev`
 
-This will start the dev database and apply and pending migrations, followed starting the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set!
+This will start the dev database and apply and pending migrations, followed starting the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set! Remove anything you don't want and continue developing your app.
 
-##### Deployment
+## Deployment
 
 The included `render.yaml` file contains much of the configuration needed to deploy a project from this template on [Render](https://render.com). These are the remaining steps.
 
@@ -145,7 +145,7 @@ This is also a good time to modify any other desired IAC config for your service
 
 Assuming the initial deploys for all services were successful, your deployment is complete! Visit the `*.onrender.com` url for your client service to check it out. Future modifications to `render.yaml` will be applied to services automatically on push (this can be configured).
 
-### Dev Scripts
+## Dev Scripts
 
 #### PNPM scripts
 
@@ -206,7 +206,13 @@ Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detecte
 
 Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
 
-# Future template additions / TODOs
+## Deploy to Render
+
+This button will create everything described in the render.yaml file in your Render account, and can also be used to manually redeploy a project copied from this template:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
+## Future template additions / TODOs
 
 - Hygen template for bulk customizing/renaming after clone (may need a new hygen.js function, like these examples: https://github.com/jondot/hygen/issues/106)
 - Hygen generators for routes, entities, etc. (possibly look to RedwoodJS generators as prior art)
@@ -217,9 +223,3 @@ Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify
 * script for DB shell access
 * server/client logging library (Pico?)
 * Storybook?
-
-# Deploy to Render
-
-This button will create everything described in the render.yaml file in your Render account, and can also be used to manually redeploy a project copied from this template:
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
