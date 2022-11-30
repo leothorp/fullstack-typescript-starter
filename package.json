@@ -21,6 +21,7 @@
     "prisma-cli": "pnpm run --filter server prisma-cli",
     "prisma-migrate:dev": "pnpm run --filter server prisma-migrate:dev",
     "prisma-reset:dev": "pnpm run --filter server prisma-reset:dev"
+    "prisma-init:dev": ""
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
