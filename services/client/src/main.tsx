@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./styles/main.scss";
+import "./styles/main.css";
 import { trpcReactClient, trpc, queryClient } from "@client/store/auth";
 import { Router } from "react-router";
 import browserHistory from "@client/utils/browserHistory";

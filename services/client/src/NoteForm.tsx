@@ -20,11 +20,14 @@ const NoteForm = ({ onSubmit }) => {
 
   return (
     <BaseForm onSubmit={handleSubmit(onSubmit)}>
-      <BaseInput {...register("title")} />
+      <BaseInput placeholder="Title" {...register("title")} />
+      <BaseTextarea placeholder="Content" {...register("content")} />
 
-      <BaseTextarea {...register("content")} />
-
-      <button type="submit" disabled={!isValid}>
+      <button
+        type="submit"
+        className="rounded-lg min-w-[100px] bg-sky-400"
+        disabled={!isValid}
+      >
         Save
       </button>
     </BaseForm>

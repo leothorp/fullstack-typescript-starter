@@ -9,7 +9,7 @@ const BaseForm = (props: {
 
 export default BaseForm;
 export const BaseInput = React.forwardRef(
-  (props, ref: Ref<HTMLInputElement>) => {
+  (props: React.ComponentProps<"input">, ref: Ref<HTMLInputElement>) => {
     return (
       <input
         {...props}
@@ -20,7 +20,7 @@ export const BaseInput = React.forwardRef(
   }
 );
 export const BaseTextarea = React.forwardRef(
-  (props, ref: Ref<HTMLTextAreaElement>) => {
+  (props: React.ComponentProps<"textarea">, ref: Ref<HTMLTextAreaElement>) => {
     return (
       <textarea
         {...props}

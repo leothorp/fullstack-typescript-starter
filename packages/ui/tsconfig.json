@@ -7,6 +7,6 @@
 
     "baseUrl": "ui-utils"
   },
-  "include": ["ui-utils", "Button.tsx"],
+  "include": ["ui-utils", "src/Button.tsx"],
   "exclude": ["dist", "build", "node_modules"]
 }
