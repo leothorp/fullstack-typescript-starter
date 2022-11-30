@@ -4,17 +4,26 @@ set -e
 # This script generates a Prisma schema file from an existing db.
 # steps from https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/introspection-typescript-postgres
 
+# revert
+# cd services/server
 
-cd services/server
-
-pnpm run prisma-cli -- init
-pnpm run prisma-cli -- db pull
+pnpx prisma migrate diff --from-empty --to-schema-datamodel services/server/prisma/schema.prisma --script > test2.sql
+# revert
+# pnpm run prisma-cli init
+# pnpm run prisma-cli db pull
 
 
 # generate initial migration file, mark it as applied
-mkdir -p ./prisma/migrations
-pnpm run prisma-migrate:dev
-pnpm run prisma-cli migrate resolve --applied {name_of_init_migration}
+
+
+# revert
+# mkdir -p ./prisma/migrations
+# pnpm run prisma-migrate:dev
+# pnpm run prisma-cli migrate resolve --applied {name_of_init_migration}
+
+# gen timestamp for new migration directory name:
+# date -u "+%Y%m%d%H%M%S"
+
 
 
 # ***** 

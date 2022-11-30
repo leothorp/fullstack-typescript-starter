@@ -14,6 +14,7 @@ model AppUser {
   google_user_id String   @unique @db.VarChar(255)
   updated_at     DateTime @updatedAt @db.Timestamptz(6)
   test_col       String?
+  rm_test        String?
   notes          Note[]
 
   // @@map used to translate between postgres and prisma naming conventions.

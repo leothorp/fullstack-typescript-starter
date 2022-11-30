@@ -101,7 +101,10 @@ Prod build / startup scripts, referenced in `render.yaml`. You'd only ever run t
 * Note that start-server:prod also applies any pending migrations (by calling `prisma-migrate:prod`, see below).
 
 #### `prisma-migrate:dev`
-During local dev, use this to generate a new migration SQL file for any changes to prisma.schema that aren't reflected in the database. This will also immediately apply those changes to the db.
+During local dev, use this to generate a new migration script in `packages/server/migrations` for any changes to prisma.schema that aren't currently reflected in the database. This will also immediately apply those changes to the db.
+
+#### `prisma-reset:dev`
+During local dev, use this to delete all data from the database and re-apply all migrations from scratch.
 
 #### `prisma-migrate:prod`
 Used to apply pending migrations to a production (or otherwise non-local development) database. This is run automatically as part of `start-server:prod`.
