@@ -2,7 +2,7 @@ services:
   - type: web
     name: fullstack-ts-client
     env: static
-    buildCommand: pnpm run build-client
+    buildCommand: pnpm run build-client:prod
     staticPublishPath: services/client/dist
     envVars:
       - fromGroup: fullstack-ts-env-shared
@@ -15,8 +15,8 @@ services:
     name: fullstack-ts-server
     plan: free
     env: node
-    buildCommand: pnpm run build-server
-    startCommand: pnpm run start-server
+    buildCommand: pnpm run build-server:prod
+    startCommand: pnpm run start-server:prod
     healthCheckPath: /healthz
     envVars:
       - key: DATABASE_URL

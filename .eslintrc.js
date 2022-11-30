@@ -1,11 +1,6 @@
 module.exports = {
   root: true,
-  // Load shared config from ./packages/eslint-config-shared.
-  // individual workspaces can have their own .eslinrc files that also extend this.
-  plugins: ["react-hooks"],
+  // This root config loads the shared config from ./packages/eslint-config-shared.
+  // individual workspaces can have their own .eslinrc.js files that will have their contents merged with this.
   extends: ["shared"],
-  rules: {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-  },
 };

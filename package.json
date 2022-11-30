@@ -7,14 +7,15 @@
     "services/*"
   ],
   "scripts": {
-    "build-client": "./repo_scripts/build_service.sh client",
-    "build-server": "./repo_scripts/build_service.sh server",
-    "start-server": "pnpm run --filter server start",
-    "dev": "./repo_scripts/start_local_db.sh && pnpm run --if-present --parallel dev",
+    "build-client:prod": "./repo_scripts/build_service.sh client",
+    "build-server:prod": "./repo_scripts/build_service.sh server",
+    "start-server:prod": "pnpm run --filter server start",
+    "start:dev": "docker-compose up -d && pnpm run --if-present --parallel dev",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "[ -n \"$CI\" ] || husky install",
-    "reset-node-modules": "rm -rf node_modules */**/node_modules && rm pnpm-lock.yaml && pnpm i"
+    "reset-node-modules": "rm -rf node_modules */**/node_modules && rm pnpm-lock.yaml && pnpm i",
+    "local-db-shell": "./repo_scripts/local_db_shell.sh",
+    "rm-local-db": "docker-compose down -v"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
@@ -23,7 +24,6 @@
     "eslint-config-shared": "workspace:*",
     "eslint-plugin-react-hooks": "^4.6.0",
     "install": "^0.13.0",
-    "npm": "^9.1.2",
     "typescript": "^4.9.3"
   },
   "devDependencies": {
