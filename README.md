@@ -37,19 +37,19 @@ Selection rationale and documentation links for the key technologies are below. 
   Headless/accessible React component library integrated with Tailwind.
 
 - [Zustand](https://github.com/pmndrs/zustand)
-  Frontend state management. Much more lightweight and quick to develop with than Redux/Redux Toolkit, and has gained a lot of tractio recently. Looks possible that it may become the new standard choice for global state management in a year or two (though [Recoil](https://recoiljs.org) is also getting up there.)
+  Frontend state management. Much more lightweight and quick to develop with than Redux/Redux Toolkit, and has recently gained a lot more traction.
 
 - [tRPC](https://trpc.io/)
   API layer functionality, shared request/response typing across client and server. Theoretically tRPC can enable faster development speed by streamlining a lot of the typical API boilerplate. In my experience so far, this is partially offset by a lack of clear documentation or examples for some use cases. Still, past the initial learning curve it's been a promising choice for rapid iteration/prototyping.
 
 - [react-query](https://tanstack.com/query/v4)
-  Client-side API calls. Easy response caching and coordination of refetches, integration with loading/error UI states. Included as part of tRPC.
+  Client-side API calls. Response caching and coordination of refetches, integration with loading/error UI states. Included as part of tRPC.
 
 - [Express](https://github.com/expressjs/express)
   API server. Fastify would be the trendier (and more performant) modern choice, but maturity/documentation still felt lacking in some areas compared with Express.
 
 - [Prisma](https://www.prisma.io)
-  DB schema definition, queries, migrations. Good DX (particularly around schema updates/auto-generation of migrations); likely the best JS option I've seen for quick prototyping / getting to an MVP. The performance at higher scale is an open question.
+  DB schema definition, queries, migrations. Streamlined DX (particularly around schema updates/auto-generation of migrations); one of the better JS ORM options I've seen for quick prototyping. The performance at higher scale is an open question.
 
 - [PostgreSQL](https://www.postgresql.org)
   Database. A classic.
@@ -85,7 +85,7 @@ Example import from within a file in `services/client`:
 `import {Button} from "@ui/Button"` would be functionally equivalent to
 `import {Button} from "../../../packages/ui/src/Button"`.
 
-## Local Development Setup
+## Local Development
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ Example import from within a file in `services/client`:
 
 3. Install Docker/docker-compose (used for the dev database). Mac installation: https://docs.docker.com/desktop/install/mac-install/
 
-### Initial Project Configuration
+### Initial Project Setup
 
 1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo.
 
@@ -115,7 +115,7 @@ Example import from within a file in `services/client`:
 7. At project root:
    `pnpm run start:dev`
 
-This will start the dev database and apply and pending migrations, followed starting the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set! Remove anything you don't want and continue developing your app.
+This will start the dev database and apply and pending migrations, followed by starting up the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set! Remove anything you don't want and continue developing your app.
 
 ## Deployment
 
