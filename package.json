@@ -7,7 +7,6 @@
     "services/*"
   ],
   "scripts": {
-
     "build-client:prod": "./repo_scripts/build_service.sh client",
     "build-server:prod": "./repo_scripts/build_service.sh server",
     "start-server:prod": "pnpm run --filter server start",
@@ -20,8 +19,8 @@
     "drop-db:dev": "docker-compose down -v",
     "prisma-cli": "pnpm run --filter server prisma-cli",
     "prisma-migrate:dev": "pnpm run --filter server prisma-migrate:dev",
-    "prisma-reset:dev": "pnpm run --filter server prisma-reset:dev"
-    "prisma-init:dev": ""
+    "prisma-reset:dev": "pnpm run --filter server prisma-reset:dev",
+    "prisma-init:dev": "pnpm run --filter server prisma-init:dev"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",

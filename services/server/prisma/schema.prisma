@@ -13,7 +13,6 @@ model AppUser {
   created_at     DateTime @default(now()) @db.Timestamptz(6)
   google_user_id String   @unique @db.VarChar(255)
   updated_at     DateTime @updatedAt @db.Timestamptz(6)
-  test_col       String?
   notes          Note[]
 
   // @@map used to translate between postgres and prisma naming conventions.
