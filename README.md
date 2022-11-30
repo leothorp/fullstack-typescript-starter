@@ -85,7 +85,7 @@ Example import from within a file in `services/client`:
 ### Dev Scripts
 
 #### pnpm scripts
-Specified in root `package.json`. 
+These would be run from the project root (specified in root `package.json`.) Some of these call out to scripts defined in package-level `package.json` files.
 
 To run, all of these need to be prefixed by `pnpm run` (e.g., you'd run `start:dev` below as `pnpm run start:dev`).
 
@@ -96,12 +96,24 @@ Spins up the development Postgres database via docker-compose and starts both th
 Delete and reinstall all node_modules. Useful if debugging dependency issues.
 
 #### `build-client:prod`, `build-server:prod`, and `start-server:prod`
-Prod build / startup scripts, referenced in `render.yaml`. You'd only ever run these manually if testing the prod build locally.
+Prod build / startup scripts, referenced in `render.yaml`. You'd only ever run these manually if testing the prod build locally. 
 
-*Note that `start-server:prod` will apply any pending Prisma database migrations prior to starting the server. 
+* Note that start-server:prod also applies any pending migrations (by calling `prisma-migrate:prod`, see below).
 
-#### `local-db-shell`
+#### `prisma-migrate:dev`
+During local dev, use this to generate a new migration SQL file for any changes to prisma.schema that aren't reflected in the database. This will also immediately apply those changes to the db.
+
+#### `prisma-migrate:prod`
+Used to apply pending migrations to a production (or otherwise non-local development) database. This is run automatically as part of `start-server:prod`.
+
+
+
+#### `db-shell:dev`
 Open a `psql` shell into the locally running dev database.
+
+#### `drop-db:dev`
+Delete the local dev database Docker container and its associated volume / all data within it.
+The next time `pnpm run start:dev` (or just `docker-compose up`) is run, it will be created as an empty db. `pnpm run migrate:dev` could then be used to reapply all migrations.
 
 
 #### Git hooks via [Husky](https://typicode.github.io/husky)

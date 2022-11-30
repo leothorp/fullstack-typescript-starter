@@ -8,9 +8,10 @@
     "start": "pnpm run prisma-migrate:prod && node dist/services/server/src/index.js",
     "prisma-cli": "../../node_modules/.bin/dotenv -e ../../.env.server.local -- prisma",
     "prisma-gen": "prisma generate --schema ./prisma/schema.prisma",
-    "prisma-reset-db": "pnpm run prisma-cli -- migrate reset",
+    "prisma-reset:dev": "pnpm run prisma-cli -- migrate reset",
     "prisma-migrate:dev": "pnpm run prisma-cli -- migrate dev",
     "prisma-migrate:prod": "prisma migrate deploy",
+    "db-shell:dev": "../../repo_scripts/local_db_shell.sh",
     "//test-dev": "start-server-and-test 'tsx src' http-get://localhost:2022 'tsx src/client'",
     "//test-start": "start-server-and-test 'node dist/server' http-get://localhost:2022 'node dist/client'"
   },

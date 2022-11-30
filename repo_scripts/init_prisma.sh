@@ -13,8 +13,8 @@ pnpm run prisma-cli -- db pull
 
 # generate initial migration file, mark it as applied
 mkdir -p ./prisma/migrations
-pnpm run prisma-migrate:dev --create-only --name init
-pnpm run prisma-cli migrate resolve
+pnpm run prisma-migrate:dev --name init
+pnpm run prisma-cli migrate resolve --applied {name_of_init_migration}
 
 
 # ***** 

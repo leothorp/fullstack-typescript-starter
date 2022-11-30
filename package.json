@@ -7,15 +7,20 @@
     "services/*"
   ],
   "scripts": {
+
     "build-client:prod": "./repo_scripts/build_service.sh client",
     "build-server:prod": "./repo_scripts/build_service.sh server",
     "start-server:prod": "pnpm run --filter server start",
+    "prisma-gen": "pnpm run --filter server prisma-gen",
     "start:dev": "docker-compose up -d && pnpm run --if-present --parallel dev",
     "lint": "eslint --fix --ignore-path=.gitignore \"**/*.{ts,tsx,js,jsx}\"",
     "prepare": "[ -n \"$CI\" ] || husky install",
     "reset-node-modules": "rm -rf node_modules */**/node_modules && rm pnpm-lock.yaml && pnpm i",
-    "local-db-shell": "./repo_scripts/local_db_shell.sh",
-    "rm-local-db": "docker-compose down -v"
+    "db-shell:dev": "pnpm run --filter server db-shell:dev",
+    "drop-db:dev": "docker-compose down -v",
+    "prisma-cli": "pnpm run --filter server prisma-cli",
+    "prisma-migrate:dev": "pnpm run --filter server prisma-migrate:dev",
+    "prisma-reset:dev": "pnpm run --filter server prisma-reset:dev"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
