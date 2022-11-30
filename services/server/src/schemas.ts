@@ -12,8 +12,8 @@ export const CurrentUserSchema = z.object({
 });
 
 export const NoteSchema = z.object({
-  title: z.string(),
-  content: z.string(),
+  title: z.string().min(1),
+  content: z.string().min(2),
   id: z.number(),
 });
 
