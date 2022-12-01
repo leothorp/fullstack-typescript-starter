@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 importers:
   .:
     specifiers:
+      "@playwright/test": ^1.28.1
       "@typescript-eslint/eslint-plugin": ^5.44.0
       "@typescript-eslint/parser": ^5.44.0
       dotenv-cli: ^6.0.0
@@ -22,9 +23,20 @@ importers:
       install: 0.13.0
       typescript: 4.9.3
     devDependencies:
+      "@playwright/test": 1.28.1
       dotenv-cli: 6.0.0
       husky: 8.0.2
       prettier: 2.8.0
+
+  packages/e2e:
+    specifiers:
+      "@playwright/test": ^1.28.1
+      "@types/node": ^18.7.20
+      tsconfig: workspace:*
+    devDependencies:
+      "@playwright/test": 1.28.1
+      "@types/node": 18.11.9
+      tsconfig: link:../tsconfig
 
   packages/eslint-config-shared:
     specifiers:
@@ -67,7 +79,6 @@ importers:
     specifiers:
       "@headlessui/react": ^1.7.4
       "@hookform/resolvers": ^2.9.10
-      "@playwright/test": ^1.28.1
       "@tanstack/react-query": ^4.3.8
       "@tanstack/react-router": 0.0.1-beta.28
       "@trpc/client": ^10.2.0
@@ -137,8 +148,6 @@ importers:
       vite-tsconfig-paths: 3.6.0_vite@3.2.4
       zod: 3.19.1
       zustand: 4.1.4_immer@9.0.16+react@18.2.0
-    devDependencies:
-      "@playwright/test": 1.28.1
 
   services/server:
     specifiers:
