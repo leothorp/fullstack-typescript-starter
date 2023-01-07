@@ -21,7 +21,7 @@ const AuthenticatedRoute = (props) => {
   return <Route {...props} />;
 };
 
-const AuthenticatedPage = () => {
+const AuthenticatedPage = (props) => {
   const currentUser = useCurrentUser();
 
   return (
@@ -34,8 +34,16 @@ const AuthenticatedPage = () => {
           <button onClick={logout}>Log Out</button>
         </div>
       </div>
-      <NotesPage />
+      {props.children}
     </div>
+  );
+};
+
+const NotesPageWrapper = () => {
+  return (
+    <AuthenticatedPage>
+      <NotesPage />
+    </AuthenticatedPage>
   );
 };
 
@@ -52,8 +60,9 @@ const App = () => {
   return (
     <div className="bg-current dark">
       <Switch>
-        <AuthenticatedRoute path={"/notes"} component={AuthenticatedPage} />
+        <AuthenticatedRoute path={"/notes"} component={NotesPageWrapper} />
         <Route path={"/login"} component={LoginPage} />
+        <Redirect to="/notes" />
       </Switch>
     </div>
   );

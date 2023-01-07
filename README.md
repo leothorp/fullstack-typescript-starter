@@ -115,7 +115,7 @@ Example import from within a file in `services/client`:
 7. At project root:
    `pnpm run start:dev`
 
-This will start the dev database and apply and pending migrations, followed by starting up the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set! Remove anything you don't want and continue developing your app.
+This will start the dev database and apply any pending migrations, followed by starting up the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set! Remove anything you don't want and continue developing your app.
 
 ## Deployment
 
@@ -205,7 +205,6 @@ Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detecte
 ##### pre-commit (blocks completion of `git commit` on failure):
 
 Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
-
 
 ## Future template additions / TODOs
 
