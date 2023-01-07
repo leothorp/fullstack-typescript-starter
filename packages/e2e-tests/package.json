@@ -1,5 +1,5 @@
 {
-  "name": "e2e",
+  "name": "e2e-tests",
   "private": true,
   "version": "1.0.0",
   "main": "index.js",

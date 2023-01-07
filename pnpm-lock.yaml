@@ -26,9 +26,9 @@ importers:
       "@playwright/test": 1.28.1
       dotenv-cli: 6.0.0
       husky: 8.0.2
-      prettier: 2.8.0
+      prettier: 2.8.2
 
-  packages/e2e:
+  packages/e2e-tests:
     specifiers:
       "@playwright/test": ^1.28.1
       "@types/node": ^18.7.20
@@ -5672,10 +5672,10 @@ packages:
     engines: { node: ">= 0.8.0" }
     dev: false
 
-  /prettier/2.8.0:
+  /prettier/2.8.2:
     resolution:
       {
-        integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==,
+        integrity: sha512-BtRV9BcncDyI2tsuS19zzhzoxD8Dh8LiCx7j7tHzrkz8GFXAexeWFdi22mjE1d16dftH2qNaytVxqiRTGlMfpw==,
       }
     engines: { node: ">=10.13.0" }
     hasBin: true
