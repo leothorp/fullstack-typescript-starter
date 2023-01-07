@@ -206,7 +206,7 @@ Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detecte
 
 Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
 
-## Future template additions / TODOs
+## Future additions / TODOs
 
 - Hygen template for bulk customizing/renaming after clone (may need a new hygen.js function, like these examples: https://github.com/jondot/hygen/issues/106)
 - Hygen generators for routes, entities, etc. (possibly look to RedwoodJS generators as prior art)
