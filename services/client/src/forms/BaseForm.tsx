@@ -13,7 +13,6 @@ const BaseForm = (props: {
   );
 };
 
-export default BaseForm;
 export const BaseInput = React.forwardRef(
   (props: React.ComponentProps<"input">, ref: Ref<HTMLInputElement>) => {
     return <TextInput {...props} className="w-full text-sm mb-1" ref={ref} />;
@@ -24,3 +23,5 @@ export const BaseTextarea = React.forwardRef(
     return <Textarea {...props} ref={ref} className="w-full text-sm mb-1" />;
   }
 );
+
+export default BaseForm;
