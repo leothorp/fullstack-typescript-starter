@@ -8,7 +8,7 @@ Project boilerplate for a full-stack TypeScript monorepo.
 
 - Infrastructure-as-Code config for deployment of frontend, backend, and Postgres DB on [Render](https://render.com) (see `render.yaml`). Demo deployment with this configuration here: https://fullstack-ts-client.onrender.com (the free-tier server will be slow to respond on the initial request.)
 
-- Basic user account functionality. Authentication via Google Sign In, authorization against the API via JSON web tokens. Note that while the implementation of JWT authorization here may be a technically functional starting point, it is not production-grade as-is. Use at your own risk.
+- Basic user account functionality. Authentication via Google Sign In, authorization against the API via JSON web tokens. Note that while the included implementation of JWT authorization here may be a technically functional starting point, it has not been audited rigorously for security issues, and isn't intended for production use as-is. Use at your own risk.
 
 - Scripts for common dev workflows. (See the "Dev Scripts" section below.)
 
