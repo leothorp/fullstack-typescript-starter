@@ -7,7 +7,7 @@ import { devices } from "@playwright/test";
  */
 // require('dotenv').config();
 
-//TODO(lt): google auth:
+//TODO(lt): configure google auth for e2e tests:
 //https://stackoverflow.com/questions/65139098/how-to-login-to-google-account-with-playwright
 
 /**
