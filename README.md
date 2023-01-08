@@ -101,7 +101,7 @@ Example import from within a file in `services/client`:
 
 ### Initial Project Setup
 
-1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo. If desired, remove or replace all references in the project to the MIT License (`"license": "MIT"`) as needed.
+1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo. Depending on the desired license for your project, remove or replace `LICENSE.md` and all references in the project to the MIT License (package.json entries for `"license": "MIT"`) as needed.
 
 2. At project root:
    `touch .env.server.local .env.shared.local`
