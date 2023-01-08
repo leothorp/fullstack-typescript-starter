@@ -40,7 +40,7 @@ services:
 databases:
   - name: fullstack-ts-db
     plan: free
-    postgresMajorVersion: 14
+    postgresMajorVersion: 15
     ipAllowList: []
 
 envVarGroups:
