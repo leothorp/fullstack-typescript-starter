@@ -91,7 +91,6 @@ const logoutIfAuthErr = (httpStatus: number | undefined) => {
   }
 };
 
-//TODO(lt): check status codes, only do this on 401/403
 const queryCache = new QueryCache({
   onError: (rawError) => {
     const error = rawError as TRPCClientError<AppRouter>;
