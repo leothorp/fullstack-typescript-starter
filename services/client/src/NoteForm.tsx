@@ -22,11 +22,7 @@ const NoteForm = ({ onSubmit }) => {
   return (
     <BaseForm onSubmit={handleSubmit(onSubmit)}>
       <BaseInput placeholder="Title" {...register("title")} />
-      <BaseTextarea
-        // className="w-full text-md mb-1"
-        placeholder="Content"
-        {...register("content")}
-      />
+      <BaseTextarea placeholder="Content" {...register("content")} />
 
       <Button type="submit" className="min-w-[100px]" disabled={!isValid}>
         Save
@@ -40,28 +36,9 @@ export const NewNoteForm = () => {
 
   const createNoteMutation = trpc.api.createNote.useMutation({
     onSuccess() {
+      //triggers refetch of all notes on creation
       utils.api.getNotes.invalidate();
-      // utils.notes.byId.invalidate({ id: input.id }); // Will not invalidate queries for other id's 👍
     },
   });
   return <NoteForm onSubmit={createNoteMutation.mutate} />;
 };
-//   const {
-//     register,
-
-//     handleSubmit,
-//     formState: { errors, isValid },
-//   } = useForm({ mode: "onChange" });
-//   console.log(isValid);
-//   const { createThought } = props;
-//   const onSubmit = (data) => createThought(data);
-//   console.log(errors);
-
-//   return (
-//     <BaseForm onSubmit={handleSubmit(onSubmit)}>
-//       <input autoFocus={true} {...register("title", { required: true })} />
-//       <textarea {...register("description")} />
-
-//       <input type="submit" disabled={!isValid} />
-//     </BaseForm>
-//   );
