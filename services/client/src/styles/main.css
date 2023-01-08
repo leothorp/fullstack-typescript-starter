@@ -1,17 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* using a plain .css file, as SCSS files seem to have issues 
-working properly with Tailwind imports in some cases */
+
+/* using a plain .css file, as SCSS files appear to have issues 
+working consistently with Tailwind imports */
 
 html {
   background-color: #242424;
   color: #ffffffde;
 }
-
-/*
-//TODO(lt): vvv rm
-.text-input {
-  font-size: 1rem !important;
-}
-*/
