@@ -148,6 +148,12 @@ This is also a good time to modify any other desired IAC config for your service
 
 Assuming the initial deploys for all services were successful, your deployment is complete! Visit the `*.onrender.com` url for your client service to check it out. Future modifications to `render.yaml` will be applied to services automatically on push (this can be configured).
 
+## Connecting to the Deployed DB Instance
+
+1. Get your computer's IP with `curl ifconfig.me`.
+2. Add the IP as an allowed source in the Access Control section of the Render dashboard for your database (if not already present).
+3. Go to the DB's page in the Render dashboard. Use the connection info given there to connect from your local machine via your preferred method (e.g., a tool like PGAdmin).
+
 ## Troubleshooting
 
 **Problem:** the line `import { PrismaClient } from "@prisma/client";` in `queries.ts` is highlighted with an error in your editor. The error says the `@prisma/client` module cannot be found.
