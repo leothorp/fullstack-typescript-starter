@@ -148,6 +148,12 @@ This is also a good time to modify any other desired IAC config for your service
 
 Assuming the initial deploys for all services were successful, your deployment is complete! Visit the `*.onrender.com` url for your client service to check it out. Future modifications to `render.yaml` will be applied to services automatically on push (this can be configured).
 
+## Troubleshooting
+
+1. _Problem:_ the line `import { PrismaClient } from "@prisma/client";` in `queries.ts` is highlighted with an error in your editor. The error says the `@prisma/client` module cannot be found.
+
+_Solution:_ Start/restart your local dev server. If that doesn't resolve it, restart the Typescript language server. To do this in VSCode: hit Cmd + Shift + P and run the command `TypeScript: Restart TS server`.
+
 ## Dev Scripts
 
 #### PNPM scripts
