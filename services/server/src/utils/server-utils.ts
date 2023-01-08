@@ -61,13 +61,18 @@ export const generateAccessToken = async (userId, email) => {
   return jwt;
 };
 
+type Claims = {
+  "x-user-id": number;
+  "x-user-email": string;
+};
+
 export const validateAccessToken = async (token) => {
   const { payload } = await jose.jwtVerify(token, jwtSecretKey, {
     issuer: API_ORIGIN,
     audience: CLIENT_ORIGIN,
   });
-  //@ts-ignore
-  const { "x-user-id": userId, "x-user-email": email } = payload.claims;
+  const { "x-user-id": userId, "x-user-email": email } =
+    payload.claims as Claims;
 
   const result = { userId: Number(userId), email };
   console.log("result", result);

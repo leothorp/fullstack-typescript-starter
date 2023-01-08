@@ -66,7 +66,6 @@ export const logout = () => {
     accessToken: null,
     currentUser: null,
   });
-  //TODO(lt): vvv confirm nothing still cached in trpc client
   queryClient.clear();
 
   if (window.location.pathname !== "/login") {
