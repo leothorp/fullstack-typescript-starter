@@ -30,9 +30,13 @@ const t = initTRPC.context<Context>().create({
 });
 
 const isAuthorized = t.middleware(({ next, ctx }) => {
-  if (!ctx.user) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
+  //TODO(lt): revert below
+  // if (!ctx.user) {
+  throw new TRPCError({ code: "UNAUTHORIZED" });
+  // }
+  // if (!ctx.user) {
+  //   throw new TRPCError({ code: "UNAUTHORIZED" });
+  // }
   return next({
     ctx: {
       user: ctx.user,

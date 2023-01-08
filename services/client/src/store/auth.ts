@@ -4,7 +4,11 @@ import { LS_KEY_TOKEN } from "@client/utils/constants";
 import { loadGoogleSignInScript } from "@client/utils/utils";
 import { AppRouter } from "@server/server";
 import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
-import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import {
+  createTRPCProxyClient,
+  httpBatchLink,
+  TRPCClientError,
+} from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
 import {
   API_ORIGIN,
@@ -69,7 +73,6 @@ export const logout = () => {
     browserHistory.push("/login");
   }
 };
-
 //used for requests outside of a React component context (just login currently)
 const trpcVanillaClient = createTRPCProxyClient<AppRouter>({
   links: [
@@ -79,18 +82,29 @@ const trpcVanillaClient = createTRPCProxyClient<AppRouter>({
   ],
 });
 
+const logoutIfAuthErr = (httpStatus: number | undefined) => {
+  if (!httpStatus) {
+    return;
+  }
+  if ([401, 403].includes(httpStatus)) {
+    logout();
+  }
+};
+
 //TODO(lt): check status codes, only do this on 401/403
 const queryCache = new QueryCache({
-  onError: (error) => {
+  onError: (rawError) => {
+    const error = rawError as TRPCClientError<AppRouter>;
     console.error(error);
-    logout();
+    logoutIfAuthErr(error.data?.httpStatus);
   },
 });
 
 const mutationCache = new MutationCache({
-  onError: (error) => {
+  onError: (rawError) => {
+    const error = rawError as TRPCClientError<AppRouter>;
     console.error(error);
-    logout();
+    logoutIfAuthErr(error.data?.httpStatus);
   },
 });
 export const queryClient = new QueryClient({ queryCache, mutationCache });
