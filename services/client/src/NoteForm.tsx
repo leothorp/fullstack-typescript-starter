@@ -3,6 +3,7 @@ import BaseForm, { BaseInput, BaseTextarea } from "@client/forms/BaseForm";
 import { trpc } from "@client/store/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { NewNote, NewNoteInputSchema } from "@server/schemas";
+import { Button } from "flowbite-react";
 
 type FormValues = NewNote;
 
@@ -23,13 +24,13 @@ const NoteForm = ({ onSubmit }) => {
       <BaseInput placeholder="Title" {...register("title")} />
       <BaseTextarea placeholder="Content" {...register("content")} />
 
-      <button
+      <Button
         type="submit"
-        className="rounded-lg min-w-[100px] bg-sky-400"
+        className="rounded-lg min-w-[100px]"
         disabled={!isValid}
       >
         Save
-      </button>
+      </Button>
     </BaseForm>
   );
 };

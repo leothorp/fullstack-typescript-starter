@@ -58,7 +58,7 @@ const App = () => {
     return <>Loading...</>;
   }
   return (
-    <div className="bg-current dark">
+    <div className="bg-primary dark">
       <Switch>
         <AuthenticatedRoute path={"/notes"} component={NotesPageWrapper} />
         <Route path={"/login"} component={LoginPage} />

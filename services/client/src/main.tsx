@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "flowbite";
 import App from "./App";
 import "./styles/main.css";
 import { trpcReactClient, trpc, queryClient } from "@client/store/auth";

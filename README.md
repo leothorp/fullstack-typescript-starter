@@ -33,8 +33,8 @@ Selection rationale and documentation links for the key technologies are below. 
 - [TailwindCSS](https://tailwindcss.com/)
   Styling. Significantly improved dev. speed (in my opinion) and moderately improved performance over many other solutions, and has seen a lot of consolidation of usage in the React community.
 
-- [headlessui.dev](https://headlessui.com/)
-  Headless/accessible React component library integrated with Tailwind.
+- [Flowbite](https://https://flowbite-react.com//)
+  Prebuilt library of Tailwind React components.
 
 - [Zustand](https://github.com/pmndrs/zustand)
   Frontend state management. Much more lightweight and quick to develop with than Redux/Redux Toolkit, and has recently gained a lot more traction.
@@ -208,12 +208,11 @@ Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify
 
 ## Future additions / TODOs
 
+- finish configuring/documenting Playwright e2e tests
+- admin interface/react-admin integration
+- consider running `server` via Dockerfile (potentially in local dev as well)
+- scripts for DB shell access
+- server/client logging configuration (Pico is one candidate)
 - Hygen template for bulk customizing/renaming after clone (may need a new hygen.js function, like these examples: https://github.com/jondot/hygen/issues/106)
 - Hygen generators for routes, entities, etc. (possibly look to RedwoodJS generators as prior art)
-- finish configuring/documenting Playwright e2e tests
-
-* admin interface/react-admin integration
-* consider running `server` via Dockerfile (potentially in local dev as well)
-* script for DB shell access
-* server/client logging library (Pico?)
-* Storybook?
+- Storybook
