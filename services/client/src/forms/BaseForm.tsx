@@ -19,15 +19,14 @@ export const BaseInput = React.forwardRef(
     return (
       <TextInput
         {...props}
-        className="w-full text-md mb-1"
+        className="w-full text-base! mb-1 text-input"
         ref={ref}
-        // className="min-w-[200px] border-1 border-solid border-lightgray mt-2 text-black"
       />
     );
   }
 );
 export const BaseTextarea = React.forwardRef(
   (props: React.ComponentProps<"textarea">, ref: Ref<HTMLTextAreaElement>) => {
-    return <Textarea {...props} ref={ref} className="w-full text-md mb-1" />;
+    return <Textarea {...props} ref={ref} className="w-full text-base mb-1" />;
   }
 );

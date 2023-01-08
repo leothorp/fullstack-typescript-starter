@@ -57,17 +57,25 @@ const App = () => {
   useResumeSessionOnMount();
   const { authLoading } = useAuthStatus();
 
-  if (authLoading) {
-    return <LoadingSpinner />;
-  }
-  return (
-    <div className="bg-primary dark">
-      <Switch>
-        <AuthenticatedRoute path={"/notes"} component={NotesPageWrapper} />
-        <Route path={"/login"} component={LoginPage} />
-        <Redirect to="/notes" />
-      </Switch>
-    </div>
+  const content = authLoading ? (
+    <LoadingSpinner />
+  ) : (
+    <Switch>
+      <AuthenticatedRoute path={"/notes"} component={NotesPageWrapper} />
+      <Route path={"/login"} component={LoginPage} />
+      <Redirect to="/notes" />
+    </Switch>
   );
+
+  // if (authLoading) {
+  //   return <LoadingSpinner />;
+  // }
+  return <div className="bg-primary dark">{content}</div>;
 };
+
+// const AppWrapper = (props) => {
+//   <div className="bg-primary dark">
+//     <App {...props} />;
+//   </div>;
+// };
 export default withRouter(App);
