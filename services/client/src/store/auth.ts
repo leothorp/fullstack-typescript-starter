@@ -81,16 +81,15 @@ const trpcVanillaClient = createTRPCProxyClient<AppRouter>({
 
 //TODO(lt): check status codes, only do this on 401/403
 const queryCache = new QueryCache({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onError: (error) => {
-    console.log(error);
+    console.error(error);
     logout();
   },
 });
 
 const mutationCache = new MutationCache({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onError: (error) => {
+    console.error(error);
     logout();
   },
 });
@@ -102,7 +101,6 @@ export const trpcReactClient = trpc.createClient({
   links: [
     httpBatchLink({
       url: API_ORIGIN + API_PREFIX,
-      //TODO(lt):
       headers() {
         return {
           Authorization: getCurrentAuthHeader(),
@@ -121,8 +119,6 @@ export const useAuthStatus = () => {
     shallow
   );
 
-  //TODO(lt): test intuition with hooks here- if it doesn't return any of the changing stuff,
-  //does the inner hook still cause rerender?
   return {
     isAuthenticated: !authLoading && !!currentUser && !!accessToken,
     authLoading,

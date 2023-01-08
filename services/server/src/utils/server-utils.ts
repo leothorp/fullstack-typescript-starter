@@ -28,7 +28,6 @@ export const verifyGoogleIdToken = async (idToken) => {
       "'aud' from Google Sign In JWT does not match application Client ID."
     );
   }
-  //TODO(lt): vvv additional aud verification needed? find that doc again
   const googleUserId = decodedToken["sub"];
   const email = decodedToken["email"];
 
@@ -36,11 +35,10 @@ export const verifyGoogleIdToken = async (idToken) => {
 };
 
 //jwt secret generated per https://stackoverflow.com/a/71126277/5812448.
-//e.g., openssl rand -hex 64 (64 bytes for HS512)
+//e.g., openssl rand -hex 64 (64 bytes needed for HS512)
 
-//TODO(lt): vvv determine if JWT with this method still the better approach here
 const jwtSecretKey = createSecretKey(JWT_SECRET, "utf-8");
-//auth tutorial https://codevoweb.com/trpc-api-with-postgres-prisma-nodejs-jwt-authentication/
+//reference: https://codevoweb.com/trpc-api-with-postgres-prisma-nodejs-jwt-authentication/
 export const generateAccessToken = async (userId, email) => {
   const role = "user";
   const payload = {
@@ -57,14 +55,12 @@ export const generateAccessToken = async (userId, email) => {
     .setIssuedAt()
     .setIssuer(API_ORIGIN)
     .setAudience(CLIENT_ORIGIN)
-    //TODO(lt): vvv test exp time
     .setExpirationTime("1h")
     .sign(jwtSecretKey);
 
   return jwt;
 };
 
-//TODO(lt): test more that this works, see what happens when token modified ors signed w wrong secret
 export const validateAccessToken = async (token) => {
   const { payload } = await jose.jwtVerify(token, jwtSecretKey, {
     issuer: API_ORIGIN,

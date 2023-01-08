@@ -25,12 +25,10 @@ import {
 } from "@server/schemas";
 
 export const apiRouter = router({
-  //TODO(lt): error handling
   googleLogin: publicProcedure
     .input(z.object({ idToken: z.string() }))
     .output(LoginOutputSchema)
     .mutation(async ({ input: { idToken } }) => {
-      //TODO(lt): WIP, pulled from microtask
       if (!idToken) {
         throw new TRPCError({
           code: "UNAUTHORIZED",
@@ -64,13 +62,14 @@ export const apiRouter = router({
           email: user.email,
         };
         return result;
-        //1. lookup user by email
-        //2. if not exists:
-        //    - create user
-        //3. if exists:
-        //    - verify google user id
-
-        //4. generate/return token
+        /*
+        1. lookup user by email
+        2. if not exists:
+            create user
+        3. if exists:
+            verify google user id
+        4. generate/return token
+        */
       } catch (e) {
         console.error("error during google auth", e);
         throw new TRPCError({
