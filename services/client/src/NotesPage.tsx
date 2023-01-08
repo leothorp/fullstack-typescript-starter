@@ -1,19 +1,16 @@
+import { LoadingSpinner } from "@client/LoadingSpinner";
 import { NewNoteForm } from "@client/NoteForm";
 import { trpc } from "@client/store/auth";
-import { Spinner } from "flowbite-react";
+
 export const NotesPage = () => {
   const { data, isLoading, isFetching } = trpc.api.getNotes.useQuery();
 
   if (isLoading || isFetching) {
-    return (
-      <div className="h-full w-full flex items-center justify-center">
-        <Spinner />
-      </div>
-    );
+    return <LoadingSpinner />;
   }
   return (
     <div className="flex items-center flex-col">
-      <h1 className="text-center mb-4">Notes</h1>
+      <h1 className="text-center mb-4 text-2xl">Notes</h1>
       {data &&
         data.map((n) => {
           return (

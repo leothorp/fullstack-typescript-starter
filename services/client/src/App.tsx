@@ -11,6 +11,7 @@ import {
 import { Link, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "flowbite-react";
+import { LoadingSpinner } from "@client/LoadingSpinner";
 const AuthenticatedRoute = (props) => {
   const { accessToken } = useAuthStore();
 
@@ -57,7 +58,7 @@ const App = () => {
   const { authLoading } = useAuthStatus();
 
   if (authLoading) {
-    return <>Loading...</>;
+    return <LoadingSpinner />;
   }
   return (
     <div className="bg-primary dark">
