@@ -33,8 +33,11 @@ Selection rationale and documentation links for the key technologies are below. 
 - [TailwindCSS](https://tailwindcss.com/)
   Styling. Significantly improved dev. speed (in my opinion) and moderately improved performance over many other solutions, and has seen a lot of consolidation of usage in the React community.
 
-- [Flowbite](https://https://flowbite-react.com//)
-  Prebuilt library of Tailwind React components.
+- [headlessui.dev](https://headlessui.com/)
+  Headless/accessible React component library integrated with Tailwind.
+
+- [Flowbite](https://flowbite-react.com/)
+  Collection of prestyled Tailwind components, useful for prototyping (essentially Bootstrap for Tailwind.)
 
 - [Zustand](https://github.com/pmndrs/zustand)
   Frontend state management. Much more lightweight and quick to develop with than Redux/Redux Toolkit, and has recently gained a lot more traction.

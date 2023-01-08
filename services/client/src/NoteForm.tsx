@@ -22,13 +22,13 @@ const NoteForm = ({ onSubmit }) => {
   return (
     <BaseForm onSubmit={handleSubmit(onSubmit)}>
       <BaseInput placeholder="Title" {...register("title")} />
-      <BaseTextarea placeholder="Content" {...register("content")} />
+      <BaseTextarea
+        // className="w-full text-md mb-1"
+        placeholder="Content"
+        {...register("content")}
+      />
 
-      <Button
-        type="submit"
-        className="rounded-lg min-w-[100px]"
-        disabled={!isValid}
-      >
+      <Button type="submit" className="min-w-[100px]" disabled={!isValid}>
         Save
       </Button>
     </BaseForm>

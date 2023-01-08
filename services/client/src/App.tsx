@@ -10,7 +10,7 @@ import {
 } from "@client/store/auth";
 import { Link, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { useEffect } from "react";
-
+import { Button } from "flowbite-react";
 const AuthenticatedRoute = (props) => {
   const { accessToken } = useAuthStore();
 
@@ -27,12 +27,14 @@ const AuthenticatedPage = (props) => {
   return (
     <div className="max-w-[100vw] h-[100vh]">
       <div className="flex justify-between mx-4">
-        <Link to="/">Home</Link>
-        <div>
-          <span className="mr-4">{currentUser.email}</span>
+        <header className="flex justify-between w-full items-center">
+          <Link to="/">Home</Link>
+          <div className="flex items-center">
+            <span className="mr-4">{currentUser.email}</span>
 
-          <button onClick={logout}>Log Out</button>
-        </div>
+            <Button onClick={logout}>Log Out</Button>
+          </div>
+        </header>
       </div>
       {props.children}
     </div>

@@ -79,6 +79,7 @@ importers:
     specifiers:
       "@headlessui/react": ^1.7.4
       "@hookform/resolvers": ^2.9.10
+      "@tailwindcss/forms": ^0.5.3
       "@tanstack/react-query": ^4.3.8
       "@tanstack/react-router": 0.0.1-beta.28
       "@trpc/client": ^10.2.0
@@ -117,6 +118,7 @@ importers:
     dependencies:
       "@headlessui/react": 1.7.4_biqbaboplfbrettd7655fr4n2y
       "@hookform/resolvers": 2.9.10_react-hook-form@7.39.7
+      "@tailwindcss/forms": 0.5.3_tailwindcss@3.2.4
       "@tanstack/react-query": 4.18.0_biqbaboplfbrettd7655fr4n2y
       "@tanstack/react-router": 0.0.1-beta.28_biqbaboplfbrettd7655fr4n2y
       "@trpc/client": 10.4.1_@trpc+server@10.4.1
@@ -1099,6 +1101,18 @@ packages:
       {
         integrity: sha512-Uy0+khmZqUrUGm5dmMqVlnvufZRSK0FbYzVgp0UMstm+F5+W2/jnEEQyc9vo1ZR/E5ZI/B1WjjoTqBqwJL6Krw==,
       }
+    dev: false
+
+  /@tailwindcss/forms/0.5.3_tailwindcss@3.2.4:
+    resolution:
+      {
+        integrity: sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==,
+      }
+    peerDependencies:
+      tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.2.4_v776zzvn44o7tpgzieipaairwm
     dev: false
 
   /@tanstack/query-core/4.18.0:
