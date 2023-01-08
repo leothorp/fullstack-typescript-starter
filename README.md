@@ -150,7 +150,7 @@ Assuming the initial deploys for all services were successful, your deployment i
 
 ## Troubleshooting
 
-1. **Problem:** the line `import { PrismaClient } from "@prisma/client";` in `queries.ts` is highlighted with an error in your editor. The error says the `@prisma/client` module cannot be found.
+**Problem:** the line `import { PrismaClient } from "@prisma/client";` in `queries.ts` is highlighted with an error in your editor. The error says the `@prisma/client` module cannot be found.
 
 **Solution:** Start/restart your local dev server. If that doesn't resolve it, restart the Typescript language server. To do this in VSCode: hit Cmd + Shift + P and run the command `TypeScript: Restart TS server`.
 
