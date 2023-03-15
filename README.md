@@ -103,17 +103,16 @@ Example import from within a file in `services/client`:
 
 1. If you haven't already, follow the `Starting a project with this template` section above. Clone down your newly created repo. Depending on the desired license for your project, remove or replace `LICENSE.md` and all references in the project to the MIT License (package.json entries for `"license": "MIT"`) as needed.
 
+2. As desired for your project, find and replace all strings/names in code that have the prefix `fullstack-ts` or `fullstack_ts` (many of these are in `render.yaml`).
+
+3. **_(Optional):_** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
+
 2. At project root:
-   `touch .env.server.local .env.shared.local`
-
-3. Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files (the comments include instructions for generating those values).
-
-4. As desired for your project, find and replace all strings/names in code that have the prefix `fullstack-ts` or `fullstack_ts` (many of these are in `render.yaml`).
-
-5. at project root:
-   `pnpm i`
-
-6. **_(Optional):_** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
+   `chmod +x repo_scripts/setup_env.sh; repo_scripts/setup_env.sh`
+   Executing this shell script will do the following:
+ - Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files.
+ - Generate a jwt_secret using `openssl rand -hex64` and assign it to `JWT_TOKEN`
+ - **_(Optional):_** The script will delete itself when finished if you uncomment the line `rm repo_scripts/setup_env.sh` which safeguards you from executing the file later on and potentially losing changes.
 
 7. At project root:
    `pnpm run start:dev`
