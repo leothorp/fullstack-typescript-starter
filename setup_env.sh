@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copy conents of .env.*.example files to new .env.*.local files
+# Copy contents of .env.*.example files to new .env.*.local files
 cat .env.server.example > .env.server.local
 cat .env.shared.example > .env.shared.local
 
@@ -13,5 +13,5 @@ sed -i '' -e "s/insert-secret-here/$jwt_secret/g" .env.server.local
 # Install dependencies
 pnpm i
 
-# Optional: delete this file when the actions are completed to avoid overwriting the .env files and jwt_secret.
+# Optional: delete this file when the actions are completed to avoid potentially overwriting the .env files and jwt_secret later.
 # rm setup_env.sh
