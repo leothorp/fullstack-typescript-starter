@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# cd to project's root directory
-cd ..
+# change directory to the project's root, one-level up from the current directory
+cd $(dirname "$0")/..
 
 # Copy contents of .env.*.example files to new .env.*.local files
 
