@@ -21,11 +21,6 @@ export const createNote = async ({ title, content }, user) => {
   });
 };
 
-// export const fetchAllUsers = async () => {
-//   const allUsers = await prisma.app_user.findMany();
-//   return allUsers;
-// };
-
 export const getUserByEmail = async (email) => {
   return await prisma.appUser.findUnique({
     where: {
