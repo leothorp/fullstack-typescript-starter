@@ -4,7 +4,9 @@ Project boilerplate for a full-stack TypeScript monorepo.
 
 ## Features
 
-- End-to-end technology choices and configuration for a typical CRUD app, aimed at maximizing iteration speed and developer experience. The repo implements a bare-bones note-taking app to give some examples for common patterns (UI state, DB interactions, API calls, etc).
+- End-to-end technology choices and configuration for a typical CRUD app, aimed at maximizing iteration speed and developer experience.
+
+- The repo implements a bare-bones note-taking app to give some examples for common patterns (UI state, DB interactions, API calls, etc).
 
 - Infrastructure-as-Code config for deployment of frontend, backend, and Postgres DB on [Render](https://render.com) (see `render.yaml`). Demo deployment with this configuration here: https://fullstack-ts-client.onrender.com (the free-tier server will be slow to respond on the initial request.)
 
