@@ -107,14 +107,14 @@ Example import from within a file in `services/client`:
 
 3. **_(Optional):_** Install recommended VSCode extensions from `.vscode/extensions.json`. VSCode will usually prompt you to do this when first opening the project.
 
-2. At project root:
+4. At project root:
    `chmod +x repo_scripts/setup_env.sh; repo_scripts/setup_env.sh`
    Executing this shell script will do the following:
- - Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files.
- - Generate a jwt_secret using `openssl rand -hex64` and assign it to `JWT_TOKEN`
- - **_(Optional):_** The script will delete itself when finished if you uncomment the line `rm repo_scripts/setup_env.sh` which safeguards you from executing the file later on and potentially losing changes.
+     - Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files.
+     - Generate a jwt_secret using `openssl rand -hex64` and assign it to `JWT_TOKEN` in `env.server.local`
+     - **_(Optional):_** The script will delete itself when finished if you uncomment the line `rm repo_scripts/setup_env.sh` which safeguards you from executing the file later on and potentially losing changes.
 
-7. At project root:
+5. At project root:
    `pnpm run start:dev`
 
 This will start the dev database and apply any pending migrations, followed by starting up the client and server locally. Open http://localhost:3000, and click "Login with Google". After logging in, try filling in and submitting the "New Note" form. If it works, you're all set! Remove anything you don't want and continue developing your app.
@@ -123,7 +123,7 @@ This will start the dev database and apply any pending migrations, followed by s
 
 The included `render.yaml` file contains much of the configuration needed to deploy a project from this template on [Render](https://render.com). These are the remaining steps.
 
-1. If not completed already, do Step #4 (renaming values for your project) from the Local Development Setup section above.
+1. If not completed already, do Step #2 (renaming values for your project) from the Local Development Setup section above.
 
    Note that the `name` field for services with `type: web` will determine the generated `render.com` domain for the service (example: `name: fullstack-ts-client` results in `fullstack-ts-client.onrender.com`).
 
