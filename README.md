@@ -110,7 +110,7 @@ Example import from within a file in `services/client`:
 4. At project root:
    `chmod +x repo_scripts/setup_env.sh; repo_scripts/setup_env.sh`
    Executing this shell script will do the following:
-     - Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files.
+     - Create two new `.env*` files `env.server.local` and `env.shared.local` with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files.
      - Generate a jwt_secret using `openssl rand -hex64` and assign it to `JWT_TOKEN` in `env.server.local`
      - **_(Optional):_** The script will delete itself when finished if you uncomment the line `rm repo_scripts/setup_env.sh` which safeguards you from executing the file later on and potentially losing changes.
 
