@@ -20,7 +20,8 @@
     "prisma-cli": "pnpm run --filter server --silent prisma-cli",
     "prisma-migrate:dev": "pnpm run --filter server prisma-migrate:dev",
     "prisma-reset:dev": "pnpm run --filter server prisma-reset:dev",
-    "prisma-init:dev": "pnpm run --filter server --silent prisma-init:dev"
+    "prisma-init:dev": "pnpm run --filter server --silent prisma-init:dev",
+    "typecheck": "tsc --project services/client/tsconfig.json --noEmit && tsc --project services/server/tsconfig.json --noEmit"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
