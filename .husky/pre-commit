@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+
+# pre-commit prettier formatting, eslint check, TS typechecking, lockfile validation
+
 set -e
 
 . "$(dirname "$0")/_/husky.sh"
@@ -18,6 +21,7 @@ if [ $eslint_length -gt 0 ]
 then
     $bin_dir/eslint --no-error-on-unmatched-pattern --ignore-path .gitignore --fix --ext .jsx,.js,.ts,.tsx --cache  $eslint_staged_files
     git add $eslint_staged_files
+    pnpm run typecheck
 fi
 
 if [ $prettier_length -gt 0 ]
@@ -25,7 +29,6 @@ then
     $bin_dir/prettier --ignore-unknown --no-error-on-unmatched-pattern --ignore-path .gitignore --cache --write $prettier_staged_files
     git add $prettier_staged_files
 fi
-
 
 # validate lockfile is up to date
 pnpm i --frozen-lockfile
