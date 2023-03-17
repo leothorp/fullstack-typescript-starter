@@ -108,7 +108,7 @@ Example import from within a file in `services/client`:
 2. At project root:
    `touch .env.server.local .env.shared.local`
 
-3. Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, except for those noted by comments in the example files (the comments include instructions for generating those values).
+3. Populate both of the created `.env*` files with all values specified in the respective `*.example` env files (`.env.server.example` and `.env.shared.example`). The example values will work as-is with the initial template for most of the values, **_except for those noted by comments in the example files_** (the comments include instructions for generating those values).
 
 4. As desired for your project, find and replace all strings/names in code that have the prefix `fullstack-ts` or `fullstack_ts` (many of these are in `render.yaml`).
 
