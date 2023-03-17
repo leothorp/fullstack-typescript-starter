@@ -1,6 +1,5 @@
 import React, { ReactNode, FormEventHandler, Ref } from "react";
 import { TextInput, Textarea } from "flowbite-react";
-// import { FC, PropsWithChildren } from "@types/react";
 const BaseForm = (props: {
   onSubmit: FormEventHandler<HTMLFormElement>;
   children: ReactNode;

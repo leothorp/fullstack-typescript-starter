@@ -12,7 +12,7 @@ import * as jose from "jose";
 const JWT_SECRET = process.env.JWT_SECRET!;
 //from https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
 const googleOAuthClient = new OAuth2Client(GOOGLE_CLIENT_ID);
-//TODO(lt): check if req has csrf token/ cookie described here: https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
+//TODO(lt): include CSRF token/cookie as described here: https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
 export const verifyGoogleIdToken = async (idToken) => {
   const loginTicket = await googleOAuthClient.verifyIdToken({
     idToken,

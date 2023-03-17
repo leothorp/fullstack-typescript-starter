@@ -105,7 +105,11 @@ const mutationCache = new MutationCache({
     logoutIfAuthErr(error.data?.httpStatus);
   },
 });
-export const queryClient = new QueryClient({ queryCache, mutationCache });
+export const queryClient = new QueryClient({
+  queryCache,
+  mutationCache,
+  defaultOptions: { queries: { refetchOnWindowFocus: false } },
+});
 export const trpc = createTRPCReact<AppRouter>();
 
 //https://blog.logrocket.com/build-full-stack-typescript-app-trpc-react/
