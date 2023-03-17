@@ -23,7 +23,7 @@ const getConfig = (env) => {
     plugins: [tsconfigPaths(), react()],
   };
 
-  if (env.nodeEnv === "production") {
+  if (env.NODE_ENV === "production") {
     return defineConfig({
       ...commonConfig,
       optimizeDeps: {
