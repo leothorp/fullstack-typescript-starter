@@ -31,12 +31,6 @@ const getConfig = (env) => {
       },
       build: {
         sourcemap: true,
-        manifest: true,
-        outDir: "/dist",
-        rollupOptions: {
-          // overwrite default .html entry
-          input: "./src/main.tsx",
-        },
       },
     });
   }
