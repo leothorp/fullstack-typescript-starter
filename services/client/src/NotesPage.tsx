@@ -3,9 +3,9 @@ import { NewNoteForm } from "@client/NoteForm";
 import { trpc } from "@client/store/auth";
 
 export const NotesPage = () => {
-  const { data, isLoading, isFetching } = trpc.api.getNotes.useQuery();
+  const { data, isFetching } = trpc.api.getNotes.useQuery();
 
-  if (isLoading || isFetching) {
+  if (isFetching) {
     return <LoadingSpinner />;
   }
   return (
@@ -15,7 +15,7 @@ export const NotesPage = () => {
         data.map((n) => {
           return (
             <div key={n.id} className="mb-4">
-              <p>{n.title}</p>
+              <p className="text-lg">{n.title}</p>
               <p>{n.content}</p>
             </div>
           );
