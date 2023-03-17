@@ -15,7 +15,7 @@ export const NotesPage = () => {
         data.map((n) => {
           return (
             <div key={n.id} className="mb-4">
-              <p className="text-lg">{n.title}</p>
+              <p className="text-xl">{n.title}</p>
               <p>{n.content}</p>
             </div>
           );
