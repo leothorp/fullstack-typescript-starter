@@ -221,7 +221,7 @@ Reinstall node_modules packages whenenever changes to pnpm-lock.yaml are detecte
 
 ##### pre-commit (blocks completion of `git commit` on failure):
 
-Format and lint all staged files (Prettier, Eslint). Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script.
+Format and lint all staged files (Prettier, Eslint), as well as typechecking all TS files. Use `git commit --no-verify` to skip this check if needed. In place of `lint-staged`, this uses a faster custom script (see `.husky/pre-commit`).
 
 ## Future additions / TODOs
 

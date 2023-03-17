@@ -30,7 +30,6 @@
     "eslint": "^8.36.0",
     "eslint-config-shared": "workspace:*",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "install": "^0.13.0",
     "typescript": "^5.0.2"
   },
   "devDependencies": {
