@@ -20,5 +20,3 @@ sed -i '' -e "s/insert-secret-here/$jwt_secret/g" .env.server.local
 # Install dependencies
 pnpm i
 
-# Optional: delete this file when the actions are completed to avoid potentially overwriting the .env files and jwt_secret later
-# rm repo_scripts/setup_env.sh
