@@ -16,7 +16,7 @@ Project boilerplate for a full-stack TypeScript monorepo.
 
 ## Starting a project with this template
 
-Click "Use This Template" near the top of this repo's Github page to create your own copy. Continue from there with the "Local Development Setup" section below.
+Click "Use This Template" near the top of this repo's Github page to create your own copy. Continue from there with the setup steps in [Local Development](https://github.com/leothorp/fullstack-typescript-starter#local-development) below.
 
 ## Technologies Used
 
