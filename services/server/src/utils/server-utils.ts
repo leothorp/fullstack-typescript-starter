@@ -75,6 +75,5 @@ export const validateAccessToken = async (token) => {
     payload.claims as Claims;
 
   const result = { userId: Number(userId), email };
-  console.log("result", result);
   return result;
 };

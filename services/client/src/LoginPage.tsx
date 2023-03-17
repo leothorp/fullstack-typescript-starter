@@ -15,12 +15,8 @@ const GoogleSignInButton = () => {
     (state) => state.googleSignInInitialized
   );
 
-  console.log(googleSignInInitialized);
-
   useEffect(() => {
     if (googleSignInInitialized) {
-      console.log(googleSignInInitialized, "inner");
-
       window.google.accounts.id.renderButton(
         document.querySelector("#google-login-btn-container"),
         {
