@@ -11,8 +11,8 @@
   "license": "MIT",
   "//comment": "//left off here: https://playwright.dev/docs/intro#installing-playwright",
   "devDependencies": {
-    "@playwright/test": "^1.28.1",
-    "tsconfig": "workspace:*",
-    "@types/node": "^18.7.20"
+    "@playwright/test": "^1.31.2",
+    "@types/node": "^18.15.3",
+    "tsconfig": "workspace:*"
   }
 }

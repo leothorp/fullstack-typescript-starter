@@ -21,22 +21,23 @@
     "prisma-migrate:dev": "pnpm run --filter server prisma-migrate:dev",
     "prisma-reset:dev": "pnpm run --filter server prisma-reset:dev",
     "prisma-init:dev": "pnpm run --filter server --silent prisma-init:dev",
-    "typecheck": "tsc --project services/client/tsconfig.json --noEmit && tsc --project services/server/tsconfig.json --noEmit"
+    "typecheck": "tsc --project services/client/tsconfig.json --noEmit && tsc --project services/server/tsconfig.json --noEmit",
+    "upgrade-all-packages": "pnpm up --latest -r !react-router !react-router-dom !history !vite-tsconfig-paths"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0",
-    "eslint": "^8.28.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
     "eslint-config-shared": "workspace:*",
     "eslint-plugin-react-hooks": "^4.6.0",
     "install": "^0.13.0",
-    "typescript": "^4.9.3"
+    "typescript": "^5.0.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.28.1",
-    "dotenv-cli": "^6.0.0",
-    "husky": "^8.0.2",
-    "prettier": "latest"
+    "@playwright/test": "^1.31.2",
+    "dotenv-cli": "^7.1.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.4"
   },
   "engines": {
     "node": ">=14.0.0"
