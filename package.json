@@ -25,18 +25,18 @@
     "upgrade-all-packages": "pnpm up --latest -r !react-router !react-router-dom !history !vite-tsconfig-paths"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.55.0",
-    "@typescript-eslint/parser": "^5.55.0",
-    "eslint": "^8.36.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.47.0",
     "eslint-config-shared": "workspace:*",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.1.6"
   },
   "devDependencies": {
-    "@playwright/test": "^1.31.2",
-    "dotenv-cli": "^7.1.0",
+    "@playwright/test": "^1.37.1",
+    "dotenv-cli": "^7.3.0",
     "husky": "^8.0.3",
-    "prettier": "^2.8.4"
+    "prettier": "^3.0.2"
   },
   "engines": {
     "node": ">=14.0.0"
