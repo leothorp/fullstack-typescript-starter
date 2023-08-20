@@ -17,7 +17,7 @@ import {
 } from "@utilities/shared-constants";
 import jwt_decode, { JwtPayload } from "jwt-decode";
 import { useEffect } from "react";
-import shallow from "zustand/shallow";
+import { shallow } from "zustand/shallow";
 interface User {
   email: string;
   id: number;
