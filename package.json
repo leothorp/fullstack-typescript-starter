@@ -41,5 +41,9 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@7.26.3"
+  "overrides": {
+    "history": "^4",
+    "react-router": "^5",
+    "react-router-dom": "^5"
+  }
 }
