@@ -141,7 +141,7 @@ This is also a good time to modify any other desired IAC config for your service
 
 5. Go to the [Blueprints section](https://dashboard.render.com/blueprints). Click "New Blueprint Instance". Select the Github/Gitlab repo for your project from the list.
 
-6. Modify "Service Group Name" and "Branch" as desired, and click "Apply" to create all services and `envVarGroups` specified in your `render.yaml`.
+6. Modify "Blueprint Name" and "Branch" as desired, and click "Apply" to create all services and `envVarGroups` specified in your `render.yaml`.
 
 7. Go to the [Env Groups](https://dashboard.render.com/env-groups) section on Render. Select the one you just created. Add your production value for `GOOGLE_CLIENT_ID` here.
 
